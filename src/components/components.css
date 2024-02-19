@@ -1,0 +1,28 @@
+.main-title{
+    font-size: xx-large;
+    font-family: "Montserrat", sans-serif;
+    }
+
+    /* Example usage */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* You can specify font weight if needed */
+  }
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300; /* You can specify font weight if needed */
+    font-size: large;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+      opacity: 1; /* Transition to opacity 1 */
+    }
+  }
+  
+  /* Apply the fade-in animation to the element */
+  .fade-in {
+    animation: fadeIn 1s ease-in-out; /* Apply the fadeIn animation with a duration of 1 second and ease-in-out timing function */
+  }
