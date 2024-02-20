@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Breadcrumb, Layout, Menu, Timeline } from 'antd';
+import { Breadcrumb, Divider, Layout, Menu, Timeline, Tooltip } from 'antd';
 import Icon from '@ant-design/icons/lib/components/Icon';
 import { LinkedinFilled } from '@ant-design/icons';
 import './resume.css';
@@ -10,51 +10,70 @@ const Resume = () => {
   
   return (
     <div>
-      <Timeline mode='alternate' items={[
+      <h1>Professional Experience</h1>
+      <Timeline mode='right' items={[
         {
-          color: 'green',
-          children: <p>Today</p>,
+          label:<b>Today</b>,
+          color: 'purple',
+          children: <p> </p>,
         },
       {
-        children: <p>Began working as Junior Web GIS Developer @ Omikron S.A. - <b>2023 June</b></p>,
+        label:<b>2023 June</b>,
+        children: <p>Began working as Junior Web GIS Developer @ Omikron S.A. - </p>,
       },
       {
-        children:<p><b>September 2022</b> - Started studying Computing & Application Development @ NYC Thessaloniki</p>
-      },
-      {
-        color: 'red',
-        children: <p>Left Electrical and Computer Engineering @ AUTh - <b>2022 April</b></p>
-      },
-      {
-        children: (
-          <>
-            <p><b>2019-2022</b></p>
-            <p>✅<b>Enjoyed subjects</b>:<i> Structured Programming, Object-Oriented Programming, Data Structures & Algorithms, Computer Architecture etc.</i></p>
-            <p>❌<b>Did not enjoy subjects:</b><i> Electronic Circuits, Electronics, Electrical Materials, Electromagnetic Field, Thermodynamics etc.</i></p>
-          </>
-        ),
-      },
-      {
-        children: (
-          <>
-            <p>Started studying Electrical and Computer Engineering @ AUTh - <b>2019 September</b></p>
-          </>
-        ),
-      },
-      {
-        color: 'green',
-        children: (
-          <>
-            <p><b>June 2019</b> - Graduated from Aristoteleio High School</p>
-          </>
-        ),
-      },
-      {
+        label: <b>March 2017</b>,
         color: 'orange',
         children: (
           <>
             <p><i>First contact with programming</i> | <a target="_blank" href='https://www.facebook.com/watchoutarc/'>
-              WatchOut</a>, National Virtual Student Company Award - <b>March 2017</b></p>
+              WatchOut</a>, National Virtual Student Company Award</p>
+          </>
+        ),
+      },
+    ]}>
+
+      </Timeline>
+      <Divider />
+      <h1>Academic Experience</h1>
+      <Timeline mode='left' items={[
+        {
+          label:<b> June 2025</b>,
+          color: 'green',
+          children: <p>Expected Graduation</p>,
+        },
+      {
+        label: <b>September 2022</b>,
+        children:<p> Started studying Computing & Application Development @ NYC Thessaloniki</p>
+      },
+      {
+        label:<b> April 2022</b>,
+        color: 'red',
+        children: <p>Left Electrical and Computer Engineering @ AUTh </p>
+      },
+      {
+        label: <b>September 2019</b>,
+        children: (
+          <>
+          <Tooltip title={
+            <>
+            <p>✅<b>Enjoyed subjects</b>:<i> <br/>● Structured Programming<br/>● Object-Oriented Programming<br/>● Data Structures & Algorithms<br/>● Computer Architecture etc.</i></p>
+            <p>❌<b>Did not enjoy subjects:</b><i><br/>● Electric Circuits<br/>● Electrical Materials<br/>● Electromagnetic Field<br/>●  Thermodynamics etc.</i></p>
+          </>
+          }>
+          <p>Started studying Electrical and Computer Engineering @ AUTh</p>
+          </Tooltip>
+            
+          </>
+        ),
+      },
+      {
+        position: 'left',
+        color: 'green',
+        label:<b>June 2019</b>,
+        children: (
+          <>
+            <p><b></b>Graduated from Aristoteleio High School</p>
           </>
         ),
       },
