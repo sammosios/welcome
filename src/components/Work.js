@@ -7,7 +7,7 @@ const Work = () => {
   
   return (
     <div>
-      <p>WORK CONTENT</p>
+      <p>Under development...</p>
     </div>
   );
 }
