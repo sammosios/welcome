@@ -9,7 +9,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Breadcrumb, Layout, Menu, Segmented, Avatar, Divider, Row, Col, Button, Drawer, FloatButton } from 'antd';
 import Home from './components/Home';
-import Work from './components/Work';
+import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
 import Contact from './components/Contact'; // Import the Contact component
 import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
@@ -18,26 +18,9 @@ const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState('About me');
+  const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/tasks');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -49,9 +32,9 @@ function App() {
   }, [currentPage])
 
   const menuItems = [
-    { id: 'About me', label: 'About me', onClick: () => setCurrentPage('About me') },
-    { id: 'Work', label: 'Tech profile', onClick: () => setCurrentPage('Work') },
-    { id: 'Resume', label: 'Experience', onClick: () => setCurrentPage('Resume') },
+    { id: 'Home', label: 'Home', onClick: () => setCurrentPage('Home') },
+    { id: 'Tech profile', label: 'Tech profile', onClick: () => setCurrentPage('Tech profile') },
+    { id: 'Experience', label: 'Experience', onClick: () => setCurrentPage('Experience') },
   ];
 
   const handlePageChange = (page) => {
@@ -61,11 +44,11 @@ function App() {
   // Render the component based on currentPage
   const renderComponent = () => {
     switch (currentPage) {
-      case 'About me':
-        return <Home />;
-      case 'Work':
-        return <Work />;
-      case 'Resume':
+      case 'Home':
+        return <Home setCurrentPage={setCurrentPage}/>;
+      case 'Tech profile':
+        return <TechProfile />;
+      case 'Experience':
         return <Resume />;
       case 'Contact':
         return <Contact />;
@@ -99,7 +82,6 @@ function App() {
             <Menu.Item key={'linkedin'} icon={<LinkedinFilled />}><a target='_blank' href='https://www.linkedin.com/in/sam-mosios'>LinkedIn</a></Menu.Item>
             <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' href='https://www.github.com/samismos'>Github</a></Menu.Item>
             <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr'>Email</a></Menu.Item>
-
           </Menu>
         </Sider>
 
@@ -109,9 +91,9 @@ function App() {
             {renderComponent()}
           </Content>
           <FloatButton.Group trigger='hover' icon={<InfoCircleOutlined />}>
-            <FloatButton icon={<UserOutlined />} tooltip={"About me"} onClick={() => setCurrentPage('About me')}></FloatButton>
-            <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Work')}></FloatButton>
-            <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Resume')}></FloatButton>
+            <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
+            <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
+            <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
 
           </FloatButton.Group>
         </Layout>

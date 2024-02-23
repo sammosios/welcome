@@ -4,7 +4,7 @@
     }
 
     /* Example usage */
-h1 {
+h1, h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600; /* You can specify font weight if needed */
   }
@@ -25,4 +25,10 @@ h1 {
   /* Apply the fade-in animation to the element */
   .fade-in {
     animation: fadeIn 1s ease-in-out; /* Apply the fadeIn animation with a duration of 1 second and ease-in-out timing function */
+  }
+
+  @media screen and (min-width: 768px) {
+    .home-subtitle {
+      max-width: 800px;
+    }
   }

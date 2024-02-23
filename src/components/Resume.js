@@ -1,12 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Breadcrumb, Divider, Layout, Menu, Timeline, Tooltip, Image, Tag } from 'antd';
-import Icon from '@ant-design/icons/lib/components/Icon';
-import { LinkedinFilled } from '@ant-design/icons';
+import { Divider, Timeline, Tooltip, Image, Tag } from 'antd';
 import './resume.css';
 import tap from '../assets/tap-large.png';
 import graduation from '../assets/carousel/graduation.png';
-
-const { Header, Content, Footer } = Layout;
 
 const Tap = ({ text }) => {
   return <i><Image style={{ width: '24px', height: '24px' }} preview={false} src={tap} /> {text}</i>
@@ -28,11 +23,15 @@ const Resume = () => {
           children: <>
           <Tooltip placement='topRight' title={
             <>
-            <p>💻 <b>Interesting projects:</b>
-            <br />● Developed end-to-end comprehensive Web GIS applications<br/><Tag color='navy'>React.js</Tag><Tag color='darkgreen'>GeoServer</Tag> 
-            <br />● Implemented Google Maps data mining application<br/><Tag color='#800080'>C# .NET</Tag><Tag color='#39d439'>Selenium</Tag>
-            <br />● Deployed a pre-trained ML model to cloud infrastructure<br/><Tag color='#FFA500'>AWS EC2</Tag><Tag color='#3F00FF'>Docker</Tag>
-            <br />● Monitored and maintained dedicated/cloud server infrastructure<br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff0000'>Grafana</Tag></p>
+            <p>🛠️ <b>Development Projects:</b>
+            <br />● Developed end-to-end comprehensive Web GIS applications
+            <br/><Tag color='navy'>React.js</Tag><Tag color='darkgreen'>GeoServer</Tag> 
+            <br />● Implemented Google Maps data mining application
+            <br/><Tag color='#800080'>C# .NET</Tag><Tag color='#39d439'>Selenium</Tag>
+            <br />● Deployed a pre-trained ML model to cloud infrastructure
+            <br/><Tag color='#FFA500'>AWS EC2</Tag><Tag color='#3F00FF'>Docker</Tag>
+            <br />● Monitored and maintained dedicated/cloud server infrastructure
+            <br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff0000'>Grafana</Tag></p>
             </>
           }>
           <p>Junior Web GIS Developer @ Omikron S.A.<br/><Tap text={'for projects'}/></p>
@@ -70,7 +69,7 @@ const Resume = () => {
           children: <>
           <Tooltip placement='topLeft' title={
             <>
-            <p>💻 <b>Interesting projects:</b>
+            <p>💻 <b>Coursework Projects:</b>
             <br />● Desktop parking management application with networking functionality<br/><Tag color='red'>Java</Tag><Tag color='yellow'>TCP WebSockets</Tag> 
             <br />● Low-code mobile IoT app monitoring sensors in real-time<br/><Tag color='purple'>Kodular</Tag><Tag color='green'>Google Firebase</Tag>
             <br />● Desktop e-Commerce RDBMS<br/><Tag color='blue'>MySQL</Tag><Tag color='red'>MS Access</Tag>
@@ -79,7 +78,6 @@ const Resume = () => {
           }>
           <p> Started studying Computing & Application Development @ NYC Thessaloniki<br/><Tap text={'for projects'}/></p>
           </Tooltip>
-
           </>
         },
         {
@@ -120,7 +118,6 @@ const Resume = () => {
           ),
         },
       ]}>
-
       </Timeline>
     </div> // end of app 
   );
