@@ -44,6 +44,10 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [currentPage])
+
   const menuItems = [
     { id: 'About me', label: 'About me', onClick: () => setCurrentPage('About me') },
     { id: 'Work', label: 'Tech profile', onClick: () => setCurrentPage('Work') },
