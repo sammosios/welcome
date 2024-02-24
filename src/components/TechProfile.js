@@ -11,6 +11,7 @@ import algorithms from '../assets/techprofile/genprog/algorithms.jpg';
 import database from '../assets/techprofile/genprog/rdbms.png';
 import mapsminer from '../assets/techprofile/automation/dataminer.gif';
 import scripting from '../assets/techprofile/automation/scripting.png';
+import servers from '../assets/techprofile/server/servers.png';
 
 const TechProfile = () => {
 
@@ -102,30 +103,29 @@ const TechProfile = () => {
       title: 'Virtualization',
       content:
         <>
-          <p>I have experience developing a variety of desktop applications, ranging from command line tools to GUI software systems with complex features.
-          <br/><i>Image:</i> Par👑king - A desktop parking management solution (Java).
-            <br /><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
+          <p>ITEM 1
+            <br /><Divider /><b>Expertise:</b></p>
         </>,
-      image: parking,
+      image: servers,
     },
     {
       title: 'Server Configuration',
-      content: <>
-        <p>I am a big fan of Occam's razor. Equipped with the most appropriate data structures and algorithms for each business case,
-          I aim for minimal complexity, delivering efficient, easy-to-use software solutions.
-          <br /><Divider /><b>Expertise: Data Structures, Algorithm Design & Optimization</b></p>
-      </>,
-      image: algorithms,
+      content:
+        <>
+          <p>ITEM 2
+            <br /><Divider /><b>Expertise:</b></p>
+        </>,
+      image: servers,
     },
     {
       title: 'Server Orchestration',
-      content: <>
-        <p> I have worked with relational databases like MySQL and PostgreSQL, and plan to explore NoSQL and cloud alternatives soon.
-          <br /><i>Image: e-Commerce RDBMS (MySQL, MS Access).</i>
-          <br /><Divider /><b>Expertise: Database design, MySQL, PostgreSQL</b></p>
-      </>,
-      image: database,
-    }
+      content:
+        <>
+          <p>ITEM 3
+            <br /><Divider /><b>Expertise:</b></p>
+        </>,
+      image: servers,
+    },
   ];
   const tabs = [
     {
