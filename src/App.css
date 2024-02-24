@@ -36,12 +36,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.left-menu{
-
-}
-.Header{
-  
-}
 .breadcrumb{
 font-size: large;
 
@@ -106,4 +100,19 @@ font-size: large;
 
 .mobile-menu-button button {
   color: #333;
+}
+
+
+.secret-image {
+  animation: rotation 4s infinite linear;
+  max-height: 70vh;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }

@@ -3,16 +3,16 @@ import code from './assets/code-small.png';
 import adventure from './assets/adventure.png';
 import face from './assets/face.jpg';
 import profile from './assets/profile.png';
-
 import smile from './assets/smile.png';
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Breadcrumb, Layout, Menu, Segmented, Avatar, Divider, Row, Col, Button, Drawer, FloatButton } from 'antd';
+import { Image, Layout, Menu, Divider, FloatButton } from 'antd';
 import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
 import Contact from './components/Contact'; // Import the Contact component
-import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import patient from './assets/techprofile/chad.jpg';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -20,7 +20,7 @@ function App() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -28,7 +28,7 @@ function App() {
   };
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [currentPage])
 
   const menuItems = [
@@ -45,7 +45,13 @@ function App() {
   const renderComponent = () => {
     switch (currentPage) {
       case 'Home':
-        return <Home setCurrentPage={setCurrentPage}/>;
+        return <Home setCurrentPage={setCurrentPage} />;
+      case 'Secret':
+        return (
+        <>
+        <Image className='secret-image' preview={false} src={patient}/>
+        <h1><br/>Get well soon UWU ❤️😘😱🤕🫨💁‍♀️🧑‍🦼🤸‍♀️🎗️🩰🥠♐🚾💊</h1>
+        </>);
       case 'Tech profile':
         return <TechProfile />;
       case 'Experience':
@@ -91,10 +97,10 @@ function App() {
             {renderComponent()}
           </Content>
           <FloatButton.Group trigger='click' icon={<InfoCircleOutlined />}>
+            <FloatButton icon={<QuestionCircleOutlined />} tooltip={"Secret"} onClick={() => setCurrentPage('Secret')}></FloatButton>
             <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
             <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
             <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
-
           </FloatButton.Group>
         </Layout>
       </Layout>
