@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
 import './TechProfile.css';
-import { List, Image, Tabs, Card, Divider } from 'antd';
-import Icon from '@ant-design/icons/lib/components/Icon';
+import CardGrid from './CardGrid';
+import { Tabs, Divider } from 'antd';
 import { GlobalOutlined, BranchesOutlined, LinuxOutlined, RobotOutlined } from '@ant-design/icons';
-import adventure from '../assets/adventure1.png';
+//////////// IMAGES /////////////////
 import webgis from '../assets/techprofile/webdev/webgis.png';
 import webdev from '../assets/techprofile/webdev/webdev.png';
 import backend from '../assets/techprofile/webdev/backend.png';
 import parking from '../assets/techprofile/genprog/parking.png';
 import algorithms from '../assets/techprofile/genprog/algorithms.jpg';
 import database from '../assets/techprofile/genprog/rdbms.png';
+import mapsminer from '../assets/techprofile/automation/dataminer.gif';
+import scripting from '../assets/techprofile/automation/scripting.png';
 
 const TechProfile = () => {
 
@@ -20,7 +21,7 @@ const TechProfile = () => {
         <>
           <p>I have contributed to the full stack development of web GIS applications,
             effectively displaying geospatial data primarily utilizing open-source web mapping libraries, as well as spatial servers and databases.
-            <br /><Divider /><b>Skills: React.js, Leaflet.js, GeoServer</b></p>
+            <br /><Divider /><b>Expertise: React.js, Leaflet.js, GeoServer</b></p>
         </>,
       image: webgis,
     },
@@ -29,7 +30,7 @@ const TechProfile = () => {
       content: <>
         <p>Mastering web fundamentals is crucial in today's landscape. Understanding the backbone of the web
           allows me to harness powerful development frameworks and build high-quality web applications.
-          <br /><Divider /><b>Skills: HTML, CSS, JavaScript, React.js, Node.js</b></p>
+          <br /><Divider /><b>Expertise: HTML, CSS, JavaScript, React.js, Node.js</b></p>
       </>,
       image: webdev,
     },
@@ -38,7 +39,7 @@ const TechProfile = () => {
       content: <>
         <p>Facilitating information exchange between different systems seems deeply fascinating to me.
           While I currently lack professional experience, I am practicing developing APIs with Java and Spring Boot.
-          <br /><Divider /><b>Skills: Java, Spring Boot, Node.js, Express.js</b></p>
+          <br /><Divider /><b>Expertise: Java, Spring Boot, Node.js, Express.js</b></p>
       </>,
       image: backend,
     }
@@ -50,7 +51,7 @@ const TechProfile = () => {
       content:
         <>
           <p>I have experience developing a variety of desktop applications, ranging from command line tools to GUI software systems with complex features.
-            <br /><i>Image: Par👑king - A desktop parking management solution (Java).</i>
+          <br/><i>Image:</i> Par👑king - A desktop parking management solution (Java).
             <br /><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
         </>,
       image: parking,
@@ -77,17 +78,38 @@ const TechProfile = () => {
 
   const AutomationItems = [
     {
-      title: 'Desktop Applications',
+      title: 'Manual Task Automation',
+      content:
+        <>
+          <p>Focusing on efficiency and productivity, I specialize in automating manual tasks and helping save workhours and effort.
+            <br/><i>Video: Google Maps data mining tool</i>
+            <br/><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
+        </>,
+      image: mapsminer,
+    },
+    {
+      title: 'Scripting',
+      content: <>
+        <p>With the help of scripting languages and tools, I am able to automate a variety of processes which may in turn improve software development, business operations or other critical parts of production.
+          <br/><Divider /><b>Expertise: Bash, JavaScript, Python</b></p>
+      </>,
+      image: scripting,
+    },
+  ];
+
+  const ServerItems = [
+    {
+      title: 'Virtualization',
       content:
         <>
           <p>I have experience developing a variety of desktop applications, ranging from command line tools to GUI software systems with complex features.
-            <br /><i>Image: Par👑king - A desktop parking management solution (Java).</i>
+          <br/><i>Image:</i> Par👑king - A desktop parking management solution (Java).
             <br /><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
         </>,
       image: parking,
     },
     {
-      title: 'Algorithm Design',
+      title: 'Server Configuration',
       content: <>
         <p>I am a big fan of Occam's razor. Equipped with the most appropriate data structures and algorithms for each business case,
           I aim for minimal complexity, delivering efficient, easy-to-use software solutions.
@@ -96,7 +118,7 @@ const TechProfile = () => {
       image: algorithms,
     },
     {
-      title: 'Database Systems',
+      title: 'Server Orchestration',
       content: <>
         <p> I have worked with relational databases like MySQL and PostgreSQL, and plan to explore NoSQL and cloud alternatives soon.
           <br /><i>Image: e-Commerce RDBMS (MySQL, MS Access).</i>
@@ -105,82 +127,29 @@ const TechProfile = () => {
       image: database,
     }
   ];
-
-  const CardGrid = ({ items }) => {
-    return (
-      <>
-        <List
-          grid={{ gutter: 16, xs: 1, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3 }}
-          dataSource={items}
-          renderItem={(item) => (
-            <List.Item>
-              <Card className="fade-up-animation" title={<h3 style={{ fontFamily: "'Montserrat', sans-serif" }}>{item.title}</h3>}
-                cover={<Image preview={true} src={item.image} />}>
-                {item.content}
-              </Card>
-            </List.Item>
-          )}
-        />
-      </>
-    )
-  }
-
-  const WebDevelopment = () => {
-    return (
-      <>
-        <CardGrid items={WebDevelopmentItems} />
-      </>
-    )
-  };
-
-  const GeneralPurposeProgramming = () => {
-    return (
-      <>
-        <CardGrid items={GeneralPurposeProgrammingItems} />
-      </>
-    )
-  };
-
-  const AutomationDevelopment = () => {
-    return (
-      <>
-        <CardGrid items={AutomationItems} />
-      </>
-    )
-  };
-
-  const ServerAdminConfig = () => {
-    return (
-      <>
-
-      </>
-    )
-  };
-
-
   const tabs = [
     {
       key: 1,
       label: `Web Development`,
-      children: <WebDevelopment />,
+      children:  <CardGrid items={WebDevelopmentItems} />,
       icon: <GlobalOutlined />,
     },
     {
       key: 2,
       label: `General Purpose Programming`,
-      children: <GeneralPurposeProgramming />,
+      children: <CardGrid items={GeneralPurposeProgrammingItems} />,
       icon: <BranchesOutlined />,
     },
     {
       key: 3,
       label: `Automation Development`,
-      children: <AutomationDevelopment />,
+      children: <CardGrid items={AutomationItems} />,
       icon: <RobotOutlined />,
     },
     {
       key: 4,
       label: `Server Administration & Configuration`,
-      children: <ServerAdminConfig />,
+      children: <CardGrid items={ServerItems}/>,
       icon: <LinuxOutlined />,
     },
   ];

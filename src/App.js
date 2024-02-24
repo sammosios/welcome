@@ -90,7 +90,7 @@ function App() {
           <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
             {renderComponent()}
           </Content>
-          <FloatButton.Group trigger='hover' icon={<InfoCircleOutlined />}>
+          <FloatButton.Group trigger='click' icon={<InfoCircleOutlined />}>
             <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
             <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
             <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
