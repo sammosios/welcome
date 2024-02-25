@@ -3,7 +3,7 @@ import CardGrid from './CardGrid';
 import { Tabs, Divider } from 'antd';
 import { GlobalOutlined, BranchesOutlined, LinuxOutlined, RobotOutlined } from '@ant-design/icons';
 //////////// IMAGES /////////////////
-import webgis from '../assets/techprofile/webdev/webgis.png';
+import webgis from '../assets/techprofile/webdev/webgis_m.png';
 import webdev from '../assets/techprofile/webdev/webdev.png';
 import backend from '../assets/techprofile/webdev/backend.png';
 import parking from '../assets/techprofile/genprog/parking.png';

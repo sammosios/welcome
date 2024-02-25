@@ -43,8 +43,8 @@ const Resume = () => {
           color: 'orange',
           children: (
             <>
-              <p><i>First contact with programming</i> | <a target="_blank" rel="noreferrer" href='https://www.facebook.com/watchoutarc/'>
-                WatchOut</a>, National Virtual Student Company Award</p>
+              <p><i>First touch with programming</i> | <a target="_blank" rel="noreferrer" href='https://www.facebook.com/watchoutarc/'>
+                WatchOut</a>, National Virtual Student Company Award<br/><i>More details and photos in the "Projects" section of my <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/sam-mosios/'>LinkedIn</a></i></p>
             </>
           ),
         },
