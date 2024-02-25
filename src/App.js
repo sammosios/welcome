@@ -4,7 +4,6 @@ import { Image, Layout, Menu, Divider, FloatButton } from 'antd';
 import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
-import Contact from './components/Contact'; // Import the Contact component
 import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import patient from './assets/techprofile/chad.jpg';
 
@@ -39,18 +38,16 @@ function App() {
     switch (currentPage) {
       case 'Home':
         return <Home setCurrentPage={setCurrentPage} />;
-      case 'Secret':
-        return (
-        <>
-        <Image className='secret-image' preview={false} src={patient}/>
-        <h1><br/>Get well soon UWU ❤️😘😱🤕🫨💁‍♀️🧑‍🦼🤸‍♀️🎗️🩰🥠♐🚾💊</h1>
-        </>);
       case 'Tech profile':
         return <TechProfile />;
       case 'Experience':
         return <Resume />;
-      case 'Contact':
-        return <Contact />;
+      case 'Secret':
+        return (
+          <>
+            <Image className='secret-image' preview={false} src={patient} />
+            <h1><br />Get well soon UWU ❤️😘😱🤕🫨💁‍♀️🧑‍🦼🤸‍♀️🎗️🩰🥠♐🚾💊</h1>
+          </>);
       default:
         return null;
     }

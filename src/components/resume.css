@@ -2,3 +2,36 @@ p, b {
     font-family: 'Montserrat', sans-serif;
     font-size: medium;
 }
+
+
+.fade-in-left {
+    animation: fadeLeft 0.5s ease forwards;
+  }
+
+  
+.fade-in-right {
+    animation: fadeRight 0.5s ease forwards;
+  }
+
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+

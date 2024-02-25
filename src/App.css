@@ -12,10 +12,6 @@
 p, span {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.main-title{
-font-size: larger;
-}
-
 
 .flex-centralized{
   display:flex;
@@ -101,7 +97,6 @@ font-size: large;
 .mobile-menu-button button {
   color: #333;
 }
-
 
 .secret-image {
   animation: rotation 4s infinite linear;

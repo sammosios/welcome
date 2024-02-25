@@ -12,7 +12,7 @@ const Resume = () => {
   return (
     <div>
       <h1>Professional Experience</h1>
-      <Timeline mode='right' items={[
+      <Timeline className='fade-in-right' mode='right' items={[
         {
           label: <b>Today</b>,
           color: 'purple',
@@ -43,7 +43,7 @@ const Resume = () => {
           color: 'orange',
           children: (
             <>
-              <p><i>First contact with programming</i> | <a target="_blank" href='https://www.facebook.com/watchoutarc/'>
+              <p><i>First contact with programming</i> | <a target="_blank" rel="noreferrer" href='https://www.facebook.com/watchoutarc/'>
                 WatchOut</a>, National Virtual Student Company Award</p>
             </>
           ),
@@ -53,7 +53,7 @@ const Resume = () => {
       </Timeline>
       <Divider />
       <h1>Academic Experience</h1>
-      <Timeline mode='left' items={[
+      <Timeline className='fade-in-left' mode='left' items={[
         {
           label: <b> June 2025</b>,
           color: 'green',
