@@ -12,6 +12,7 @@ import database from '../assets/techprofile/genprog/rdbms.png';
 import mapsminer from '../assets/techprofile/automation/dataminer.gif';
 import scripting from '../assets/techprofile/automation/scripting.png';
 import servers from '../assets/techprofile/server/servers.png';
+import linux from '../assets/techprofile/server/linux.png';
 
 const TechProfile = () => {
 
@@ -22,7 +23,7 @@ const TechProfile = () => {
         <>
           <p>I have contributed to the full stack development of web GIS applications,
             effectively displaying geospatial data primarily utilizing open-source web mapping libraries, as well as spatial servers and databases.
-            <br /><Divider /><b>Expertise: React.js, Leaflet.js, GeoServer</b></p>
+            <br /></p><Divider /><p><b>Expertise: React.js, Leaflet.js, GeoServer</b></p>
         </>,
       image: webgis,
     },
@@ -31,7 +32,7 @@ const TechProfile = () => {
       content: <>
         <p>Mastering web fundamentals is crucial in today's landscape. Understanding the backbone of the web
           allows me to harness powerful development frameworks and build high-quality web applications.
-          <br /><Divider /><b>Expertise: HTML, CSS, JavaScript, React.js, Node.js</b></p>
+          <br /></p><Divider /><p><b>Expertise: HTML, CSS, JavaScript, React.js, Node.js</b></p>
       </>,
       image: webdev,
     },
@@ -40,7 +41,7 @@ const TechProfile = () => {
       content: <>
         <p>Facilitating information exchange between different systems seems deeply fascinating to me.
           While I currently lack professional experience, I am practicing developing APIs with Java and Spring Boot.
-          <br /><Divider /><b>Expertise: Java, Spring Boot, Node.js, Express.js</b></p>
+          <br /></p><Divider /><p><b>Expertise: Java, Spring Boot, Node.js, Express.js</b></p>
       </>,
       image: backend,
     }
@@ -53,7 +54,7 @@ const TechProfile = () => {
         <>
           <p>I have experience developing a variety of desktop applications, ranging from command line tools to GUI software systems with complex features.
           <br/><i>Image:</i> Par👑king - A desktop parking management solution (Java).
-            <br /><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
+            <br /></p><Divider /><p><b>Expertise: C++, C# .NET, Java</b></p>
         </>,
       image: parking,
     },
@@ -62,7 +63,7 @@ const TechProfile = () => {
       content: <>
         <p>I am a big fan of Occam's razor. Equipped with the most appropriate data structures and algorithms for each business case,
           I aim for minimal complexity, delivering efficient, easy-to-use software solutions.
-          <br /><Divider /><b>Expertise: Data Structures, Algorithm Design & Optimization</b></p>
+          <br /></p><Divider /><p><b>Expertise: Data Structures, Algorithm Design & Optimization</b></p>
       </>,
       image: algorithms,
     },
@@ -71,7 +72,7 @@ const TechProfile = () => {
       content: <>
         <p> I have worked with relational databases like MySQL and PostgreSQL, and plan to explore NoSQL and cloud alternatives soon.
           <br /><i>Image: e-Commerce RDBMS (MySQL, MS Access).</i>
-          <br /><Divider /><b>Expertise: Database design, MySQL, PostgreSQL</b></p>
+          <br /></p><Divider /><p><b>Expertise: Database design, MySQL, PostgreSQL</b></p>
       </>,
       image: database,
     }
@@ -83,8 +84,8 @@ const TechProfile = () => {
       content:
         <>
           <p>Focusing on efficiency and productivity, I specialize in automating manual tasks and helping save workhours and effort.
-            <br/><i>Video: Google Maps data mining tool</i>
-            <br/><Divider /><b>Expertise: C++, C# .NET, Java</b></p>
+            <br/><i>Video: Google Maps data mining tool (C# .NET  & Selenium)</i>
+            <br/></p><Divider /><p><b>Expertise: C++, C# .NET, Java</b></p>
         </>,
       image: mapsminer,
     },
@@ -92,7 +93,7 @@ const TechProfile = () => {
       title: 'Scripting',
       content: <>
         <p>With the help of scripting languages and tools, I am able to automate a variety of processes which may in turn improve software development, business operations or other critical parts of production.
-          <br/><Divider /><b>Expertise: Bash, JavaScript, Python</b></p>
+          <br/></p><Divider /><p><b>Expertise: Bash, JavaScript, Python</b></p>
       </>,
       image: scripting,
     },
@@ -100,33 +101,26 @@ const TechProfile = () => {
 
   const ServerItems = [
     {
-      title: 'Virtualization',
-      content:
-        <>
-          <p>ITEM 1
-            <br /><Divider /><b>Expertise:</b></p>
-        </>,
-      image: servers,
-    },
-    {
       title: 'Server Configuration',
       content:
         <>
-          <p>ITEM 2
-            <br /><Divider /><b>Expertise:</b></p>
+          <p>My familiarity with the Linux operating system combined with a variety of server solutions allows me to have an active part in the end-to-end development of software.
+            <br /></p><Divider /><p><b>Expertise: LAMP Stack, Ubuntu Server, Linux/Unix</b></p>
         </>,
       image: servers,
     },
     {
-      title: 'Server Orchestration',
+      title: 'Virtualization',
       content:
         <>
-          <p>ITEM 3
-            <br /><Divider /><b>Expertise:</b></p>
+          <p>Virtualization is one of the great gifts of modern technology. I aim to be proficient with tools that help us produce secure, scalable systems.
+            <br/><i>Image: Jitsi Meet server, part of virtual e-Learning server ecosystem </i>
+            <br /></p><Divider /><p><b>Expertise: Docker, VirtualBox</b></p>
         </>,
-      image: servers,
+      image: linux,
     },
   ];
+
   const tabs = [
     {
       key: 1,
@@ -148,7 +142,7 @@ const TechProfile = () => {
     },
     {
       key: 4,
-      label: `Server Administration & Configuration`,
+      label: `Server Technologies`,
       children: <CardGrid items={ServerItems}/>,
       icon: <LinuxOutlined />,
     },

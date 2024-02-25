@@ -1,9 +1,3 @@
-import logo from './assets/logo-transparent-small.png';
-import code from './assets/code-small.png';
-import adventure from './assets/adventure.png';
-import face from './assets/face.jpg';
-import profile from './assets/profile.png';
-import smile from './assets/smile.png';
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Image, Layout, Menu, Divider, FloatButton } from 'antd';
@@ -11,13 +5,12 @@ import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
 import Contact from './components/Contact'; // Import the Contact component
-import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import patient from './assets/techprofile/chad.jpg';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 function App() {
-  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -85,9 +78,9 @@ function App() {
               </Menu.Item>
             ))}
             <Menu.Item key={'divider'} ><Divider /></Menu.Item>
-            <Menu.Item key={'linkedin'} icon={<LinkedinFilled />}><a target='_blank' href='https://www.linkedin.com/in/sam-mosios'>LinkedIn</a></Menu.Item>
-            <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' href='https://www.github.com/samismos'>Github</a></Menu.Item>
-            <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr'>Email</a></Menu.Item>
+            <Menu.Item key={'linkedin'} icon={<LinkedinFilled />}><a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/sam-mosios'>LinkedIn</a></Menu.Item>
+            <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' rel="noreferrer" href='https://www.github.com/samismos'>Github</a></Menu.Item>
+            <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr' rel="noreferrer">Email</a></Menu.Item>
           </Menu>
         </Sider>
 
@@ -96,8 +89,7 @@ function App() {
           <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
             {renderComponent()}
           </Content>
-          <FloatButton.Group trigger='click' icon={<InfoCircleOutlined />}>
-            <FloatButton icon={<QuestionCircleOutlined />} tooltip={"Secret"} onClick={() => setCurrentPage('Secret')}></FloatButton>
+          <FloatButton.Group trigger='click' icon={<InfoCircleOutlined />} onContextMenu={() => setCurrentPage('Secret')}>
             <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
             <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
             <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
