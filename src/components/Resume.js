@@ -21,7 +21,7 @@ const Resume = () => {
         {
           label: <b>June 2023</b>,
           children: <>
-          <Tooltip placement='topRight' title={
+          <Tooltip title={
             <>
             <p>🛠️ <b>Development Projects:</b>
             <br />● Developed end-to-end comprehensive Web GIS applications
@@ -67,7 +67,7 @@ const Resume = () => {
         {
           label: <b>September 2022</b>,
           children: <>
-          <Tooltip placement='topLeft' title={
+          <Tooltip title={
             <>
             <p>💻 <b>Coursework Projects:</b>
             <br />● Desktop parking management application with networking functionality<br/><Tag color='red'>Java</Tag><Tag color='yellow'>TCP WebSockets</Tag> 
@@ -89,7 +89,7 @@ const Resume = () => {
           label: <b>September 2019</b>,
           children: (
             <>
-              <Tooltip placement='topLeft' title={
+              <Tooltip title={
                 <>
                   <p>✅ <b>Enjoyed subjects</b>: <br />● Structured Programming<br />● Object-Oriented Programming<br />● Data Structures & Algorithms<br />● Computer Architecture etc.</p>
                   <p>❌ <b>Did not enjoy subjects:</b><br />● Electric Circuits<br />● Electrical Materials<br />● Electromagnetic Field<br />●  Thermodynamics etc.</p>
@@ -106,7 +106,7 @@ const Resume = () => {
           label: <b>June 2019</b>,
           children: (
             <>
-              <Tooltip placement='topLeft' title={
+              <Tooltip title={
                 <>
                   <p>🎓<b>Aristoteleio College Graduation</b><br />June 24th, 2019</p>
                   <Image preview={false} src={graduation} />
