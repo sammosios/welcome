@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Avatar, Image } from 'antd';
 import bike from '../assets/bike.jpg';
 import './components.css';
@@ -6,11 +7,11 @@ import logo from '../assets/logo-transparent-small.png';
 
 
 function Home({setCurrentPage}) {
-  
+
   return (
     <div style={{ textAlign:'center'}}>
         <h1 className='main-title'>Greetings, traveler!</h1>
-        <div className="fade-in" >
+        <div className="image-fade-in" >
         <Image src={bike} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}}/>
         </div>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>

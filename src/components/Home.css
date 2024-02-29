@@ -1,6 +1,7 @@
 .main-title {
     font-size: xx-large;
     font-family: "Montserrat", sans-serif;
+    animation: fadeUp 0.8s ease forwards;
 }
 
 h1, h3 {
@@ -8,7 +9,7 @@ h1, h3 {
     font-weight: 600;
 }
 
-.fade-in {
+.image-fade-in {
     animation: fadeUp 0.8s ease forwards;
     /* Apply the fadeIn animation with a duration of 1 second and ease-in-out timing function */
 }

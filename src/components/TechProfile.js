@@ -183,11 +183,9 @@ const TechProfile = () => {
       <h3>Who is this Sam guy anyway?</h3>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <p className='techprofile-subtitle'>
-          <i>When you love computers, this industry becomes a vast playground, where every language is a new toy, and every system is a new pool of mud for you to let your inner kid get dirty...</i>
-          <br /><br /> As a student of computing,
-          I seek deep knowledge and understanding, and I feel blessed to have the ability to face challenging problems and come up with creative solutions.
-          <br /><br />I am passionate about development and large-scale information systems.<br /> My next goal is to enter a position in which I can delve
-          into backend develompent, or cloud computing and DevOps.
+          When you love computers, this industry becomes a vast playground, where every language is a new toy, and every system is a new pool of mud, inviting your inner kid to explore and experiment.
+          <br /><br /> I am deeply passionate about end-to-end software development and large-scale information systems. Deep knowledge and understanding is what I seek, and that is why my next goal is to enter a position in which I can delve
+          into backend develompent, cloud computing or DevOps.
           <br /><br /><b>You can take a look at my tech stack in the tabs below.</b>
         </p>
       </div>
