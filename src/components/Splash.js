@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './Splash.css'; // Import your CSS file for styling
-import logo from '../assets/logo-transparent-small.png';
-import { Avatar } from 'antd';
+import Typewriter from './Typewriter';
 
 const SplashScreen = ({ onFadeOut }) => {
   
@@ -10,7 +9,7 @@ const SplashScreen = ({ onFadeOut }) => {
       <div className="splash-content">
         <h1 className="title">Sam Mosios</h1>
         <h1 className="title">{'</>'}</h1>
-        <p className="subtitle">Building with purpose</p>
+        <Typewriter className='subtitle' text={'Building with purpose'}/>
       </div>
     </div>
   );

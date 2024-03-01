@@ -6,6 +6,8 @@ import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
 import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import SplashScreen from './components/Splash';
+import homeImage from './assets/bike.jpg'
+
 const { Content, Sider } = Layout;
 
 function App() {
@@ -13,6 +15,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedKey, setSelectedKey] = useState();
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = {homeImage};
+  })
 
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
@@ -24,7 +31,7 @@ function App() {
     // Set a timeout to hide the splash screen after 1.5 seconds
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 1500);
+    }, 2500);
 
     return () => clearTimeout(timer); // Clear the timeout when the component unmounts
   }, []);
