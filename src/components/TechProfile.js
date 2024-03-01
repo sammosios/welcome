@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import './TechProfile.css';
 import CardGrid from './CardGrid';
 import { Tabs, Divider } from 'antd';
@@ -15,34 +15,13 @@ import scripting from '../assets/techprofile/automation/scripting.png';
 import servers from '../assets/techprofile/server/servers.png';
 import linux from '../assets/techprofile/server/linux.png';
 
-const preloadImages = (imageArray) => {
-  imageArray.forEach((image) => {
-    new Image().src = image;
-  });
-};
+
 
  ///////////////// COMPONENT /////////////////
 const TechProfile = () => {
-  
-  const imageUrls = [
-    webgis,
-    webdev,
-    backend,
-    parking,
-    algorithms,
-    database,
-    mapsminer,
-    scripting,
-    servers,
-    linux,
-  ];
 
-  useEffect(() => {
-    preloadImages(imageUrls);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [activeTab, setActiveTab] = useState(1);
 
-  
   const expertise = "Expertise:"; // how to call "Skills / Expertise / Knowledge / Stack" on each card
 
   const WebDevelopmentItems = [
@@ -152,24 +131,28 @@ const TechProfile = () => {
 
   const tabs = [
     {
+      forceRender:true,
       key: 1,
       label: `Web Development`,
       children:  <CardGrid items={WebDevelopmentItems} />,
       icon: <GlobalOutlined />,
     },
     {
+      forceRender:true,
       key: 2,
       label: `General Purpose Programming`,
       children: <CardGrid items={GeneralPurposeProgrammingItems} />,
       icon: <BranchesOutlined />,
     },
     {
+      forceRender:true,
       key: 3,
       label: `Automation Development`,
       children: <CardGrid items={AutomationItems} />,
       icon: <RobotOutlined />,
     },
     {
+      forceRender:true,
       key: 4,
       label: `Server Technologies`,
       children: <CardGrid items={ServerItems}/>,
@@ -177,6 +160,12 @@ const TechProfile = () => {
     },
   ];
 
+  const handleTabChange = (key) => {
+    if([1,2,3,4, '4', '1'].includes(Number.parseInt(key))){
+      console.log(key);
+      setActiveTab(Number.parseInt(key));
+    }
+  }
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>Tech Profile</h1>
@@ -190,7 +179,11 @@ const TechProfile = () => {
         </p>
       </div>
       <Divider />
-      <Tabs style={{ marginLeft: '10px' }} items={tabs} />
+      <Tabs activeKey={activeTab} 
+      onTabClick={(e) => handleTabChange(e)} 
+      onClick={(e) => handleTabChange(e)} 
+      style={{ marginLeft: '10px' }} 
+      items={tabs} />
     </div>
   );
 }

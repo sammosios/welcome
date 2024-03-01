@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Layout, Menu, Divider, FloatButton } from 'antd';
+import { Layout, Menu, Divider, FloatButton, Image } from 'antd';
 import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
@@ -15,12 +15,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedKey, setSelectedKey] = useState();
-
-  useEffect(() => {
-    const image = new Image();
-    image.src = {homeImage};
-  })
-
+  
+  const image = <Image src={homeImage} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}} />
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -57,7 +53,7 @@ function App() {
   const renderComponent = () => {
     switch (currentPage) {
       case 'Home':
-        return <Home setCurrentPage={setCurrentPage} />;
+        return <Home setCurrentPage={setCurrentPage} image={image} />;
       case 'Tech profile':
         return <TechProfile />;
       case 'Experience':

@@ -1,18 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Avatar, Image } from 'antd';
-import bike from '../assets/bike.jpg';
+import { Avatar } from 'antd';
 import './components.css';
 import './Home.css';
 import logo from '../assets/logo-transparent-small.png';
 
 
-function Home({setCurrentPage}) {
+function Home({setCurrentPage, image}) {
 
   return (
     <div style={{ textAlign:'center'}}>
         <h1 className='main-title'>Greetings, traveler!</h1>
         <div className="image-fade-in" >
-        <Image src={bike} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}}/>
+        {image}
         </div>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <p className='home-subtitle'>Welcome! I am Sam, and you can explore this website to find out about me. <br/><br/>
