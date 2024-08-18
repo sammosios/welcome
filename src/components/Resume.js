@@ -19,6 +19,21 @@ const Resume = () => {
           children: <p>&nbsp;</p>,
         },
         {
+          label: <b>July 2024</b>,
+          children: <>
+          <Tooltip title={
+            <>
+            <p>🛠️ <b>Development Projects:</b>
+            <br />● Implemented CI/CD pipelines in Github Actions
+            <br/><Tag color='navy'>Github Actions</Tag><Tag color='purple'>Terraform</Tag> 
+            </p>
+            </>
+          }>
+          <p>Site Reliability Engineer Intern @ Pfizer<br/><Tap text={'for projects'}/></p>
+          </Tooltip>
+          </>
+        },
+        {
           label: <b>June 2023</b>,
           children: <>
           <Tooltip title={
