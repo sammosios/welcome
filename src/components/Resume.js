@@ -19,22 +19,25 @@ const Resume = () => {
           children: <p>&nbsp;</p>,
         },
         {
-          label: <b>July 2024</b>,
+          label: <b>July 2024<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
           children: <>
           <Tooltip title={
             <>
-            <p>🛠️ <b>Development Projects:</b>
-            <br />● Implemented CI/CD pipelines in Github Actions
-            <br/><Tag color='navy'>Github Actions</Tag><Tag color='purple'>Terraform</Tag> 
+            <p>🛠️ <b>SRE Tasks:</b>
+            <br />● Created CI/CD pipelines (build & deploy) in Github Actions
+            <br/><Tag color='#0394fc'>Github Actions</Tag><Tag color='#7028f7'>Terraform</Tag> 
+            <br />● Assisted in the implementation of GitOps practices using Flux across multiple Kubernetes environments, enhancing deployment automation and consistency
+            <br/><Tag color='#ff5112'>Kubernetes</Tag><Tag color='navy'>Flux</Tag> 
             </p>
             </>
           }>
-          <p>Site Reliability Engineer Intern @ Pfizer<br/><Tap text={'for projects'}/></p>
+          <p>Site Reliability Engineer Intern @ Pfizer<br/><Tap text={'for SRE tasks'}/></p>
           </Tooltip>
           </>
         },
         {
-          label: <b>June 2023</b>,
+          label: <b>June 2023 - May 2024<br/><i style={{ fontWeight: 'lighter'}}>(11 months)</i></b>,
+          color: 'green',
           children: <>
           <Tooltip title={
             <>
