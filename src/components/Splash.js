@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Splash.css'; // Import your CSS file for styling
 import Typewriter from './Typewriter';
 

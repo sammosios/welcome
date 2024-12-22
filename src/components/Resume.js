@@ -2,6 +2,7 @@ import { Divider, Timeline, Tooltip, Image, Tag } from 'antd';
 import './resume.css';
 import tap from '../assets/tap-large.png';
 import graduation from '../assets/carousel/graduation.png';
+import team from '../assets/carousel/pfizer-sre-team.jpg';
 
 const Tap = ({ text }) => {
   return <i><Image style={{ width: '24px', height: '24px' }} preview={false} src={tap} /> {text}</i>
@@ -19,19 +20,37 @@ const Resume = () => {
           children: <p>&nbsp;</p>,
         },
         {
-          label: <b>July 2024<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
+          label: <b>January 2025<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
           children: <>
           <Tooltip title={
             <>
             <p>🛠️ <b>SRE Tasks:</b>
-            <br />● Created CI/CD pipelines (build & deploy) in Github Actions
+            <br />● Improved reusability of CI/CD pipelines in Github Actions
             <br/><Tag color='#0394fc'>Github Actions</Tag><Tag color='#7028f7'>Terraform</Tag> 
-            <br />● Assisted in the implementation of GitOps practices using Flux across multiple Kubernetes environments, enhancing deployment automation and consistency
-            <br/><Tag color='#ff5112'>Kubernetes</Tag><Tag color='navy'>Flux</Tag> 
+            <br />● Streamlined deployment automation and ensured consistency across Kubernetes clusters by implementing GitOps with Flux CD
+            <br/><Tag color='#ff5112'>Git</Tag><Tag color='navy'>Flux</Tag><Tag color='#3970e4'>Kubernetes</Tag>
+            <br />● Automated the efficient decomissioning of unused infrastructure, saving substantial cloud costs
+            <br/><Tag color='#919191'>Bash</Tag><Tag color='#ff9900'>AWS</Tag>
             </p>
             </>
           }>
-          <p>Site Reliability Engineer Intern @ Pfizer<br/><Tap text={'for SRE tasks'}/></p>
+          <p>Associate Site Reliability Engineer @ Pfizer<br/><Tap text={'for SRE tasks'}/></p>
+          </Tooltip>
+          </>
+        },
+        {
+          label: <b>July 2024 - December 2024<br/><i style={{ fontWeight: 'lighter'}}>(6 months)</i></b>,
+          children: <>
+          
+          <Tooltip title={
+                <>
+                  <p><b>🎅 Team Christmas Event</b><br />December 11th, 2024</p>
+                  <Image preview={false} src={team} />
+                </>
+              }>
+          <p>Intern Site Reliability Engineer @ Pfizer<br/>
+          <Tap text={'for team picture'}/>
+          </p>
           </Tooltip>
           </>
         },
@@ -47,9 +66,9 @@ const Resume = () => {
             <br />● Implemented Google Maps data mining application
             <br/><Tag color='#800080'>C# .NET</Tag><Tag color='#39d439'>Selenium</Tag>
             <br />● Deployed a pre-trained ML model to cloud infrastructure
-            <br/><Tag color='#FFA500'>AWS EC2</Tag><Tag color='#3F00FF'>Docker</Tag>
+            <br/><Tag color='#FF9900'>AWS EC2</Tag><Tag color='#0db7ed'>Docker</Tag>
             <br />● Monitored and maintained dedicated/cloud server infrastructure
-            <br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff0000'>Grafana</Tag></p>
+            <br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff5112'>Grafana</Tag></p>
             </>
           }>
           <p>Junior Web GIS Developer @ Omikron S.A.<br/><Tap text={'for projects'}/></p>
