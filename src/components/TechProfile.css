@@ -1,0 +1,29 @@
+p, b {
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+};
+
+h1, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+    .techprofile-subtitle {
+      max-width: 800px;
+    }
+  }
+
+  .fade-up-animation {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
