@@ -4,9 +4,12 @@ import CardGrid from './CardGrid';
 import { Tabs, Divider } from 'antd';
 import { DockerOutlined, GlobalOutlined, BranchesOutlined, LinuxOutlined, RobotOutlined } from '@ant-design/icons';
 //////////// IMAGES /////////////////
+import dockerk8s from '../assets/techprofile/devops/dockerk8s.jpeg';
+import cicd from '../assets/techprofile/devops/cicd.jpeg';
+import iac from '../assets/techprofile/devops/iac.png';
 import webgis from '../assets/techprofile/webdev/webgis_m.png';
 import webdev from '../assets/techprofile/webdev/webdev.png';
-import backend from '../assets/techprofile/webdev/backend.png';
+import backend from '../assets/techprofile/webdev/backend.jpeg';
 import parking from '../assets/techprofile/genprog/parking.png';
 import algorithms from '../assets/techprofile/genprog/algorithms.jpg';
 import database from '../assets/techprofile/genprog/rdbms.png';
@@ -24,6 +27,35 @@ const TechProfile = () => {
 
   const expertise = "Expertise:"; // how to call "Skills / Expertise / Knowledge / Stack" on each card
 
+  const DevOpsItems = [
+    {
+      title: 'Containerization & Orchestration',
+      content:
+        <>
+          <p>Implemented and optimized containerized workloads with Docker and Kubernetes, leveraging Kustomize to manage Custom Resource Definitions (CRDs), enhancing deployment consistency and scalability.
+            <br /></p><Divider /><p><b>{expertise} Docker, Kubernetes</b></p>
+        </>,
+      image: dockerk8s,
+    },
+    {
+      title: 'CI/CD & GitOps',
+      content: 
+      <>
+        <p>Streamlined software delivery pipelines using GitHub Actions and FluxCD, enabling automated deployments and infrastructure management through GitOps principles.
+          <br /></p><Divider /><p><b>{expertise} GitHub Actions, FluxCD</b></p>
+      </>,
+      image: cicd,
+    },
+    {
+      title: 'Infrastructure as Code & Cloud',
+      content: 
+      <>
+        <p>Designed and deployed scalable cloud architectures using AWS and Terraform, ensuring automation, reliability, and cost efficiency.
+          <br /></p><Divider /><p><b>{expertise} AWS, Terraform</b></p>
+      </>,
+      image: iac,
+    }
+  ];
   const WebDevelopmentItems = [
     {
       title: 'Web GIS Applications',
@@ -37,7 +69,8 @@ const TechProfile = () => {
     },
     {
       title: 'Web Fundamentals',
-      content: <>
+      content: 
+      <>
         <p>Mastering web fundamentals is crucial in today's landscape. Understanding the backbone of the web
           allows me to harness powerful development frameworks and build high-quality web applications.
           <br /></p><Divider /><p><b>{expertise} HTML, CSS, JavaScript, React.js, Node.js</b></p>
@@ -46,10 +79,10 @@ const TechProfile = () => {
     },
     {
       title: 'Backend Development',
-      content: <>
-        <p>Facilitating information exchange between different systems seems deeply fascinating to me.
-          While I currently lack professional experience, I am practicing developing APIs with Java and Spring Boot.
-          <br /></p><Divider /><p><b>{expertise} Java, Spring Boot, Node.js, Express.js</b></p>
+      content: 
+      <>
+        <p>Facilitating seamless information exchange between systems is an area of deep interest to me. While I do not yet have professional experience in this domain, I am actively exploring API development with Java (Spring Boot), Node.js, and Python on an experimental level to broaden my understanding of different frameworks and architectures.
+          <br /></p><Divider /><p><b>{expertise} Java & Spring Boot, Node.js & Express, Python & FastAPI</b></p>
       </>,
       image: backend,
     }
@@ -71,7 +104,7 @@ const TechProfile = () => {
       content: <>
         <p>I am a big fan of Occam's razor. Equipped with the most appropriate data structures and algorithms for each business case,
           I aim for minimal complexity, delivering efficient, easy-to-use software solutions.
-          <br /></p><Divider /><p><b>{expertise} Data Structures, Algorithm Design & Optimization</b></p>
+          <br /></p><Divider /><p><b>{expertise} Data Structures, Algorithm Design & Optimization</b></p> 
       </>,
       image: algorithms,
     },
@@ -100,7 +133,9 @@ const TechProfile = () => {
     {
       title: 'Scripting',
       content: <>
-        <p>With the help of scripting languages and tools, I am able to automate a variety of processes which may in turn improve software development, business operations or other critical parts of production.
+        <p>Scripting tools like Bash, JavaScript and Python enable us to automate processes which improve software development, business operations or other critical parts of production.
+        <br /><i><b>Example:</b></i> Developed a Bash script to automate the removal of stale Kubernetes resources, reducing cloud costs by $30,000 per month.
+         
           <br/></p><Divider /><p><b>{expertise} Bash, JavaScript, Python</b></p>
       </>,
       image: scripting,
@@ -112,7 +147,7 @@ const TechProfile = () => {
       title: 'Server Configuration',
       content:
         <>
-          <p>My familiarity with the Linux operating system combined with a variety of server solutions allows me to have an active part in the end-to-end development of software.
+          <p>My familiarity with the Linux operating system combined with networking fundamentals facilitates my end-to-end understanding of software.
             <br /></p><Divider /><p><b>{expertise} LAMP Stack, Ubuntu Server, Linux/Unix</b></p>
         </>,
       image: servers,
@@ -121,9 +156,9 @@ const TechProfile = () => {
       title: 'Virtualization',
       content:
         <>
-          <p>Virtualization is one of the great gifts of modern technology. I aim to be proficient with tools that help us produce secure, scalable systems.
+          <p>During my BSc studies, I was able to configure virtual systems with multiple communicating parts. 
             <br/><i><b>Image:</b></i> Jitsi Meet server, part of virtual e-Learning server ecosystem
-            <br /></p><Divider /><p><b>{expertise} Docker, VirtualBox</b></p>
+            <br /></p><Divider /><p><b>{expertise} VirtualBox</b></p>
         </>,
       image: linux,
     },
@@ -132,35 +167,35 @@ const TechProfile = () => {
   const tabs = [
     {
       forceRender:true,
-      key: 0,
+      key: 1,
       label: `DevOps`,
-      children:  <CardGrid items={WebDevelopmentItems} />,
+      children:  <CardGrid items={DevOpsItems} />,
       icon: <DockerOutlined />,
     },
     {
       forceRender:true,
-      key: 1,
+      key: 2,
       label: `Web Development`,
       children:  <CardGrid items={WebDevelopmentItems} />,
       icon: <GlobalOutlined />,
     },
     {
       forceRender:true,
-      key: 2,
+      key: 3,
       label: `General Purpose Programming`,
       children: <CardGrid items={GeneralPurposeProgrammingItems} />,
       icon: <BranchesOutlined />,
     },
     {
       forceRender:true,
-      key: 3,
+      key: 4,
       label: `Automation Development`,
       children: <CardGrid items={AutomationItems} />,
       icon: <RobotOutlined />,
     },
     {
       forceRender:true,
-      key: 4,
+      key: 5,
       label: `Server Technologies`,
       children: <CardGrid items={ServerItems}/>,
       icon: <LinuxOutlined />,
@@ -168,8 +203,8 @@ const TechProfile = () => {
   ];
 
   const handleTabChange = (key) => {
-    if([1,2,3,4, '4', '1'].includes(Number.parseInt(key))){
-      console.log(key);
+    if([1,2,3,4,5].includes(Number.parseInt(key))){
+      // console.log(key);
       setActiveTab(Number.parseInt(key));
     }
   }
@@ -179,17 +214,19 @@ const TechProfile = () => {
       <h3>Who is this Sam guy anyway?</h3>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <p className='techprofile-subtitle'>
-          When you love computers, this industry becomes a vast playground, where every language is a new toy, and every system is a new pool of mud, inviting your inner kid to explore and experiment.
-          <br /><br /> I am deeply passionate about end-to-end software development and large-scale information systems. Deep knowledge and understanding is what I seek, and that is why my next goal is to enter a position in which I can delve
-          into backend develompent, cloud computing or DevOps.
+        I am a software engineer with a passion for end-to-end software development and large-scale distributed systems. I thrive on deep technical understanding, and that is why I am thrilled to pursue a master's degree in 
+        
+        <br /><a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems at KTH in Stockholm, Sweden. </a>
+        
+        <br /><br />My work focuses on DevOps/S.R.E. practices, and I am always looking to push the boundaries of scalability, automation, and reliability.
           <br /><br /><b>You can take a look at my tech stack in the tabs below.</b>
         </p>
       </div>
       <Divider />
       <Tabs activeKey={activeTab} 
       onTabClick={(e) => handleTabChange(e)} 
-      onClick={(e) => handleTabChange(e)} 
-      style={{ marginLeft: '10px' }} 
+      onClick={(e) => handleTabChange(e)}
+      style={{ marginLeft: '10px' }}
       items={tabs} />
     </div>
   );
