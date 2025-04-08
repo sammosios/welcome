@@ -26,17 +26,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Check for a new tag
-        id: check_tag
+        id: check-tag
         run: |
           if [ -z "$(git tag --contains HEAD)" ]; then
             echo "No new tag. Skipping deployment."
-            exit 0
+            echo "published=false" >> $GITHUB_OUTPUT
           else
             echo "New tag detected. Proceeding with deployment."
+            echo "published=true" >> $GITHUB_OUTPUT
           fi
-
+      
       - name: Deploy to GH Pages
-        if: steps.check_tag.outputs.new_tag == 'true'
+        if: ${{ steps.check-tag.outputs.published == 'true' }}
         run: |
           git config --global user.name "${{ secrets.GH_USERNAME }}"
           git config --global user.email "${{ secrets.GH_EMAIL }}"
