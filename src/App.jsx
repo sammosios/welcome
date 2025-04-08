@@ -55,10 +55,16 @@ function App() {
   }, [currentPage])
 
   const menuItems = [
-    { id: 'Home', label: 'Home', onClick: () => setCurrentPage('Home') },
-    { id: 'Tech profile', label: 'Tech profile', onClick: () => setCurrentPage('Tech profile') },
-    { id: 'Experience', label: 'Experience', onClick: () => setCurrentPage('Experience') },
+    { id: 'Home', label: <span>{'Home'}</span>, onClick: () => setCurrentPage('Home') },
+    { id: 'Tech profile', label: <span>{'Tech profile'}</span>, onClick: () => setCurrentPage('Tech profile') },
+    { id: 'Experience', label: <span>{'Experience'}</span>, onClick: () => setCurrentPage('Experience') },
   ];
+
+  const dynamicMenuItems = menuItems.map(item => ({
+    key: item.id,
+    // icon: item.icon,
+    label: item.label,
+  }));
 
   const handlePageChange = (page) => {
     (page !== "linkedin" && page !== "github" && page !== "email" && page !== "divider_1" && page !== "divider_2" && page !== "attribute")
@@ -97,21 +103,43 @@ function App() {
               }
             }}
           >
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} selectedKeys={selectedKey} onClick={(e) => handlePageChange(e.key)}>
-              {menuItems.map(item => (
-                <Menu.Item key={item.id} icon={item.icon}>
-                  {item.label}
-                </Menu.Item>
-              ))}
-              <Menu.Item key={'divider_1'} disabled style={{ cursor: 'default' }}><Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} /></Menu.Item>
-              <Menu.Item key={'linkedin'} icon={<LinkedinFilled />}><a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/sam-mosios'>LinkedIn</a></Menu.Item>
-              <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' rel="noreferrer" href='https://www.github.com/samismos'>Github</a></Menu.Item>
-              <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr' rel="noreferrer">Email</a></Menu.Item>
-              <Menu.Item key={'divider_2'} disabled style={{ cursor: 'default' }}><Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} /></Menu.Item>
-              <Menu.Item key={'attribute'} style={{ cursor: 'default' }}>
-                <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>
-              </Menu.Item>
-            </Menu>
+            <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['0']}
+            selectedKeys={selectedKey}
+            onClick={(e) => handlePageChange(e.key)}
+            items={[
+                ...dynamicMenuItems,
+              {
+                key: 'divider_1',
+                type: 'group', // or use 'divider' but Ant Design v5 removed divider type in items
+                label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
+                disabled: true,
+              },
+              {
+                key: 'linkedin',
+                icon: <LinkedinFilled />,
+                label: <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/sam-mosios">LinkedIn</a>,
+              },
+              {
+                key: 'github',
+                icon: <GithubFilled />,
+                label: <a target="_blank" rel="noreferrer" href="https://www.github.com/samismos">Github</a>,
+              },
+              {
+                key: 'email',
+                icon: <MailFilled />,
+                label: <a href="mailto:samismos@yahoo.gr" rel="noreferrer">Email</a>,
+              },
+              {
+                key: 'divider_2',
+                type: 'group',
+                label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
+                disabled: true,
+              },
+            ]}
+          />
           </Sider>
           {/* Content */}
           <Layout className="site-layout">
