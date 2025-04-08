@@ -2,20 +2,15 @@ name: Release
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    # permissions:
-    #   contents: write  # Grant write permissions to push to the repo
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensure full git history for semantic-release to work properly
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,12 +23,12 @@ jobs:
       - name: Run semantic-release
         uses: cycjimmy/semantic-release-action@v3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provided automatically by GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Git configuration
         run: |
-          git config --global user.name "samismos"
-          git config --global user.email "samismos@yahoo.gr"
+          git config --global user.name "${{ secrets.GH_USERNAME }}"
+          git config --global user.email "${{ secrets.GH_EMAIL }}"
 
       - name: Set up authentication for GitHub Pages
         run: |
