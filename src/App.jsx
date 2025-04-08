@@ -15,9 +15,12 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFloatMenuOpen, setIsFloatMenuOpen] = useState(false);
   const [selectedKey, setSelectedKey] = useState();
   
+  
   const image = <Image src={homeImage} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}} />
+  
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -33,6 +36,19 @@ function App() {
     return () => clearTimeout(timer); // Clear the timeout when the component unmounts
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(true);
+      } else {
+        setIsFloatMenuOpen(true);
+      }
+    }, 3500);
+  
+    return () => clearTimeout(timeout); // cleanup
+  }, []);
+  
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,7 +117,7 @@ function App() {
             <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
               {renderComponent()}
             </Content>
-            <FloatButton.Group trigger='click' icon={<InfoCircleOutlined />}>
+            <FloatButton.Group trigger='click' open={isFloatMenuOpen} onClick={() => setIsFloatMenuOpen(!isFloatMenuOpen)} icon={<InfoCircleOutlined />}>
               <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
               <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
               <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>

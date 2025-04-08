@@ -47,7 +47,7 @@ const TechProfile = () => {
       image: cicd,
     },
     {
-      title: 'Infrastructure as Code & Cloud',
+      title: 'IaC & Cloud',
       content: 
       <>
         <p>Designed and deployed scalable cloud architectures using AWS and Terraform, ensuring automation, reliability, and cost efficiency.
@@ -73,7 +73,7 @@ const TechProfile = () => {
       <>
         <p>Mastering web fundamentals is crucial in today's landscape. Understanding the backbone of the web
           allows me to harness powerful development frameworks and build high-quality web applications.
-          <br /></p><Divider /><p><b>{expertise} HTML, CSS, JavaScript, React.js, Node.js</b></p>
+          <br /></p><Divider /><p><b>{expertise} HTML, CSS, JavaScript, React.js</b></p>
       </>,
       image: webdev,
     },
