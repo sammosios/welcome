@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import { Layout, Menu, Divider, FloatButton, Image } from 'antd';
 import Home from './components/Home';
 import TechProfile from './components/TechProfile';
-import Resume from './components/Resume'; // Import the Resume component
-import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import Resume from './components/Resume';
+import BScDissertation from './components/BScDissertation';
+import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined, ProfileOutlined, FilePdfOutlined } from '@ant-design/icons';
 import SplashScreen from './components/Splash';
 import homeImage from './assets/bike.jpg';
 
@@ -58,11 +59,11 @@ function App() {
     { id: 'Home', label: <span>{'Home'}</span>, onClick: () => setCurrentPage('Home') },
     { id: 'Tech profile', label: <span>{'Tech profile'}</span>, onClick: () => setCurrentPage('Tech profile') },
     { id: 'Experience', label: <span>{'Experience'}</span>, onClick: () => setCurrentPage('Experience') },
+    { id: 'BSc Dissertation', label: <span>{'BSc Dissertation'}</span>, onClick: () => setCurrentPage('BSc Dissertation') },
   ];
 
   const dynamicMenuItems = menuItems.map(item => ({
     key: item.id,
-    // icon: item.icon,
     label: item.label,
   }));
 
@@ -80,6 +81,8 @@ function App() {
         return <TechProfile />;
       case 'Experience':
         return <Resume />;
+      case 'BSc Dissertation':
+        return <BScDissertation />;
       default:
         return null;
     }
@@ -149,17 +152,6 @@ function App() {
                 style: { cursor: 'default' },
                 label: <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>,
               },
-              // {
-              //   key: 'divider_2',
-              //   type: 'group',
-              //   label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
-              //   disabled: true,
-              // },
-              // {
-              //   key: 'attribute',
-              //   style: { cursor: 'default' },
-              //   label: <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>,
-              // },
             ]}
           />
           </Sider>
@@ -171,7 +163,8 @@ function App() {
             <FloatButton.Group trigger='click' open={isFloatMenuOpen} onClick={() => setIsFloatMenuOpen(!isFloatMenuOpen)} icon={<InfoCircleOutlined />}>
               <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
               <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
-              <FloatButton icon={<FileDoneOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
+              <FloatButton icon={<ProfileOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
+              <FloatButton icon={<FilePdfOutlined />} tooltip={"BSc Dissertation"} onClick={() => setCurrentPage('BSc Dissertation')}></FloatButton>
             </FloatButton.Group>
           </Layout>
         </Layout>

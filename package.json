@@ -12,7 +12,9 @@
     "preview": "vite preview"
   },
   "release": {
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   },
   "dependencies": {
     "antd": "^5.24.6",
