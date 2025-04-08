@@ -94,7 +94,7 @@ const Resume = () => {
         {
           label: <b> August 2025</b>,
           color: 'blue',
-          children: <p>Started studying <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems @ KTH in Stockholm, Sweden. </a></p>,
+          children: <p>Will begin studying <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems @ KTH in Stockholm, Sweden</a></p>,
         },
         {
           label: <b> May 2025</b>,
