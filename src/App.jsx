@@ -110,10 +110,16 @@ function App() {
             selectedKeys={selectedKey}
             onClick={(e) => handlePageChange(e.key)}
             items={[
+              {
+                style: { cursor: 'default '},
+                key: '1 element padding',
+                label: <p></p>,
+                disabled: true,
+              },
                 ...dynamicMenuItems,
               {
                 key: 'divider_1',
-                type: 'group', // or use 'divider' but Ant Design v5 removed divider type in items
+                type: 'group',
                 label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
                 disabled: true,
               },
@@ -133,11 +139,27 @@ function App() {
                 label: <a href="mailto:samismos@yahoo.gr" rel="noreferrer">Email</a>,
               },
               {
-                key: 'divider_2',
-                type: 'group',
-                label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
-                disabled: true,
+                  key: 'divider_2',
+                  type: 'group',
+                  label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
+                  disabled: true,
               },
+              {
+                key: 'attribute',
+                style: { cursor: 'default' },
+                label: <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>,
+              },
+              // {
+              //   key: 'divider_2',
+              //   type: 'group',
+              //   label: <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} />,
+              //   disabled: true,
+              // },
+              // {
+              //   key: 'attribute',
+              //   style: { cursor: 'default' },
+              //   label: <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>,
+              // },
             ]}
           />
           </Sider>
