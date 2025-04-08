@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # permissions:
+    #   contents: write  # Grant write permissions to push to the repo
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full git history for semantic-release to work properly
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run semantic-release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provided automatically by GitHub Actions
+
+      - name: Set up Git configuration
+        run: |
+          git config --global user.name "samismos"
+          git config --global user.email "samismos@yahoo.gr"
+
+      - name: Set up authentication for GitHub Pages
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Deploy to GH Pages
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
