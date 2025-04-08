@@ -12,7 +12,7 @@ const Resume = () => {
 
   return (
     <div>
-      <h1>Professional Experience</h1>
+      <h1>Professional Experiences</h1>
       <Timeline className='fade-in-right' mode='right' items={[
         {
           label: <b>Today</b>,
@@ -25,7 +25,7 @@ const Resume = () => {
           <Tooltip title={
             <>
             <p>🛠️ <b>SRE Tasks:</b>
-            <br />● Improved reusability of CI/CD pipelines in Github Actions
+            <br />● Improved reusability of CI/CD pipelines with GitHub Actions
             <br/><Tag color='#0394fc'>Github Actions</Tag><Tag color='#7028f7'>Terraform</Tag> 
             <br />● Streamlined deployment automation and ensured consistency across Kubernetes clusters by implementing GitOps with Flux CD
             <br/><Tag color='#ff5112'>Git</Tag><Tag color='navy'>Flux</Tag><Tag color='#3970e4'>Kubernetes</Tag>
@@ -34,7 +34,7 @@ const Resume = () => {
             </p>
             </>
           }>
-          <p>Associate Site Reliability Engineer @ Pfizer<br/><Tap text={'for SRE tasks'}/></p>
+          <span>Associate Site Reliability Engineer @ Pfizer<br/><Tap text={'for SRE tasks'}/></span>
           </Tooltip>
           </>
         },
@@ -48,9 +48,9 @@ const Resume = () => {
                   <Image preview={false} src={team} />
                 </>
               }>
-          <p>Intern Site Reliability Engineer @ Pfizer<br/>
+          <span>Intern Site Reliability Engineer @ Pfizer<br/>
           <Tap text={'for team picture'}/>
-          </p>
+          </span>
           </Tooltip>
           </>
         },
@@ -71,7 +71,7 @@ const Resume = () => {
             <br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff5112'>Grafana</Tag></p>
             </>
           }>
-          <p>Junior Web GIS Developer @ Omikron S.A.<br/><Tap text={'for projects'}/></p>
+          <span>Junior Web GIS Developer @ Omikron S.A.<br/><Tap text={'for projects'}/></span>
           </Tooltip>
           </>
         },
@@ -89,10 +89,15 @@ const Resume = () => {
 
       </Timeline>
       <Divider />
-      <h1>Academic Experience</h1>
+      <h1>Academic Experiences</h1>
       <Timeline className='fade-in-left' mode='left' items={[
         {
-          label: <b> June 2025</b>,
+          label: <b> August 2025</b>,
+          color: 'blue',
+          children: <p>Started studying <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems @ KTH in Stockholm, Sweden. </a></p>,
+        },
+        {
+          label: <b> May 2025</b>,
           color: 'green',
           children: <p>Expected Graduation</p>,
         },
@@ -113,7 +118,7 @@ const Resume = () => {
             <br />● Virtual multi-server configuration to provide e-learning services<br/><Tag color='magenta'>Linux</Tag><Tag color='orange'>Networking</Tag><Tag color='cyan'>Virtualization</Tag></p>
             </>
           }>
-          <p> Started studying Computing & Application Development @ NYC Thessaloniki<br/><Tap text={'for projects'}/></p>
+          <span> Started studying Computing & Application Development @ NYC Thessaloniki<br/><Tap text={'for projects'}/></span>
           </Tooltip>
           </>
         },
@@ -132,7 +137,7 @@ const Resume = () => {
                   <p>❌ <b>Did not enjoy subjects:</b><br />● Electric Circuits<br />● Electrical Materials<br />● Electromagnetic Field<br />●  Thermodynamics etc.</p>
                 </>
               }>
-                <p>Started studying Electrical and Computer Engineering @ AUTh<br /><Tap text={'for details'} /></p>
+                <span>Started studying Electrical and Computer Engineering @ AUTh<br /><Tap text={'for details'} /></span>
               </Tooltip>
             </>
           ),
@@ -149,7 +154,7 @@ const Resume = () => {
                   <Image preview={false} src={graduation} />
                 </>
               }>
-                <p><b></b>Graduated from Aristoteleio High School<br /><Tap text={'for picture'} /></p>
+                <span><b></b>Graduated from Aristoteleio High School<br /><Tap text={'for picture'} /></span>
               </Tooltip>
             </>
           ),
