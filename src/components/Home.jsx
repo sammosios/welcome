@@ -15,9 +15,9 @@ function Home({setCurrentPage, image}) {
         </div>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <p className='home-subtitle'>Welcome! I am Sam, and you can explore this website to find out about me. <br/><br/>
-        As an aspiring software developer, I am keen on expanding my knowledge and expertise in various disciplines of modern development.<br/>
+        As an aspiring software engineer, I am keen on expanding my knowledge and expertise in various disciplines of modern development.<br/>
         <Avatar src={logo} size={'large'}/><br/>
-        Press <span style={{color:'#1677ff', cursor:'pointer'}} onClick={() => setCurrentPage('Tech profile')}>here</span> to check out my tech profile, or <span style={{color:'#1677ff', cursor:'pointer'}} onClick={() => setCurrentPage('Experience')}>here</span> if you want to see my career history so far.
+        Feel free to check out my <span style={{ color: '#1677ff', cursor: 'pointer' }} onClick={() => setCurrentPage('Tech profile')}><u>my technical profile</u></span> to see the tools and technologies I work with, or explore <span style={{ color: '#1677ff', cursor: 'pointer' }} onClick={() => setCurrentPage('Experience')}><u>my career history</u></span> to learn about my experience so far.
         </p>
         </div>
     </div> 

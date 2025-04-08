@@ -1,5 +1,5 @@
 import './main.css';
-import Reactnpm from 'react';
+import packageJson from '../package.json';
 import { useState, useEffect } from 'react';
 import { Layout, Menu, Divider, FloatButton, Image } from 'antd';
 import Home from './components/Home';
@@ -7,7 +7,7 @@ import TechProfile from './components/TechProfile';
 import Resume from './components/Resume'; // Import the Resume component
 import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import SplashScreen from './components/Splash';
-import homeImage from './assets/bike.jpg'
+import homeImage from './assets/bike.jpg';
 
 const { Content, Sider } = Layout;
 
@@ -20,10 +20,11 @@ function App() {
   
   
   const image = <Image src={homeImage} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}} />
-  
+
   const handleClickOutsideMenu = (event) => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
+      setIsFloatMenuOpen(true);
     }
   };
 
@@ -47,8 +48,6 @@ function App() {
   
     return () => clearTimeout(timeout); // cleanup
   }, []);
-  
-  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -109,7 +108,7 @@ function App() {
               <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' rel="noreferrer" href='https://www.github.com/samismos'>Github</a></Menu.Item>
               <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr' rel="noreferrer">Email</a></Menu.Item>
               <Menu.Item key={'divider_2'} disabled style={{ cursor: 'default' }}><Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} /></Menu.Item>
-              <Menu.Item key={'attribute'} disabled style={{ cursor: 'default' }}>Site by Sam Mosios</Menu.Item>
+              <Menu.Item key={'attribute'} disabled style={{ cursor: 'default' }}>Sam Mosios • v{packageJson.version}</Menu.Item>
             </Menu>
           </Sider>
           {/* Content */}
