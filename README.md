@@ -6,7 +6,7 @@ Welcome to my online portfolio! This portfolio showcases my skills, projects, an
 
 - **Clean, Modern UI**: A responsive design that looks great on all devices.
 - **Project Showcase**: Explore various projects I've worked on, in academic and professional settings, from web apps to MLOps pipelines.
-- **CI/CD Pipeline**: Automatically deployed to GitHub Pages using **GitHub Actions**, ensuring up-to-date content.
+- **CI/CD Pipeline**: Automatically deployed to GitHub Pages, ensuring up-to-date content.
 
 ## 🛠 Tech Stack
 

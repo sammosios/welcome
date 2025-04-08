@@ -108,7 +108,9 @@ function App() {
               <Menu.Item key={'github'} icon={<GithubFilled />}><a target='_blank' rel="noreferrer" href='https://www.github.com/samismos'>Github</a></Menu.Item>
               <Menu.Item key={'email'} icon={<MailFilled />}><a href='mailto:samismos@yahoo.gr' rel="noreferrer">Email</a></Menu.Item>
               <Menu.Item key={'divider_2'} disabled style={{ cursor: 'default' }}><Divider style={{ borderColor: 'rgba(255, 255, 255, 0.65)' }} /></Menu.Item>
-              <Menu.Item key={'attribute'} disabled style={{ cursor: 'default' }}>Sam Mosios • v{packageJson.version}</Menu.Item>
+              <Menu.Item key={'attribute'} style={{ cursor: 'default' }}>
+                <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>
+              </Menu.Item>
             </Menu>
           </Sider>
           {/* Content */}
