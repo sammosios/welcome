@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "@xyflow/react": "^12.5.5",
     "antd": "^5.24.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
