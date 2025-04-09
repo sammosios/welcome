@@ -6,7 +6,7 @@ import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume';
 import BScDissertation from './components/BScDissertation';
-import { GithubFilled, LinkedinFilled, MailFilled, FileDoneOutlined, CodeOutlined, UserOutlined, InfoCircleOutlined, ProfileOutlined, FilePdfOutlined } from '@ant-design/icons';
+import { GithubFilled, LinkedinFilled, MailFilled, CodeOutlined, UserOutlined, InfoCircleOutlined, ProfileOutlined, FilePdfOutlined } from '@ant-design/icons';
 import SplashScreen from './components/Splash';
 import homeImage from './assets/bike.jpg';
 
