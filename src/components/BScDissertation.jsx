@@ -141,6 +141,13 @@ function BScDissertation() {
               style: { stroke: '#1D4ED8', strokeWidth: 2 }, // nice green
               animated: true,
             }}
+            onInit={(instance) => {
+              setTimeout(() => {
+                instance.fitView({
+                  maxZoom: 3,
+                });
+              }, 0);
+            }}
           >
             <Controls />
             {/* <MiniMap /> */}
