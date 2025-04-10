@@ -21,6 +21,22 @@ import evaluation from '../assets/dissertation/evaluation.png';
 function BScDissertation() {
 
   const [activeTab, setActiveTab] = useState('document');
+  const isMobile = window.innerWidth < 768;
+
+  const tabs = [
+    {
+      forceRender: true,
+      key: 'document',
+      label: isMobile ? null : 'Document',
+      icon: <FilePdfOutlined />,
+    },
+    {
+      forceRender: true,
+      key: 'flow',
+      label: isMobile ? null : `System Architecture Diagram`,
+      icon: <ApartmentOutlined />,
+    },
+  ]
 
   const initialNodes = [
     // The order of the elements matters!!! Put groups first.
@@ -65,7 +81,7 @@ function BScDissertation() {
       // expandParent: true,
     },
     { id: '1', sourcePosition:'top', position: { x: 10, y: 150 }, data: { label: <><BranchesOutlined /><br/>Local Git Repository</> }, parentId: 'host', extent: 'parent', },
-    { id: '2', sourcePosition:'right', targetPosition:'bottom', position: { x: 60, y: 100 }, data: { label: <><GithubOutlined /><br/>GitHub Repository</> } },
+    { id: '2', sourcePosition:'right', targetPosition:'bottom', position: { x: 60, y: 100 }, data: { label: <><a target='_blank' rel="noreferrer" href='https://github.com/samismos/traffic-accidents-mlops'><GithubOutlined /><br/>GitHub Repository</a></> } },
     { id: '3', targetPosition:'left', position: { x: 250, y: 100 }, data: { label: <><img src={gha} width={15} height={15} alt="GitHub Actions"/><br/>GitHub Actions</> } },
     { id: '4', position: { x: 250, y: 180 }, data: { label: <><img src={k8sjob} width={15} height={15} alt="Updated Kubernetes Job"/><br/>Updated Job</> } },
     { id: '5', sourcePosition:'right', position: { x: 200, y: 150 }, data: { label: <><img src={runners} width={15} height={15} alt="Self-Hosted Runners"/><br/>Self-Hosted Runners</>}, parentId: 'host', extent: 'parent', },
@@ -98,20 +114,6 @@ function BScDissertation() {
     [setEdges],
   );
 
-  const tabs = [
-    {
-      forceRender: true,
-      key: 'document',
-      label: `Document`,
-      icon: <FilePdfOutlined />,
-    },
-    {
-      forceRender: true,
-      key: 'flow',
-      label: `System Architecture Diagram`,
-      icon: <ApartmentOutlined />,
-    },
-  ]
 
   return (
     <>
@@ -121,7 +123,7 @@ function BScDissertation() {
         alignItems: 'center',
         justifyContent: 'center', 
         width: '100%', 
-        height: '90%'
+        height: '90%',
       }}>
         <Tabs
           onChange={(key) => setActiveTab(key)}
