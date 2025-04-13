@@ -29,6 +29,13 @@ h1, h3 {
     animation: fadeUp 0.8s ease forwards;
 }
 
+.home-subtitle span, 
+.home-subtitle span u {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
 @keyframes fadeUp {
     from {
         opacity: 0;
