@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar } from 'antd';
-import './components.css';
 import './Home.css';
 import logo from '../assets/logo-transparent-small.png';
 
