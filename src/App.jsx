@@ -134,12 +134,12 @@ function App() {
               {
                 key: 'github',
                 icon: <GithubFilled />,
-                label: <a target="_blank" rel="noreferrer" href="https://www.github.com/samismos">Github</a>,
+                label: <a target="_blank" rel="noreferrer" href="https://www.github.com/sammosios">Github</a>,
               },
               {
                 key: 'email',
                 icon: <MailFilled />,
-                label: <a href="mailto:samismos@yahoo.gr" rel="noreferrer">Email</a>,
+                label: <a href="mailto:sam.mosios@gmail.com" rel="noreferrer">Email</a>,
               },
               {
                   key: 'divider_2',
@@ -150,7 +150,7 @@ function App() {
               {
                 key: 'attribute',
                 style: { cursor: 'default' },
-                label: <a target='_blank' rel='noreferrer' href='https://github.com/samismos/welcome'>Sam Mosios • v{packageJson.version}</a>,
+                label: <a target='_blank' rel='noreferrer' href='https://github.com/sammosios/welcome'>Sam Mosios • v{packageJson.version}</a>,
               },
             ]}
           />
