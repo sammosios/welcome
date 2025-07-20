@@ -20,54 +20,45 @@ const Resume = () => {
           children: <p>&nbsp;</p>,
         },
         {
-          label: <b>January 2025<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
+          label: <b>July 2024 - July 2025<br/><i style={{ fontWeight: 'lighter'}}>1 year, 1 month</i></b>,
           children: <>
           <Tooltip title={
-            <>
-            <p>🛠️ <b>SRE Tasks:</b>
-            <br />● Improved reusability of CI/CD pipelines with GitHub Actions
-            <br/><Tag color='#0394fc'>Github Actions</Tag><Tag color='#7028f7'>Terraform</Tag> 
-            <br />● Streamlined deployment automation and ensured consistency across Kubernetes clusters by implementing GitOps with Flux CD
-            <br/><Tag color='#ff5112'>Git</Tag><Tag color='navy'>Flux</Tag><Tag color='#3970e4'>Kubernetes</Tag>
-            <br />● Automated the efficient decomissioning of unused infrastructure, saving substantial cloud costs
-            <br/><Tag color='#919191'>Bash</Tag><Tag color='#ff9900'>AWS</Tag>
-            </p>
-            </>
+            <div style={{ display: 'flex', gap: '1.5rem' }}>
+              <div>
+                <p>Started as an intern and was quickly promoted to a full-time SRE role. My mission included:<br/>
+                <br />● <b>Boosting CI/CD reusability</b> with GitHub Actions and Terraform.
+                <br/><Tag color='#0394fc'>Github Actions</Tag><Tag color='#7028f7'>Terraform</Tag> 
+                <br />● <b>Bringing order to Kubernetes deployments</b> using the magic of GitOps with Flux CD.
+                <br/><Tag color='#ff5112'>Git</Tag><Tag color='navy'>Flux</Tag><Tag color='#3970e4'>Kubernetes</Tag>
+                <br />● <b>Becoming a cloud cost-saving hero</b> by automating infrastructure cleanup.
+                <br/><Tag color='#919191'>Bash</Tag><Tag color='#ff9900'>AWS</Tag>
+                </p>
+              </div>
+              {/* <div>
+                <p><b>🎅 Team Christmas Event</b><br />December 11th, 2024</p>
+                <Image preview={false} src={team} />
+              </div> */}
+            </div>
           }>
-          <span>Associate Site Reliability Engineer @ Pfizer<br/><Tap text={'for SRE tasks'}/></span>
+            <span>Site Reliability Engineer @ Pfizer<br/><Tap text={'for details'}/></span>
           </Tooltip>
           </>
         },
+        
         {
-          label: <b>July 2024 - December 2024<br/><i style={{ fontWeight: 'lighter'}}>(6 months)</i></b>,
-          children: <>
-          
-          <Tooltip title={
-                <>
-                  <p><b>🎅 Team Christmas Event</b><br />December 11th, 2024</p>
-                  <Image preview={false} src={team} />
-                </>
-              }>
-          <span>Intern Site Reliability Engineer @ Pfizer<br/>
-          <Tap text={'for team picture'}/>
-          </span>
-          </Tooltip>
-          </>
-        },
-        {
-          label: <b>June 2023 - May 2024<br/><i style={{ fontWeight: 'lighter'}}>(11 months)</i></b>,
+          label: <b>June 2023 - May 2024<br/><i style={{ fontWeight: 'lighter'}}>11 months</i></b>,
           color: 'green',
           children: <>
           <Tooltip title={
             <>
-            <p>🛠️ <b>Development Projects:</b>
-            <br />● Developed end-to-end comprehensive Web GIS applications
+            <p>My quest here involved:<br/>
+            <br />● <b>Crafting full-scale Web GIS applications</b> from scratch.
             <br/><Tag color='navy'>React.js</Tag><Tag color='darkgreen'>GeoServer</Tag> 
-            <br />● Implemented Google Maps data mining application
+            <br />● <b>Building a data miner</b> to unearth treasures from Google Maps.
             <br/><Tag color='#800080'>C# .NET</Tag><Tag color='#39d439'>Selenium</Tag>
-            <br />● Deployed a pre-trained ML model to cloud infrastructure
+            <br />● <b>Launching a machine learning model</b> into the cloud with AWS and Docker.
             <br/><Tag color='#FF9900'>AWS EC2</Tag><Tag color='#0db7ed'>Docker</Tag>
-            <br />● Monitored and maintained dedicated/cloud server infrastructure
+            <br />● <b>Keeping the server lights on</b> and the infrastructure humming with Linux and Grafana.
             <br/><Tag color='fuchsia'>Linux</Tag><Tag color='#ff5112'>Grafana</Tag></p>
             </>
           }>
@@ -92,19 +83,21 @@ const Resume = () => {
       <h1>Academic Experiences</h1>
       <Timeline className='fade-in-left' mode='left' items={[
         {
+          label: <b>Today</b>,
+          color: 'purple',
+          children: <p>&nbsp;</p>,
+        },
+        {
           label: <b> August 2025</b>,
           color: 'blue',
-          children: <p>Will begin studying <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems @ KTH in Stockholm, Sweden</a></p>,
+          children: <p>Began my <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>KTH</a> journey in Stockholm, Sweden
+          <br/><i>MSc in Software Engineering of Distributed Systems</i>
+          </p>,
         },
         {
           label: <b> May 2025</b>,
           color: 'green',
-          children: <p>Expected Graduation</p>,
-        },
-        {
-          label: <b>Today</b>,
-          color: 'purple',
-          children: <p>&nbsp;</p>,
+          children: <p>Graduated with First-Class Honours! 🎓<br/><i>Average: 84.3%</i></p>,
         },
         {
           label: <b>September 2022</b>,
@@ -125,19 +118,17 @@ const Resume = () => {
         {
           label: <b> April 2022</b>,
           color: 'red',
-          children: <p>Left Electrical and Computer Engineering @ AUTh </p>
-        },
-        {
-          label: <b>September 2019</b>,
           children: (
             <>
               <Tooltip title={
                 <>
-                  <p>✅ <b>Enjoyed subjects</b>: <br />● Structured Programming<br />● Object-Oriented Programming<br />● Data Structures & Algorithms<br />● Computer Architecture etc.</p>
-                  <p>❌ <b>Did not enjoy subjects:</b><br />● Electric Circuits<br />● Electrical Materials<br />● Electromagnetic Field<br />●  Thermodynamics etc.</p>
+                  <p><i>After exploring subjects from circuits to structured programming, I realized my true passion was in building software, not hardware. This led me to fully embrace the world of code.</i></p>
+                  <p>✅ <b>Enjoyed subjects</b>: <br />● Structured & Object-Oriented Programming<br />● Data Structures & Algorithms</p>
+                  <p>❌ <b>Did not enjoy subjects:</b><br />● Electric Circuits & Materials<br />● Electromagnetic Fields</p>
                 </>
               }>
-                <span>Started studying Electrical and Computer Engineering @ AUTh<br /><Tap text={'for details'} /></span>
+                <span>Pivoted from Electrical to Computer Engineering<br />
+                <Tap text={'for details'} /></span>
               </Tooltip>
             </>
           ),

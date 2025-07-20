@@ -156,7 +156,7 @@ function BScDissertation() {
         )}
         {activeTab === 'document' && (
           <embed
-            src="/welcome/Samouil_Mosios_BSc_Dissertation.pdf"
+            src="Samouil_Mosios_BSc_Dissertation.pdf"
             type="application/pdf"
             scrolling="auto"
             height='100%'
