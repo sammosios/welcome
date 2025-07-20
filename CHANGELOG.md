@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/sammosios/welcome/compare/v1.4.5...v1.5.0) (2025-07-20)
+
+
+### Features
+
+* Upgrades CI to use GHA instead of source branch ([b7d5393](https://github.com/sammosios/welcome/commit/b7d5393d7b119c63d5609016ce5c824cb781c64b))
+
 # [1.6.0](https://github.com/sammosios/welcome/compare/v1.5.1...v1.6.0) (2025-07-20)
 
 
