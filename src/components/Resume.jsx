@@ -20,7 +20,7 @@ const Resume = () => {
           children: <p>&nbsp;</p>,
         },
         {
-          label: <b>January 2025<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
+          label: <b>January 2025 - July 2025<br/><i style={{ fontWeight: 'lighter'}}></i></b>,
           children: <>
           <Tooltip title={
             <>
@@ -92,19 +92,19 @@ const Resume = () => {
       <h1>Academic Experiences</h1>
       <Timeline className='fade-in-left' mode='left' items={[
         {
+          label: <b>Today</b>,
+          color: 'purple',
+          children: <p>&nbsp;</p>,
+        },
+        {
           label: <b> August 2025</b>,
           color: 'blue',
-          children: <p>Will begin studying <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems @ KTH in Stockholm, Sweden</a></p>,
+          children: <p>Began my <a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>KTH</a> journey in Stockholm, Sweden</p>,
         },
         {
           label: <b> May 2025</b>,
           color: 'green',
-          children: <p>Expected Graduation</p>,
-        },
-        {
-          label: <b>Today</b>,
-          color: 'purple',
-          children: <p>&nbsp;</p>,
+          children: <p>BSc (Hons) Complete!</p>,
         },
         {
           label: <b>September 2022</b>,
