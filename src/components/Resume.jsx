@@ -1,18 +1,21 @@
 import { Divider, Timeline, Tooltip, Image, Tag } from 'antd';
 import './resume.css';
-import tap from '../assets/tap-large.png';
+// import tapLight from '../assets/tap-large.png';
+// import tapDark from '../assets/tap-large-white.png';
 import graduation from '../assets/carousel/graduation.png';
 // import team from '../assets/carousel/pfizer-sre-team.jpg';
 
 const Tap = ({ text }) => {
-  return <i><Image style={{ width: '24px', height: '24px' }} preview={false} src={tap} /> {text}</i>
+  // const tap = document.documentElement.getAttribute('data-theme') == 'dark' ? tapDark : tapLight;
+  // return <i><Image style={{ width: '24px', height: '24px' }} preview={false} src={tap} /> {text}</i>
+  return <i>Hover or Tap {text}</i>
 }
 
 const Resume = () => {
 
   return (
     <div>
-      <h1>Professional Experiences</h1>
+      <h1>Professional Experience</h1>
       <Timeline className='fade-in-right' mode='right' items={[
         {
           label: <b>Today</b>,
@@ -80,7 +83,7 @@ const Resume = () => {
 
       </Timeline>
       <Divider />
-      <h1>Academic Experiences</h1>
+      <h1>Academic Experience</h1>
       <Timeline className='fade-in-left' mode='left' items={[
         {
           label: <b>Today</b>,

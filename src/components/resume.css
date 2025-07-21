@@ -1,6 +1,7 @@
 p, b, span {
     font-family: 'Montserrat', sans-serif;
     font-size: medium;
+    color: inherit;
 }
 
 
@@ -35,3 +36,6 @@ p, b, span {
     }
   }
 
+.ant-timeline-item-tail {
+  background-color: var(--text-color-light);
+}
