@@ -1,5 +1,4 @@
-
-  .App {
+.App {
     text-align: center;
     min-height: 100vh;
     display: flex;
@@ -94,6 +93,11 @@
   
   .mobile-menu-button button {
     color: var(--text-color)
+  }
+  
+  /* Prevent hover background on Sider hamburger trigger */
+  .ant-layout-sider .ant-layout-sider-zero-width-trigger:hover::after {
+      background: transparent !important;
   }
   
   .secret-image {
