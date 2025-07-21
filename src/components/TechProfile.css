@@ -29,3 +29,7 @@ h1, h3 {
       transform: translateY(0);
     }
   }
+
+.ant-tabs-tab-btn {
+  color: var(--text-color);
+}
