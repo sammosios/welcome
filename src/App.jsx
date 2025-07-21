@@ -22,7 +22,7 @@ function App() {
   
   const image = <Image src={homeImage} preview={false} style={{ maxHeight:'50vh', borderRadius:'50%'}} />
 
-  const handleClickOutsideMenu = (event) => {
+  const handleClickOutsideMenu = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
       setIsFloatMenuOpen(true);

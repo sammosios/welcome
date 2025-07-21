@@ -2,7 +2,7 @@ import { Divider, Timeline, Tooltip, Image, Tag } from 'antd';
 import './resume.css';
 import tap from '../assets/tap-large.png';
 import graduation from '../assets/carousel/graduation.png';
-import team from '../assets/carousel/pfizer-sre-team.jpg';
+// import team from '../assets/carousel/pfizer-sre-team.jpg';
 
 const Tap = ({ text }) => {
   return <i><Image style={{ width: '24px', height: '24px' }} preview={false} src={tap} /> {text}</i>
