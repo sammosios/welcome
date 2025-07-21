@@ -99,6 +99,10 @@
   .ant-layout-sider .ant-layout-sider-zero-width-trigger:hover::after {
       background: transparent !important;
   }
+
+  .ant-timeline-item-content, .ant-timeline-item-label{
+    color: var(--text-color);
+  }
   
   .secret-image {
     animation: rotation 4s infinite linear;

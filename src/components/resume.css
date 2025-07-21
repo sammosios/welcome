@@ -36,3 +36,6 @@ p, b, span {
     }
   }
 
+.ant-timeline-item-tail {
+  background-color: var(--text-color-light);
+}
