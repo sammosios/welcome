@@ -2,7 +2,7 @@ import React from 'react';
 import './Splash.css'; // Import your CSS file for styling
 import Typewriter from './Typewriter';
 
-const SplashScreen = ({ onFadeOut }) => {
+const SplashScreen = () => {
   
   return (
     <div className="splash-screen">

@@ -106,6 +106,7 @@ function BScDissertation() {
     { id: 'e10-8', source: '10', target: '8' },
   ];
 
+  // eslint-disable-next-line no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
