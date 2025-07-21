@@ -1,7 +1,4 @@
-:root {
-    --primary-color: rgb(39, 17, 165); /* Define the primary color variable */
-  }
-  
+
   .App {
     text-align: center;
     min-height: 100vh;
@@ -24,36 +21,39 @@
   }
   
   body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .breadcrumb{
-  font-size: large;
-  
-  }
-  .Content{
-   padding-inline:3%;
-   background-color:rgba(102, 47, 197, 0.304);
-  }
-  
-  .Topbar {
-    background-color: #e8e8e8;
-    /* max-height: auto; */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    font-size: calc(10px + 2vmin);
-    color: rgb(15, 15, 15);
-    padding-inline: 30px;
-    color: black;
-    font-size: xx-large;
-    font-weight: bold;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.Content {
+  padding-inline: 3%;
+}
+
+.Topbar {
+  background-color: var(--topbar-background-color);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: var(--topbar-text-color);
+  padding-inline: 30px;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.desktop-menu .ant-menu-item > a {
+  color: var(--text-color);
+}
+
+.mobile-menu-button button {
+  color: var(--text-color);
+}
   
   
   @keyframes App-logo-spin {
@@ -73,7 +73,7 @@
   }
   
   .desktop-menu .ant-menu {
-    background-color: transparent;
+    background-color: var(--background-color)
   }
   
   .desktop-menu .ant-menu-item {
@@ -85,7 +85,7 @@
   }
   
   .desktop-menu .ant-menu-item > a {
-    color: #333;
+    color: var(--text-color)
   }
   
   .mobile-menu-button {
@@ -93,7 +93,7 @@
   }
   
   .mobile-menu-button button {
-    color: #333;
+    color: var(--text-color)
   }
   
   .secret-image {

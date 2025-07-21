@@ -1,3 +1,4 @@
+
 .main-title {
   font-size: xx-large;
   font-family: "Montserrat", sans-serif;
@@ -11,7 +12,6 @@ h1, h3 {
 
 .image-fade-in {
   animation: fadeUp 0.8s ease forwards;
-  /* Apply the fadeIn animation with a duration of 1 second and ease-in-out timing function */
 }
 
 @media screen and (min-width: 768px) {
@@ -20,14 +20,13 @@ h1, h3 {
   }
 }
 
-
 .home-subtitle {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  /* You can specify font weight if needed */
   font-size: large;
   animation: fadeUp 0.8s ease forwards;
 }
+
 
 @keyframes fadeUp {
   from {

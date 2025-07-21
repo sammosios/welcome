@@ -1,6 +1,7 @@
 p, b, span {
     font-family: 'Montserrat', sans-serif;
     font-size: medium;
+    color: inherit;
 }
 
 

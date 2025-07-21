@@ -8,6 +8,7 @@ import Resume from './components/Resume';
 import BScDissertation from './components/BScDissertation';
 import { GithubFilled, LinkedinFilled, MailFilled, CodeOutlined, UserOutlined, InfoCircleOutlined, ProfileOutlined, FilePdfOutlined } from '@ant-design/icons';
 import SplashScreen from './components/Splash';
+import ThemeSwitcher from './components/ThemeSwitcher';
 import homeImage from './assets/bike.jpg';
 
 const { Content, Sider } = Layout;
@@ -68,7 +69,7 @@ function App() {
   }));
 
   const handlePageChange = (page) => {
-    (page !== "linkedin" && page !== "github" && page !== "email" && page !== "divider_1" && page !== "divider_2" && page !== "attribute")
+    (page !== "linkedin" && page !== "github" && page !== "email" && page !== "divider_1" && page !== "divider_2" && page !== "attribute" && page !== "theme_switcher")
       ? setCurrentPage(page) : console.log();
   }
 
@@ -105,6 +106,7 @@ function App() {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }
             }}
+            theme={getComputedStyle(document.documentElement).getPropertyValue('--menu-theme').trim() || 'light'}
           >
             <Menu
             theme="dark"
@@ -148,6 +150,10 @@ function App() {
                   disabled: true,
               },
               {
+                key: 'theme_switcher',
+                label: <ThemeSwitcher />,
+              },
+              {
                 key: 'attribute',
                 style: { cursor: 'default' },
                 label: <a target='_blank' rel='noreferrer' href='https://github.com/sammosios/welcome'>Sam Mosios • v{packageJson.version}</a>,
@@ -156,8 +162,8 @@ function App() {
           />
           </Sider>
           {/* Content */}
-          <Layout className="site-layout">
-            <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
+          <Layout className="site-layout" style={{ backgroundColor: 'var(--background-color)' }}>
+            <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280, color: 'var(--text-color)' }}>
               {renderComponent()}
             </Content>
             <FloatButton.Group trigger='click' open={isFloatMenuOpen} onClick={() => setIsFloatMenuOpen(!isFloatMenuOpen)} icon={<InfoCircleOutlined />}>
