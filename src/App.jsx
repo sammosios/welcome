@@ -151,7 +151,7 @@ function App() {
               },
               {
                 key: 'theme_switcher',
-                label: <ThemeSwitcher />,
+                label: <span style={{ color: 'var(--text-color)' }}><ThemeSwitcher /></span>,
               },
               {
                 key: 'attribute',

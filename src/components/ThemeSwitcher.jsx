@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Switch } from 'antd';
 
 const ThemeSwitcher = () => {
   const getInitialTheme = () => {
@@ -17,14 +18,17 @@ const ThemeSwitcher = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  const handleToggle = (checked) => {
+    setTheme(checked ? 'dark' : 'light');
   };
 
   return (
-    <button onClick={toggleTheme}>
-      Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-    </button>
+    <Switch
+      checked={theme === 'dark'}
+      onChange={handleToggle}
+      checkedChildren="Dark"
+      unCheckedChildren="Light"
+    />
   );
 };
 
