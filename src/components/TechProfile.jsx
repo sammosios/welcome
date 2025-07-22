@@ -218,7 +218,7 @@ const TechProfile = () => {
         
         <br /><a target='_blank' href='https://www.kth.se/en/studies/master/software-engineering-distributed-systems/msc-software-engineering-of-distributed-systems-1.8661'>Software Engineering of Distributed Systems at KTH in Stockholm, Sweden. </a>
         
-        <br /><br />My work focuses on DevOps/S.R.E. practices, and I am always looking to push the boundaries of scalability, automation, and reliability.
+        <br /><br />My work focuses on DevOps/S.R.E. practices, and I am always looking to push t§ boundaries of scalability, automation, and reliability.
           <br /><br /><b>You can take a look at my tech stack in the tabs below.</b>
         </p>
       </div>
