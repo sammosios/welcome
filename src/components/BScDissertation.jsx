@@ -17,6 +17,7 @@ import dataset from '../assets/dissertation/dataset.png';
 import artifacts from '../assets/dissertation/artifacts.svg';
 import model from '../assets/dissertation/model.png';
 import evaluation from '../assets/dissertation/evaluation.png';
+import './BScDissertation.css';
 
 function BScDissertation() {
 
@@ -46,7 +47,7 @@ function BScDissertation() {
       data: { label: 'Host Machine' },
       position: { x: 50, y: 250 },
       style: {
-        // backgroundColor: '#e8e1fa',
+        // backgroundColor: 'var(--secondary-color)',
         width: 900,
         height: 260,
       },
@@ -58,7 +59,7 @@ function BScDissertation() {
       data: { label: 'Cluster' },
       position: { x: 370, y: 30 },
       style: {
-        // backgroundColor: '#e8e1fa',
+        // backgroundColor: 'var(--secondary-color)',
         width: 530,
         height: 200,
       },
@@ -72,7 +73,7 @@ function BScDissertation() {
       data: { label: 'S3 Compatible Storage' },
       position: { x: 15, y: 20 },
       style: {
-        // backgroundColor: '#e8e1fa',
+        // backgroundColor: 'var(--secondary-color)',
         width: 510,
         height: 80,
       },
@@ -139,7 +140,7 @@ function BScDissertation() {
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
             defaultEdgeOptions={{
-              style: { stroke: '#1D4ED8', strokeWidth: 2 }, // nice green
+              style: { stroke: 'var(--primary-color)', strokeWidth: 2 },
               animated: true,
             }}
             onInit={(instance) => {

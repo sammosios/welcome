@@ -1,52 +1,22 @@
-
-.main-title {
-  font-size: xx-large;
-  font-family: "Montserrat", sans-serif;
-  animation: fadeUp 0.8s ease forwards;
+.react-flow__node-default,
+.react-flow__node-input,
+.react-flow__node-output {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--button-border-color);
 }
 
-h1, h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+.react-flow__controls-button {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-.image-fade-in {
-  animation: fadeUp 0.8s ease forwards;
+.react-flow__controls-button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
 }
 
-@media screen and (min-width: 768px) {
-  .home-subtitle {
-      max-width: 800px;
-  }
-}
-
-.home-subtitle {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: large;
-  animation: fadeUp 0.8s ease forwards;
-}
-
-
-@keyframes fadeUp {
-  from {
-      opacity: 0;
-      transform: translateY(40px);
-  }
-
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-
-  to {
-      opacity: 1;
-  }
+.react-flow__edge-interaction {
+  stroke: var(--primary-color);
+  stroke-width: 2;
 }
