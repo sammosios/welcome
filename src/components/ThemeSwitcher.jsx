@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Switch } from 'antd';
+import { SunOutlined, MoonOutlined } from '@ant-design/icons';
 
 const ThemeSwitcher = () => {
   const getInitialTheme = () => {
@@ -26,8 +27,8 @@ const ThemeSwitcher = () => {
     <Switch
       checked={theme === 'dark'}
       onChange={handleToggle}
-      checkedChildren="Dark"
-      unCheckedChildren="Light"
+      checkedChildren=<SunOutlined />
+      unCheckedChildren=<MoonOutlined />      
     />
   );
 };
