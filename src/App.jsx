@@ -1,7 +1,7 @@
 import './main.css';
 import packageJson from '../package.json';
 import { useState, useEffect } from 'react';
-import { Layout, Menu, Divider, FloatButton, Image } from 'antd';
+import { Layout, Menu, Divider, Image } from 'antd';
 import Home from './components/Home';
 import TechProfile from './components/TechProfile';
 import Resume from './components/Resume';
@@ -17,7 +17,6 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [currentPage, setCurrentPage] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isFloatMenuOpen, setIsFloatMenuOpen] = useState(false);
   const [selectedKey, setSelectedKey] = useState();
   
   
@@ -26,7 +25,6 @@ function App() {
   const handleClickOutsideMenu = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
-      setIsFloatMenuOpen(true);
     }
   };
 
@@ -43,8 +41,6 @@ function App() {
     const timeout = setTimeout(() => {
       if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(true);
-      } else {
-        setIsFloatMenuOpen(true);
       }
     }, 3500);
   
@@ -166,12 +162,6 @@ function App() {
             <Content onClick={handleClickOutsideMenu} style={{ margin: '24px 16px', padding: 24, minHeight: 280, color: 'var(--text-color)' }}>
               {renderComponent()}
             </Content>
-            <FloatButton.Group trigger='click' open={isFloatMenuOpen} onClick={() => setIsFloatMenuOpen(!isFloatMenuOpen)} icon={<InfoCircleOutlined />}>
-              <FloatButton icon={<UserOutlined />} tooltip={"Home"} onClick={() => setCurrentPage('Home')}></FloatButton>
-              <FloatButton icon={<CodeOutlined />} tooltip={"Tech profile"} onClick={() => setCurrentPage('Tech profile')}></FloatButton>
-              <FloatButton icon={<ProfileOutlined />} tooltip={"Experience"} onClick={() => setCurrentPage('Experience')}></FloatButton>
-              <FloatButton icon={<FilePdfOutlined />} tooltip={"BSc Dissertation"} onClick={() => setCurrentPage('BSc Dissertation')}></FloatButton>
-            </FloatButton.Group>
           </Layout>
         </Layout>
       )}
