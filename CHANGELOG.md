@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/sammosios/welcome/compare/v1.6.1...v1.6.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* Improve dark mode elements ([#19](https://github.com/sammosios/welcome/issues/19)) ([fcbb9c9](https://github.com/sammosios/welcome/commit/fcbb9c95b85c0a23c59b1c32713385fda364c1a5))
+
 ## [1.6.1](https://github.com/sammosios/welcome/compare/v1.6.0...v1.6.1) (2025-07-22)
 
 
