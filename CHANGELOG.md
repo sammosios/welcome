@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/sammosios/welcome/compare/v1.6.0...v1.6.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* Removes floating button ([#16](https://github.com/sammosios/welcome/issues/16)) ([0c4958d](https://github.com/sammosios/welcome/commit/0c4958d889b2ba113869d28464eca09e0319ddfb))
+
 # [1.6.0](https://github.com/sammosios/welcome/compare/v1.5.1...v1.6.0) (2025-07-21)
 
 
