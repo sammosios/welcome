@@ -15,7 +15,6 @@ This portfolio is developed using:
 - **Vite**: A fast development build tool for modern web apps.
 - **React**: JavaScript library for building user interfaces.
 - **GitHub Actions**: Continuous Integration and Continuous Deployment for automating the deployment process.
-- **gh-pages**: For deploying the project to GitHub Pages.
 - **Semantic Versioning**: Automated versioning using **semantic-release** to manage releases and changelogs.
 
 
@@ -37,4 +36,4 @@ To run the project locally:
    ```bash
    npm run dev
    ```
-5. Open your browser and go to `http://localhost:5173/welcome` to view the portfolio.
+5. Open your browser and go to `http://localhost:5173` to view the portfolio.
