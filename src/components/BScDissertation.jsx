@@ -132,40 +132,43 @@ function BScDissertation() {
           style={{ marginBottom: 16 }}
           items={tabs}
         />
-        {activeTab === 'flow' && (
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
-            defaultEdgeOptions={{
-              style: { stroke: 'var(--primary-color)', strokeWidth: 2 },
-              animated: true,
-            }}
-            onInit={(instance) => {
-              setTimeout(() => {
-                instance.fitView({
-                  maxZoom: 3,
-                });
-              }, 0);
-            }}
-          >
-            <Controls />
-            {/* <MiniMap /> */}
-            <Background variant="dots" color="#ccc" gap={12} size={2} />
-          </ReactFlow>
-        )}
-        {activeTab === 'document' && (
-          <embed
-            src="Samouil_Mosios_BSc_Dissertation.pdf"
-            type="application/pdf"
-            scrolling="auto"
-            height='100%'
-            width='90%'
-          >
-          </embed>
-        )}
+        <div style={{ flex: 1, width: '100%', height: '100%' }}>
+          {activeTab === 'flow' && (
+            <ReactFlow
+              nodes={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onConnect={onConnect}
+              defaultEdgeOptions={{
+                style: { stroke: 'var(--primary-color)', strokeWidth: 2 },
+                animated: true,
+              }}
+              onInit={(instance) => {
+                setTimeout(() => {
+                  instance.fitView({
+                    maxZoom: 3,
+                  });
+                }, 0);
+              }}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <Controls />
+              {/* <MiniMap /> */}
+              <Background variant="dots" color="#ccc" gap={12} size={2} />
+            </ReactFlow>
+          )}
+          {activeTab === 'document' && (
+            <embed
+              src="Samouil_Mosios_BSc_Dissertation.pdf"
+              type="application/pdf"
+              scrolling="auto"
+              height='100%'
+              width='90%'
+            >
+            </embed>
+          )}
+        </div>
       </div>
     </>
   );
