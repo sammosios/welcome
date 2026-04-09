@@ -13,6 +13,19 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
     />
+    <script>
+      // Restore path encoded by 404.html redirect
+      ;(function () {
+        var q = window.location.search
+        if (q && q[1] === '/') {
+          var path = q.slice(2).split('&').map(function (s) { return s.replace(/~and~/g, '&') })
+          window.history.replaceState(
+            null, null,
+            path[0] + (path[1] ? '&' + path[1] : '') + window.location.hash
+          )
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
