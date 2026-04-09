@@ -2,7 +2,7 @@ const process = [
   {
     step: '01',
     title: 'Understand',
-    body: 'Before anything else, I want to know how your system actually works: architecture, team size, pain points, and what is already going well. This is not a sales call.',
+    body: 'Before anything else, I want to know how your system actually works: architecture, team size, pain points, and what is already going well.',
     icon: 'search',
     color: 'text-primary',
   },
@@ -16,14 +16,14 @@ const process = [
   {
     step: '03',
     title: 'Propose',
-    body: 'A scoped proposal with clear deliverables, explicit trade-offs, and expected outcomes. No vague retainers. You know exactly what you are getting and what is being deprioritised.',
+    body: 'A scoped proposal with clear deliverables, explicit trade-offs, and expected outcomes. No vague retainers. You know exactly what you are getting and what is being prioritised.',
     icon: 'description',
     color: 'text-primary',
   },
   {
     step: '04',
     title: 'Build',
-    body: 'Work begins. You get working infrastructure, clear documentation, and a handoff. Not a dependency on me being available next time something breaks.',
+    body: 'Work begins. You get working infrastructure, clear documentation, and a clean handoff. I communicate clearly throughout, and the goal is simple: your team should be fully capable of owning this without me.',
     icon: 'rocket_launch',
     color: 'text-secondary',
   },
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: 'What does "understanding first" actually mean in practice?',
-    a: 'It means I do not show up with a pre-written solution. The first thing I do is read the codebase, talk to the team, and understand where the real pain is. Not the pain that looks most dramatic from the outside.',
+    a: 'It means I do not show up with a generic, pre-written solution. The first thing I do is  talk to the team, read the codebase, and understand where the real pain is. Not the pain that looks most dramatic from the outside.',
   },
   {
     q: 'Do you work with a specific cloud provider?',
@@ -104,7 +104,7 @@ export default function ConsultPage() {
         </div>
       </section>
 
-      {/* Contact form */}
+      {/* Contact */}
       <section className="py-24 px-8 md:px-16 bg-surface-container-low">
         <div className="max-w-3xl mx-auto">
           <div className="mb-12">
@@ -114,77 +114,44 @@ export default function ConsultPage() {
             <div className="h-1 w-24 bg-primary" />
           </div>
 
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="font-label text-[10px] text-gray-500 uppercase mb-2 block">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Jane Smith"
-                  className="w-full bg-surface-container border border-outline-variant/30 text-on-surface px-4 py-3 font-label text-sm rounded focus:outline-none focus:border-primary/60 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-label text-[10px] text-gray-500 uppercase mb-2 block">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  placeholder="Acme Corp"
-                  className="w-full bg-surface-container border border-outline-variant/30 text-on-surface px-4 py-3 font-label text-sm rounded focus:outline-none focus:border-primary/60 transition-colors"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="font-label text-[10px] text-gray-500 uppercase mb-2 block">
-                Work Email
-              </label>
-              <input
-                type="email"
-                placeholder="jane@acme.com"
-                className="w-full bg-surface-container border border-outline-variant/30 text-on-surface px-4 py-3 font-label text-sm rounded focus:outline-none focus:border-primary/60 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label className="font-label text-[10px] text-gray-500 uppercase mb-2 block">
-                Current stack / cloud
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. AWS, Kubernetes, Terraform, team of 4 engineers"
-                className="w-full bg-surface-container border border-outline-variant/30 text-on-surface px-4 py-3 font-label text-sm rounded focus:outline-none focus:border-primary/60 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label className="font-label text-[10px] text-gray-500 uppercase mb-2 block">
-                What is the actual problem?
-              </label>
-              <textarea
-                rows={5}
-                placeholder="Describe what is slowing your team down, or what you are worried will break as you grow..."
-                className="w-full bg-surface-container border border-outline-variant/30 text-on-surface px-4 py-3 font-label text-sm rounded focus:outline-none focus:border-primary/60 transition-colors resize-none"
-              />
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#8eff71]" />
-              <span className="font-label text-[10px] text-gray-500 uppercase">
-                Response within 48h // NDA available on request
-              </span>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-primary text-on-primary py-4 font-label font-black text-sm tracking-[0.2em] rounded glow-primary hover:brightness-110 active:scale-[0.99] transition-all"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="mailto:sam.mosios@gmail.com"
+              className="group bg-surface-container border-t-2 border-primary/20 p-8 hover:bg-surface-container-high transition-all"
             >
-              SEND
-            </button>
-          </form>
+              <span className="material-symbols-outlined text-2xl text-primary mb-4 block">
+                mail
+              </span>
+              <div className="font-headline text-xl font-bold mb-2">Send an email</div>
+              <div className="font-label text-xs text-primary mb-6">sam.mosios@gmail.com</div>
+              <div className="font-label text-[10px] text-gray-500 uppercase group-hover:text-primary transition-colors">
+                Compose →
+              </div>
+            </a>
+
+            <a
+              href="https://calendly.com/sam-mosios/60-min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-surface-container border-t-2 border-secondary/20 p-8 hover:bg-surface-container-high transition-all"
+            >
+              <span className="material-symbols-outlined text-2xl text-secondary mb-4 block">
+                calendar_month
+              </span>
+              <div className="font-headline text-xl font-bold mb-2">Book a call</div>
+              <div className="font-label text-xs text-secondary mb-6">60-minute intro session</div>
+              <div className="font-label text-[10px] text-gray-500 uppercase group-hover:text-secondary transition-colors">
+                Open Calendly →
+              </div>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2 mt-8">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#8eff71]" />
+            <span className="font-label text-[10px] text-gray-500 uppercase">
+              Response within 48h
+            </span>
+          </div>
         </div>
       </section>
 

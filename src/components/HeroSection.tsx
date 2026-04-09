@@ -46,7 +46,7 @@ export default function HeroSection() {
           </NavLink>
           <NavLink
             to="/philosophy"
-            className="bg-transparent border border-outline-variant/30 text-on-surface px-8 py-4 font-label font-bold text-sm tracking-widest rounded hover:bg-surface-container transition-all"
+            className="bg-transparent border border-secondary/40 text-secondary px-8 py-4 font-label font-bold text-sm tracking-widest rounded hover:bg-secondary/10 transition-all"
           >
             VIEW PHILOSOPHY
           </NavLink>

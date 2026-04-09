@@ -1,58 +1,106 @@
 import { NavLink } from 'react-router-dom'
+import {
+  siTerraform,
+  siKubernetes,
+  siDocker,
+  siFlux,
+  siGithubactions,
+  siGnubash,
+  siGrafana,
+  siOpentelemetry,
+} from 'simple-icons'
+interface Tool {
+  name: string
+  note: string
+  simpleIcon?: { path: string }
+  materialIcon?: string
+}
+
+function ToolIcon({ tool, colorClass }: { tool: Tool; colorClass: string }) {
+  if (tool.simpleIcon) {
+    return (
+      <svg
+        role="img"
+        viewBox="0 0 24 24"
+        className={`w-5 h-5 mb-3 ${colorClass}`}
+        fill="currentColor"
+      >
+        <path d={tool.simpleIcon.path} />
+      </svg>
+    )
+  }
+  if (tool.materialIcon) {
+    return (
+      <span className={`material-symbols-outlined text-xl mb-3 block ${colorClass}`}>
+        {tool.materialIcon}
+      </span>
+    )
+  }
+  return null
+}
 
 const toolGroups = [
   {
-    pillar: 'Infrastructure & Scalability',
+    pillar: 'Infrastructure as Code',
     icon: 'dns',
     color: 'text-primary',
     border: 'border-primary/20',
-    note: 'I have hands-on experience with Terraform and AWS. The underlying concepts (declarative infra, idempotent provisioning, cloud networking) transfer across providers and tools.',
+    note: 'Declarative infrastructure that can be reviewed, versioned, and reproduced. The concepts transfer across providers: idempotent provisioning, state management, cloud networking.',
     tools: [
-      { name: 'Terraform', note: 'Primary IaC tool' },
-      { name: 'AWS', note: 'Primary cloud provider' },
-      { name: 'Kubernetes', note: 'Container orchestration' },
-      { name: 'AWS Fargate', note: 'Serverless containers' },
-      { name: 'IaC concepts', note: 'Provider-agnostic' },
-    ],
+      { name: 'Terraform', note: 'Primary IaC tool', simpleIcon: siTerraform },
+      { name: 'AWS', note: 'Primary cloud provider', materialIcon: 'cloud' },
+      { name: 'Multi-env', note: 'Reproducible environments across dev, staging, prod', materialIcon: 'lan' },
+    ] as Tool[],
+  },
+  {
+    pillar: 'Container Orchestration',
+    icon: 'deployed_code',
+    color: 'text-secondary',
+    border: 'border-secondary/20',
+    note: 'Running containers at scale means understanding scheduling, networking, and failure domains. Not just writing manifests. GitOps closes the loop between code and cluster state.',
+    tools: [
+      { name: 'Kubernetes', note: 'Container orchestration', simpleIcon: siKubernetes },
+      { name: 'Docker', note: 'Containerisation', simpleIcon: siDocker },
+      { name: 'AWS Fargate', note: 'Serverless containers', materialIcon: 'memory' },
+      { name: 'Flux', note: 'GitOps', simpleIcon: siFlux },
+    ] as Tool[],
+  },
+  {
+    pillar: 'CI/CD',
+    icon: 'rocket_launch',
+    color: 'text-primary',
+    border: 'border-primary/20',
+    note: 'Pipelines are the enforcement layer for everything else: tests, security checks, release conventions. Good scripting is what makes automation composable.',
+    tools: [
+      { name: 'GitHub Actions', note: 'Primary CI/CD platform', simpleIcon: siGithubactions },
+      { name: 'Scripting', note: 'Bash, Python, JavaScript', simpleIcon: siGnubash },
+      { name: 'Release tracking', note: 'Semantic versioning, changelogs, tagging', materialIcon: 'new_releases' },
+    ] as Tool[],
   },
   {
     pillar: 'Observability',
     icon: 'monitoring',
     color: 'text-secondary',
     border: 'border-secondary/20',
-    note: 'Hands-on with Grafana Cloud. The principles behind good observability (meaningful metrics, structured logs, distributed traces) apply regardless of the vendor.',
+    note: 'Observability is only useful if it reduces time to understand. OTel handles instrumentation; distributed tracing connects the dots across service boundaries.',
     tools: [
-      { name: 'Grafana Cloud', note: 'Primary observability stack' },
-      { name: 'Prometheus', note: 'Metrics collection' },
-      { name: 'Loki', note: 'Log aggregation' },
-      { name: 'OpenTelemetry', note: 'Vendor-neutral instrumentation' },
-    ],
-  },
-  {
-    pillar: 'CI/CD & Developer Experience',
-    icon: 'rocket_launch',
-    color: 'text-primary',
-    border: 'border-primary/20',
-    note: 'GitHub Actions is my primary CI tool. The concepts (pipeline design, artifact management, environment promotion) are transferable to any platform.',
-    tools: [
-      { name: 'GitHub Actions', note: 'Primary CI/CD platform' },
-      { name: 'Shell scripting', note: 'Automation and tooling' },
-      { name: 'Docker', note: 'Containerisation' },
-      { name: 'CI/CD concepts', note: 'Platform-agnostic' },
-    ],
+      { name: 'Grafana', note: 'Dashboards and alerting', simpleIcon: siGrafana },
+      { name: 'OpenTelemetry', note: 'Vendor-neutral instrumentation', simpleIcon: siOpentelemetry },
+      { name: 'Distributed tracing', note: 'End-to-end request visibility', materialIcon: 'account_tree' },
+    ] as Tool[],
   },
   {
     pillar: 'Security & Reliability',
     icon: 'shield',
-    color: 'text-secondary',
-    border: 'border-secondary/20',
-    note: 'Security defaults I apply regardless of the stack: least-privilege IAM, secrets management, network segmentation. The patterns matter more than the specific tooling.',
+    color: 'text-primary',
+    border: 'border-primary/20',
+    note: 'Defaults matter more than tooling. The goal is systems that fail small, recover fast, and never hand out more access than necessary.',
     tools: [
-      { name: 'AWS IAM', note: 'Least-privilege access' },
-      { name: 'Secrets management', note: 'Rotation and scoping' },
-      { name: 'Secure cloud architecture', note: 'Network segmentation' },
-      { name: 'SLO design', note: 'Reliability contracts' },
-    ],
+      { name: 'IAM', note: 'Least-privilege access', materialIcon: 'manage_accounts' },
+      { name: 'Secrets management', note: 'Scoping and rotation', materialIcon: 'key' },
+      { name: 'Network segmentation', note: 'Blast radius control', materialIcon: 'firewall' },
+      { name: 'SLO design', note: 'Reliability contracts', materialIcon: 'speed' },
+    ] as Tool[],
   },
 ]
 
@@ -72,9 +120,8 @@ export default function StackPage() {
             Stack
           </h1>
           <p className="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
-            I have worked deeply with one or two tools per category. I think that is the right way
-            to learn: understand why a tool exists before reaching for another. The concepts behind
-            each category transfer; the specifics are just syntax.
+            Tools are learnable. What takes time is knowing when to use them, when not to, and
+            what to look for when they fail. That judgment is what this page is really about.
           </p>
         </div>
       </section>
@@ -88,10 +135,11 @@ export default function StackPage() {
               Academic Background
             </div>
             <p className="text-on-surface-variant leading-relaxed">
-              I am currently completing a Master's in Distributed Systems. This is not incidental.
-              It is why I care about understanding how the tools I use actually work, not just how
-              to configure them. Consensus protocols, fault tolerance, consistency models: these
-              come up in production, and I want to know why, not just what to do when they do.
+              MSc in Distributed Systems, with a focus on building software at scale while
+              balancing fault-tolerance with performance. The program covers concepts like consensus
+              protocols, replicated state machines, CRDTs, and distributed shared memory. You do not
+              need to know these to use cloud tools. But knowing them changes how you reason about
+              failure, consistency, and trade-offs when designing systems that actually hold up.
             </p>
           </div>
         </div>
@@ -120,6 +168,7 @@ export default function StackPage() {
                     key={tool.name}
                     className={`bg-surface-container border-t-2 ${group.border} p-5 hover:bg-surface-container-high transition-all`}
                   >
+                    <ToolIcon tool={tool} colorClass={group.color} />
                     <div className="font-label text-sm font-bold text-on-surface mb-1 uppercase">
                       {tool.name}
                     </div>
@@ -137,9 +186,9 @@ export default function StackPage() {
         <div className="max-w-7xl mx-auto border-l-4 border-secondary/40 pl-10 py-2">
           <h3 className="font-headline text-2xl font-bold mb-4">The stack is never the goal.</h3>
           <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-            I do not chase new tools. I choose based on what the problem actually requires, what the
-            team can maintain without me, and what has a clear upgrade path. New is not better.
-            Understood is better.
+            Most problems do not need a new tool. They need the existing one used correctly. I
+            default to what the team already knows, and only introduce something new when there is a
+            clear reason for it, and a clear path to owning it without me.
           </p>
         </div>
       </section>

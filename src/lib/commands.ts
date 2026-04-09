@@ -190,7 +190,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
   {
     name: 'version',
     description: 'Show site version',
-    fn: () => [gap(), out(`very-real-terminal  v${__APP_VERSION__}`), gap()],
+    fn: () => [gap(), out(`v${__APP_VERSION__}`), gap()],
   },
 
   {

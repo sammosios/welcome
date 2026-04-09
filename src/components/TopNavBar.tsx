@@ -34,10 +34,7 @@ export default function TopNavBar() {
       </nav>
 
       <div className="flex items-center gap-4">
-        <span className="material-symbols-outlined text-gray-400 cursor-pointer hover:text-primary transition-colors">
-          sensors
-        </span>
-        <NavLink
+<NavLink
           to="/consult"
           className="bg-primary text-on-primary px-4 py-1.5 font-label text-xs font-bold rounded hover:brightness-110 active:scale-95 transition-all"
         >
