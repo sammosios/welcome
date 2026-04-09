@@ -1,39 +1,73 @@
-# Sam Mosios - Online Portfolio
+# React + TypeScript + Vite
 
-Welcome to my online portfolio! This portfolio showcases my skills, projects, and journey in the world of software engineering. It's built with modern web technologies and serves as a platform for potential collaborators, employers, and anyone interested in my work.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Features
+Currently, two official plugins are available:
 
-- **Clean, Modern UI**: A responsive design that looks great on all devices.
-- **Project Showcase**: Explore various projects I've worked on, in academic and professional settings, from web apps to MLOps pipelines.
-- **CI/CD Pipeline**: Automatically deployed to GitHub Pages, ensuring up-to-date content.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🛠 Tech Stack
+## React Compiler
 
-This portfolio is developed using:
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- **Vite**: A fast development build tool for modern web apps.
-- **React**: JavaScript library for building user interfaces.
-- **GitHub Actions**: Continuous Integration and Continuous Deployment for automating the deployment process.
-- **Semantic Versioning**: Automated versioning using **semantic-release** to manage releases and changelogs.
+## Expanding the ESLint configuration
 
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 💻 Getting Started
-To run the project locally:
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/sammosios/welcome.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd welcome
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open your browser and go to `http://localhost:5173` to view the portfolio.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
