@@ -2,78 +2,165 @@ import { useRef, useEffect, useCallback } from 'react'
 import { NavLink } from 'react-router-dom'
 import automateMeme from '../assets/automate-everything-meme.jpg'
 
-const CARD_BG = '#1a1919' // surface-container
+const CHAR_SIZE = 14
+const BG = '#1a1919'
+const TRAIL = 16
+
+function randChar() { return Math.random() < 0.5 ? '0' : '1' }
+
+interface RainCol {
+  x: number
+  y: number
+  speed: number
+  chars: string[]
+}
+
+function makeColumns(w: number, h: number): RainCol[] {
+  const count = Math.floor(w / CHAR_SIZE)
+  return Array.from({ length: count }, (_, i) => ({
+    x: i * CHAR_SIZE,
+    y: -CHAR_SIZE * (1 + Math.floor(Math.random() * 14)),
+    speed: 2 + Math.random() * 3,
+    chars: Array.from({ length: TRAIL + 20 }, randChar),
+  }))
+}
 
 function AutomateCard({ step }: { step: { index: string; label: string; title: string; body: string; color: string } }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const maskRef     = useRef<HTMLCanvasElement>(null)
+  const rainRef     = useRef<HTMLCanvasElement>(null)
+  const rafRef      = useRef<number>(0)
+  const fadeRef     = useRef<number>(0)
+  const colsRef     = useRef<RainCol[]>([])
+  const activeRef   = useRef(false)
 
-  const fillCanvas = useCallback(() => {
-    const canvas = canvasRef.current
-    const card = cardRef.current
-    if (!canvas || !card) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-    canvas.width = card.offsetWidth
-    canvas.height = card.offsetHeight
-    ctx.globalCompositeOperation = 'source-over'
-    ctx.fillStyle = CARD_BG
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+  const resize = useCallback(() => {
+    const el   = containerRef.current
+    const mask = maskRef.current
+    const rain = rainRef.current
+    if (!el || !mask || !rain) return
+    const w = el.offsetWidth, h = el.offsetHeight
+    mask.width = w; mask.height = h
+    rain.width = w; rain.height = h
+    const ctx = mask.getContext('2d')!
+    ctx.fillStyle = BG
+    ctx.fillRect(0, 0, w, h)
   }, [])
 
   useEffect(() => {
-    fillCanvas()
-    const observer = new ResizeObserver(fillCanvas)
-    if (cardRef.current) observer.observe(cardRef.current)
-    return () => observer.disconnect()
-  }, [fillCanvas])
+    resize()
+    const ro = new ResizeObserver(resize)
+    if (containerRef.current) ro.observe(containerRef.current)
+    return () => ro.disconnect()
+  }, [resize])
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const canvas = canvasRef.current
-    const card = cardRef.current
-    if (!canvas || !card) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-
-    ctx.globalCompositeOperation = 'destination-out'
-    for (let i = 0; i < 5; i++) {
-      const r = 38 + Math.random() * 28
-      const dx = (Math.random() - 0.5) * 22
-      const dy = (Math.random() - 0.5) * 22
-      const grad = ctx.createRadialGradient(x + dx, y + dy, 0, x + dx, y + dy, r)
-      grad.addColorStop(0, 'rgba(0,0,0,1)')
-      grad.addColorStop(0.55, 'rgba(0,0,0,0.85)')
-      grad.addColorStop(1, 'rgba(0,0,0,0)')
-      ctx.beginPath()
-      ctx.arc(x + dx, y + dy, r, 0, Math.PI * 2)
-      ctx.fillStyle = grad
-      ctx.fill()
-    }
+  useEffect(() => () => {
+    cancelAnimationFrame(rafRef.current)
+    cancelAnimationFrame(fadeRef.current)
   }, [])
 
+  const tick = useCallback(() => {
+    const mask = maskRef.current
+    const rain = rainRef.current
+    if (!mask || !rain || !activeRef.current) return
+
+    const mCtx = mask.getContext('2d')!
+    const rCtx = rain.getContext('2d')!
+    const w = mask.width, h = mask.height
+
+    rCtx.clearRect(0, 0, w, h)
+    rCtx.font = `${CHAR_SIZE}px 'JetBrains Mono', monospace`
+    rCtx.textBaseline = 'top'
+
+    for (const col of colsRef.current) {
+      col.y += col.speed
+
+      // Punch through mask at head — reveals image below
+      if (col.y >= 0) {
+        mCtx.clearRect(col.x, Math.max(0, col.y - col.speed - 1), CHAR_SIZE, col.speed + 2)
+      }
+
+      // Draw trail characters on rain canvas
+      for (let i = 0; i < TRAIL; i++) {
+        const cy = col.y - i * CHAR_SIZE
+        if (cy < -CHAR_SIZE || cy > h) continue
+        const char = col.chars[(Math.floor(col.y / CHAR_SIZE) - i + 999) % col.chars.length]
+
+        if (i === 0) {
+          rCtx.fillStyle = '#ffffff'; rCtx.globalAlpha = 1
+        } else if (i < 3) {
+          rCtx.fillStyle = '#8eff71'; rCtx.globalAlpha = 1 - i * 0.25
+        } else if (i < 9) {
+          rCtx.fillStyle = '#4db840'; rCtx.globalAlpha = 0.65 - (i - 3) * 0.08
+        } else {
+          rCtx.fillStyle = '#1f6615'; rCtx.globalAlpha = Math.max(0, 0.25 - (i - 9) * 0.07)
+        }
+        rCtx.fillText(char, col.x, cy)
+      }
+      rCtx.globalAlpha = 1
+
+      // Wrap when off-screen bottom
+      if (col.y > h + CHAR_SIZE * TRAIL) {
+        col.y = -CHAR_SIZE * (1 + Math.floor(Math.random() * 8))
+        col.speed = 2 + Math.random() * 3
+      }
+    }
+
+    rafRef.current = requestAnimationFrame(tick)
+  }, [])
+
+  const handleMouseEnter = useCallback(() => {
+    cancelAnimationFrame(fadeRef.current)
+    activeRef.current = true
+    const mask = maskRef.current
+    const rain = rainRef.current
+    if (!mask || !rain) return
+    colsRef.current = makeColumns(mask.width, mask.height)
+    rafRef.current = requestAnimationFrame(tick)
+  }, [tick])
+
   const handleMouseLeave = useCallback(() => {
-    fillCanvas()
-  }, [fillCanvas])
+    activeRef.current = false
+    cancelAnimationFrame(rafRef.current)
+    const mask = maskRef.current
+    const rain = rainRef.current
+    if (!mask || !rain) return
+
+    rain.getContext('2d')!.clearRect(0, 0, rain.width, rain.height)
+
+    // Gradually fill mask back to dark
+    const mCtx = mask.getContext('2d')!
+    const w = mask.width, h = mask.height
+    let frame = 0
+    const fade = () => {
+      frame++
+      mCtx.fillStyle = 'rgba(26,25,25,0.09)'
+      mCtx.fillRect(0, 0, w, h)
+      if (frame < 45) {
+        fadeRef.current = requestAnimationFrame(fade)
+      } else {
+        mCtx.fillStyle = BG
+        mCtx.fillRect(0, 0, w, h)
+      }
+    }
+    fadeRef.current = requestAnimationFrame(fade)
+  }, [])
 
   return (
     <div
-      ref={cardRef}
+      ref={containerRef}
       className="relative border-t border-white/5 overflow-hidden"
-      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Revealed layer */}
+      {/* Morpheus image — revealed through mask */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${automateMeme})` }} />
 
-      {/* Canvas overlay with wobble filter */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0"
-        style={{ filter: 'url(#paint-wobble)' }}
-      />
+      {/* Mask canvas — starts dark, clearRect reveals image as rain falls */}
+      <canvas ref={maskRef} className="absolute inset-0" />
+
+      {/* Rain canvas — green characters, transparent background */}
+      <canvas ref={rainRef} className="absolute inset-0" />
 
       {/* Card content */}
       <div className="relative z-10 p-8">
@@ -206,18 +293,6 @@ const startupFit = [
 export default function PhilosophyPage() {
   return (
     <>
-      {/* SVG filter for paint wobble effect */}
-      <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
-        <defs>
-          <filter id="paint-wobble" x="-5%" y="-5%" width="110%" height="110%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise">
-              <animate attributeName="seed" values="0;20;0" dur="5s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G" />
-          </filter>
-        </defs>
-      </svg>
-
       {/* Page header */}
       <section className="pt-32 pb-16 px-8 md:px-16 border-b border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
