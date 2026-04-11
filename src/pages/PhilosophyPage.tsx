@@ -44,7 +44,8 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
     const w = el.offsetWidth, h = el.offsetHeight
     mask.width = w; mask.height = h
     rain.width = w; rain.height = h
-    const ctx = mask.getContext('2d')!
+    const ctx = mask.getContext('2d')
+    if (!ctx) return
     ctx.fillStyle = BG
     ctx.fillRect(0, 0, w, h)
   }, [])
@@ -66,8 +67,9 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
     const rain = rainRef.current
     if (!mask || !rain || !activeRef.current) return
 
-    const mCtx = mask.getContext('2d')!
-    const rCtx = rain.getContext('2d')!
+    const mCtx = mask.getContext('2d')
+    const rCtx = rain.getContext('2d')
+    if (!mCtx || !rCtx) return
     const w = mask.width, h = mask.height
 
     rCtx.clearRect(0, 0, w, h)
@@ -132,10 +134,12 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
     const rain = rainRef.current
     if (!mask || !rain) return
 
-    rain.getContext('2d')!.clearRect(0, 0, rain.width, rain.height)
+    const rainCtx = rain.getContext('2d')
+    const mCtx = mask.getContext('2d')
+    if (!rainCtx || !mCtx) return
+    rainCtx.clearRect(0, 0, rain.width, rain.height)
 
     // Gradually fill mask back to dark
-    const mCtx = mask.getContext('2d')!
     const w = mask.width, h = mask.height
     let frame = 0
     const fade = () => {
