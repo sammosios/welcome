@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect, useCallback, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import automateMeme from '../assets/automate-everything-meme.jpg'
 
@@ -31,8 +31,10 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
   const rainRef     = useRef<HTMLCanvasElement>(null)
   const rafRef      = useRef<number>(0)
   const fadeRef     = useRef<number>(0)
+  const textTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const colsRef     = useRef<RainCol[]>([])
   const activeRef   = useRef(false)
+  const [textVisible, setTextVisible] = useState(true)
 
   const resize = useCallback(() => {
     const el   = containerRef.current
@@ -111,7 +113,9 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
 
   const handleMouseEnter = useCallback(() => {
     cancelAnimationFrame(fadeRef.current)
+    if (textTimerRef.current) clearTimeout(textTimerRef.current)
     activeRef.current = true
+    textTimerRef.current = setTimeout(() => setTextVisible(false), 1500)
     const mask = maskRef.current
     const rain = rainRef.current
     if (!mask || !rain) return
@@ -121,6 +125,8 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
 
   const handleMouseLeave = useCallback(() => {
     activeRef.current = false
+    if (textTimerRef.current) clearTimeout(textTimerRef.current)
+    setTextVisible(true)
     cancelAnimationFrame(rafRef.current)
     const mask = maskRef.current
     const rain = rainRef.current
@@ -152,6 +158,8 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
       className="relative border-t border-white/5 overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleMouseEnter}
+      onTouchEnd={handleMouseLeave}
     >
       {/* Morpheus image — revealed through mask */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${automateMeme})` }} />
@@ -163,7 +171,7 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
       <canvas ref={rainRef} className="absolute inset-0" />
 
       {/* Card content */}
-      <div className="relative z-10 p-8">
+      <div className={`relative z-10 p-8 transition-opacity duration-700 ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
         <div className={`font-label text-[10px] uppercase ${step.color} mb-4`}>
           {step.index} // {step.label}
         </div>
