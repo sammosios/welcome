@@ -5,6 +5,7 @@ import SideNavBar from './components/SideNavBar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const PhilosophyPage = lazy(() => import('./pages/PhilosophyPage'))
 const StackPage      = lazy(() => import('./pages/StackPage'))
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/philosophy" element={<PhilosophyPage />} />
             <Route path="/stack" element={<StackPage />} />
             <Route path="/consult" element={<ConsultPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </main>

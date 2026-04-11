@@ -114,6 +114,7 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
   }, [])
 
   const handleMouseEnter = useCallback(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     cancelAnimationFrame(fadeRef.current)
     if (textTimerRef.current) clearTimeout(textTimerRef.current)
     activeRef.current = true
