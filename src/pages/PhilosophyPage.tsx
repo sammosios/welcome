@@ -15,7 +15,7 @@ interface RainCol {
   chars: string[]
 }
 
-function makeColumns(w: number, h: number): RainCol[] {
+function makeColumns(w: number, _h: number): RainCol[] {
   const count = Math.floor(w / CHAR_SIZE)
   return Array.from({ length: count }, (_, i) => ({
     x: i * CHAR_SIZE,

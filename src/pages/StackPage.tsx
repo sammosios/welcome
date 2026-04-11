@@ -49,7 +49,6 @@ const toolGroups = [
     tools: [
       { name: 'Terraform', note: 'Primary IaC tool', simpleIcon: siTerraform },
       { name: 'AWS', note: 'Primary cloud provider', materialIcon: 'cloud' },
-      // { name: 'Multi-env', note: 'Reproducible across multiple environments', materialIcon: 'lan' },
     ] as Tool[],
   },
   {

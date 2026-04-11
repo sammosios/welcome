@@ -104,7 +104,6 @@ export default function ConsultPage() {
         </div>
       </section>
 
-      {/* Contact */}
       <section className="py-24 px-8 md:px-16 bg-surface-container-low">
         <div className="max-w-3xl mx-auto">
           <div className="mb-12">
