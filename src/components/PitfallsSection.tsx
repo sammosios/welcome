@@ -46,7 +46,7 @@ export default function PitfallsSection() {
               key={pitfall.type}
               className={`bg-surface-container border-t border-white/5 p-8 group ${pitfall.hoverBorder} transition-all`}
             >
-              <div className="font-label text-[10px] text-gray-500 mb-8 uppercase">
+              <div className="font-label text-[10px] text-gray-400 mb-8 uppercase">
                 {pitfall.type}
               </div>
               <h4 className="font-headline text-xl font-bold mb-4">{pitfall.title}</h4>

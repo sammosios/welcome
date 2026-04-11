@@ -239,7 +239,7 @@ export default function PhilosophyPage() {
       {/* Approach */}
       <section className="py-24 px-8 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="font-label text-[10px] text-gray-500 uppercase mb-4">The Approach</div>
+          <div className="font-label text-[10px] text-gray-400 uppercase mb-4">The Approach</div>
           <h2 className="font-headline text-3xl font-bold mb-12 uppercase tracking-tighter">
             Understand first. Then act.
           </h2>
@@ -265,7 +265,7 @@ export default function PhilosophyPage() {
       {/* Five pillars */}
       <section className="py-24 px-8 md:px-16 bg-surface-container-low">
         <div className="max-w-7xl mx-auto">
-          <div className="font-label text-[10px] text-gray-500 uppercase mb-4">Five Pillars</div>
+          <div className="font-label text-[10px] text-gray-400 uppercase mb-4">Five Pillars</div>
           <h2 className="font-headline text-3xl font-bold mb-4 uppercase tracking-tighter">
             What I focus on
           </h2>
@@ -325,7 +325,7 @@ export default function PhilosophyPage() {
       <section className="py-24 px-8 md:px-16 bg-surface-container-low">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <div className="font-label text-[10px] text-gray-500 uppercase mb-4">Why Startups</div>
+            <div className="font-label text-[10px] text-gray-400 uppercase mb-4">Why Startups</div>
             <h2 className="font-headline text-4xl font-bold mb-4 uppercase tracking-tighter">
               The five pillars hit harder
               <br />

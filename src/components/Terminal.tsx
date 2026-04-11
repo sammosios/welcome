@@ -122,7 +122,7 @@ export default function Terminal() {
           <div className="w-2.5 h-2.5 rounded-full bg-tertiary-container" />
           <div className="w-2.5 h-2.5 rounded-full bg-primary" />
         </div>
-        <div className="font-label text-[10px] text-gray-500 uppercase tracking-tighter">
+        <div className="font-label text-[10px] text-gray-400 uppercase tracking-tighter">
           very-real-terminal // user@sammosios.com
         </div>
       </div>
@@ -158,6 +158,7 @@ export default function Terminal() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
+              aria-label="Terminal input"
               autoFocus
               spellCheck={false}
               autoComplete="off"

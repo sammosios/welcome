@@ -132,7 +132,7 @@ export default function StackPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-start md:items-center">
           <span className="material-symbols-outlined text-3xl text-primary shrink-0">school</span>
           <div>
-            <div className="font-label text-[10px] text-gray-500 uppercase mb-1">
+            <div className="font-label text-[10px] text-gray-400 uppercase mb-1">
               Academic Background
             </div>
             <p className="text-on-surface-variant leading-relaxed">

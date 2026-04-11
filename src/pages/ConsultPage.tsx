@@ -124,7 +124,7 @@ export default function ConsultPage() {
               </span>
               <div className="font-headline text-xl font-bold mb-2">Send an email</div>
               <div className="font-label text-xs text-primary mb-6">sam.mosios@gmail.com</div>
-              <div className="font-label text-[10px] text-gray-500 uppercase group-hover:text-primary transition-colors">
+              <div className="font-label text-[10px] text-gray-400 uppercase group-hover:text-primary transition-colors">
                 Compose →
               </div>
             </a>
@@ -140,7 +140,7 @@ export default function ConsultPage() {
               </span>
               <div className="font-headline text-xl font-bold mb-2">Book a call</div>
               <div className="font-label text-xs text-secondary mb-6">60-minute intro session</div>
-              <div className="font-label text-[10px] text-gray-500 uppercase group-hover:text-secondary transition-colors">
+              <div className="font-label text-[10px] text-gray-400 uppercase group-hover:text-secondary transition-colors">
                 Open Calendly →
               </div>
             </a>
@@ -148,7 +148,7 @@ export default function ConsultPage() {
 
           <div className="flex items-center gap-2 mt-8">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#8eff71]" />
-            <span className="font-label text-[10px] text-gray-500 uppercase">
+            <span className="font-label text-[10px] text-gray-400 uppercase">
               Response within 48h
             </span>
           </div>
