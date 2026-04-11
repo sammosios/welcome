@@ -6,12 +6,7 @@ export default function HeroSection() {
     <section className="relative pt-32 pb-24 px-8 md:px-16 flex flex-col md:flex-row items-center gap-12">
       {/* Background fiber optic lines */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="fiber-optic-line absolute top-1/4 left-0 w-full animate-pulse" />
-        <div className="fiber-optic-line absolute top-2/4 left-0 w-full opacity-5" />
-        <div
-          className="fiber-optic-line absolute top-3/4 left-0 w-full animate-pulse"
-          style={{ animationDelay: '1s' }}
-        />
+        <div className="fiber-optic-line absolute top-3/4 left-0 w-full md:w-3/5 animate-pulse" />
       </div>
 
       {/* Left: copy */}
