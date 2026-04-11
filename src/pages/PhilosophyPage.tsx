@@ -162,7 +162,7 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
       onTouchEnd={handleMouseLeave}
     >
       {/* Morpheus image — revealed through mask */}
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${automateMeme})` }} />
+      <div className="absolute inset-0 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${automateMeme})` }} />
 
       {/* Mask canvas — starts dark, clearRect reveals image as rain falls */}
       <canvas ref={maskRef} className="absolute inset-0" />
