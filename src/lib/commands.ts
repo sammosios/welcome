@@ -76,7 +76,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
     fn: () => [
       gap(),
       warn('whoami: that question is above my pay grade.'),
-      dim("You typed 'whoami' into a stranger's portfolio terminal."),
+      dim("You typed 'whoami' into a stranger's fake terminal."),
       dim('That probably says something about you. Not sure what.'),
       gap(),
       dim("Try 'about' if you meant to ask about the person who built this."),
@@ -334,7 +334,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       return [
         gap(),
         err(`curl: (6) Could not resolve host: ${url || 'unknown'}`),
-        dim("You're inside a portfolio site, not a terminal emulator. But points for trying."),
+        dim("You're inside a personal site, not a terminal emulator. But points for trying."),
         gap(),
       ]
     },
@@ -765,7 +765,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       return [
         gap(),
         warn(`No manual entry for ${cmd}`),
-        dim('This is a portfolio, not a man page server.'),
+        dim('This is a personal site, not a man page server.'),
         gap(),
       ]
     },
