@@ -113,7 +113,7 @@ const approach = [
     index: '04',
     label: 'AUTOMATE',
     title: 'If you did it twice, it should be a script.',
-    body: "And if it is a script, it should be a pipeline. Tribal knowledge that lives only in someone's head is a liability.",
+    body: "And if it is a script, it should be a pipeline. And if it is a pipeline, it can be run, extended and reused by everyone.",
     color: 'text-secondary',
   },
 ]

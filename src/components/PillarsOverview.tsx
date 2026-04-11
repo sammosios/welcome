@@ -5,32 +5,32 @@ const pillars = [
     name: 'Security',
     icon: 'lock',
     color: 'text-primary',
-    summary: 'Least privilege by default. Mistakes stay small.',
+    summary: 'Least privilege by default. Failures are contained.',
   },
   {
     name: 'Reliability',
     icon: 'verified_user',
     color: 'text-secondary',
-    summary: 'Graceful degradation. Fast recovery. SLOs that mean something.',
+    summary: 'Graceful degradation. Fast recovery. SLOs that reflect reality.',
   },
   {
     name: 'Observability',
     icon: 'visibility',
     color: 'text-primary',
-    summary: 'Dashboards that answer questions, not generate new ones.',
+    summary: 'Telemetry that answers engineering questions and drives business decisions.',
   },
   {
     name: 'Scalability',
     icon: 'trending_up',
     color: 'text-secondary',
-    summary: 'Systems that grow with load, not against it.',
+    summary: 'Systems that scale with demand, predictably.',
   },
   {
     name: 'Developer Experience',
     icon: 'code',
     color: 'text-primary',
     summary:
-      'Shortening the distance between an idea and production. Good DX makes shipping boring.',
+      'Shorten the path from idea to production. Make shipping routine.',
   },
 ]
 

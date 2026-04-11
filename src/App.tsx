@@ -3,7 +3,7 @@ import TopNavBar from './components/TopNavBar'
 import SideNavBar from './components/SideNavBar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import ManifestoPage from './pages/ManifestoPage'
+import HomePage from './pages/HomePage'
 import PhilosophyPage from './pages/PhilosophyPage'
 import StackPage from './pages/StackPage'
 import ConsultPage from './pages/ConsultPage'
@@ -17,7 +17,7 @@ export default function App() {
 
       <main className="md:ml-20 min-h-screen relative overflow-hidden bg-[#0A0A0A]">
         <Routes>
-          <Route path="/" element={<ManifestoPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/philosophy" element={<PhilosophyPage />} />
           <Route path="/stack" element={<StackPage />} />
           <Route path="/consult" element={<ConsultPage />} />

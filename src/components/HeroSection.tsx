@@ -32,9 +32,9 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-          I work across five pillars: scalability, reliability, security, observability, and
-          developer experience. My job is making the right trade-offs between them so your team can
-          focus on shipping, not firefighting.
+          I work across five pillars: security, reliability, observability, scalability, and
+          developer experience. My job is making the right trade-offs between them so that your team can focus
+          on improving and scaling your product.
         </p>
 
         <div className="flex flex-wrap gap-4">

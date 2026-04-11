@@ -49,7 +49,7 @@ const toolGroups = [
     tools: [
       { name: 'Terraform', note: 'Primary IaC tool', simpleIcon: siTerraform },
       { name: 'AWS', note: 'Primary cloud provider', materialIcon: 'cloud' },
-      { name: 'Multi-env', note: 'Reproducible environments across dev, staging, prod', materialIcon: 'lan' },
+      // { name: 'Multi-env', note: 'Reproducible across multiple environments', materialIcon: 'lan' },
     ] as Tool[],
   },
   {
@@ -57,12 +57,12 @@ const toolGroups = [
     icon: 'deployed_code',
     color: 'text-secondary',
     border: 'border-secondary/20',
-    note: 'Running containers at scale means understanding scheduling, networking, and failure domains. Not just writing manifests. GitOps closes the loop between code and cluster state.',
+    note: 'Running containers at scale means understanding scheduling, networking, and failure domains.',
     tools: [
-      { name: 'Kubernetes', note: 'Container orchestration', simpleIcon: siKubernetes },
       { name: 'Docker', note: 'Containerisation', simpleIcon: siDocker },
-      { name: 'AWS Fargate', note: 'Serverless containers', materialIcon: 'memory' },
+      { name: 'Kubernetes', note: 'Container orchestration', simpleIcon: siKubernetes },
       { name: 'Flux', note: 'GitOps', simpleIcon: siFlux },
+      { name: 'AWS Fargate', note: 'Serverless containers', materialIcon: 'memory' },
     ] as Tool[],
   },
   {
@@ -70,7 +70,7 @@ const toolGroups = [
     icon: 'rocket_launch',
     color: 'text-primary',
     border: 'border-primary/20',
-    note: 'Pipelines are the enforcement layer for everything else: tests, security checks, release conventions. Good scripting is what makes automation composable.',
+    note: 'Pipelines are the enforcement layer for everything else: tests, security checks, release conventions. Good scripting is key.',
     tools: [
       { name: 'GitHub Actions', note: 'Primary CI/CD platform', simpleIcon: siGithubactions },
       { name: 'Scripting', note: 'Bash, Python, JavaScript', simpleIcon: siGnubash },
@@ -96,10 +96,10 @@ const toolGroups = [
     border: 'border-primary/20',
     note: 'Defaults matter more than tooling. The goal is systems that fail small, recover fast, and never hand out more access than necessary.',
     tools: [
+      { name: 'Network segmentation', note: 'Blast radius control', materialIcon: 'hub' },
       { name: 'IAM', note: 'Least-privilege access', materialIcon: 'manage_accounts' },
       { name: 'Secrets management', note: 'Scoping and rotation', materialIcon: 'key' },
-      { name: 'Network segmentation', note: 'Blast radius control', materialIcon: 'firewall' },
-      { name: 'SLO design', note: 'Reliability contracts', materialIcon: 'speed' },
+      { name: 'SLA/SLO design', note: 'Reliability contracts', materialIcon: 'speed' },
     ] as Tool[],
   },
 ]
@@ -135,10 +135,10 @@ export default function StackPage() {
               Academic Background
             </div>
             <p className="text-on-surface-variant leading-relaxed">
-              MSc in Distributed Systems, with a focus on building software at scale while
-              balancing fault-tolerance with performance. The program covers concepts like consensus
-              protocols, replicated state machines, CRDTs, and distributed shared memory. You do not
-              need to know these to use cloud tools. But knowing them changes how you reason about
+              MSc in Distributed Systems: specializing in building scalable systems while
+              balancing fault-tolerance and performance. Among others, the program covers concepts like consensus
+              protocols, replicated state machines, CRDTs, and distributed shared memory.
+              Of course, you do not need to know these to use cloud tools. But understanding them changes how you reason about
               failure, consistency, and trade-offs when designing systems that actually hold up.
             </p>
           </div>

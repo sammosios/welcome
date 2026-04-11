@@ -2,19 +2,19 @@ const problems = [
   {
     problem: 'Nobody knows how the infrastructure is actually configured.',
     response:
-      'Infrastructure as Code from day one. If it is not in version control, it does not exist. Environment drift, unreproducible bugs, and slow debugging all trace back to this.',
+      'Infrastructure as Code from day one. Every environment is reproducible, every change is traceable.',
     icon: 'dns',
   },
   {
     problem: 'Deploys are manual and everyone is scared to touch production.',
     response:
-      'Automated pipelines with clear promotion gates. Deploying becomes routine, not an event. Shipping velocity is one of the few advantages a startup has — protect it.',
+      'Automated pipelines with clear promotion gates. Shipping velocity is a key advantage of your startup. Protect it.',
     icon: 'rocket_launch',
   },
   {
     problem: 'The cloud bill spiked and nobody knows why.',
     response:
-      'Observability covers cost too. Resources get tagged, dashboards get built, and burn rate becomes an intentional decision.',
+      'Full visibility into where every dollar goes. Burn rate becomes a deliberate, informed decision.',
     icon: 'receipt_long',
   },
 ]
@@ -52,15 +52,19 @@ export default function StartupProblems() {
           {problems.map((p) => (
             <div
               key={p.problem}
-              className="bg-surface-container border-t border-white/5 p-8 hover:bg-surface-container-high transition-all group"
+              className="relative bg-surface-container border-t border-white/5 overflow-hidden group cursor-default h-72"
             >
-              <span className="material-symbols-outlined text-xl text-primary mb-6 block">
-                {p.icon}
-              </span>
-              <p className="font-headline text-base font-bold mb-4 text-on-surface-variant group-hover:text-on-surface transition-colors">
-                {p.problem}
-              </p>
-              <p className="text-sm text-primary/80 leading-relaxed">{p.response}</p>
+              {/* Problem statement — centered, shifts up on hover */}
+              <div className="absolute inset-x-8 inset-y-0 flex items-center transition-transform duration-500 ease-out group-hover:-translate-y-14">
+                <p className="font-headline text-2xl font-bold leading-snug text-on-surface transition-colors duration-500 ease-out group-hover:text-on-surface-variant">
+                  {p.problem}
+                </p>
+              </div>
+
+              {/* Response text — slides up from below on hover */}
+              <div className="absolute inset-x-8 bottom-8 opacity-0 translate-y-4 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
+                <p className="text-base text-primary/80 leading-relaxed">{p.response}</p>
+              </div>
             </div>
           ))}
         </div>
