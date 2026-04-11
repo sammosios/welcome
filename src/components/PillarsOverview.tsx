@@ -59,11 +59,11 @@ export default function PillarsOverview() {
               key={p.name}
               className="bg-surface-container border-t border-white/5 p-8 hover:bg-surface-container-high transition-all"
             >
-              <span className={`material-symbols-outlined text-xl ${p.color} mb-4 block`}>
+              <span className={`material-symbols-outlined text-2xl ${p.color} mb-4 block`}>
                 {p.icon}
               </span>
               <div className="font-headline text-lg font-bold mb-3">{p.name}</div>
-              <p className="text-xs text-on-surface-variant leading-relaxed">{p.summary}</p>
+              <p className="text-sm text-on-surface-variant leading-relaxed">{p.summary}</p>
             </div>
           ))}
         </div>
