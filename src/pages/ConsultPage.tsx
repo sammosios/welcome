@@ -16,7 +16,7 @@ const process = [
   {
     step: '03',
     title: 'Propose',
-    body: 'A scoped proposal with clear deliverables, explicit trade-offs, and expected outcomes. No vague retainers. You know exactly what you are getting and what is being prioritised.',
+    body: 'A scoped proposal with clear deliverables, explicit trade-offs, and expected outcomes. You know exactly what you are getting and what is being prioritised.',
     icon: 'description',
     color: 'text-primary',
   },
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: 'What does "understanding first" actually mean in practice?',
-    a: 'It means I do not show up with a generic, pre-written solution. The first thing I do is  talk to the team, read the codebase, and understand where the real pain is. Not the pain that looks most dramatic from the outside.',
+    a: 'It means the first thing I do is talk to the team, read the codebase, and map where the friction actually lives. Solutions follow understanding.',
   },
   {
     q: 'Do you work with a specific cloud provider?',
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: 'Do you sign NDAs?',
-    a: 'Yes, standard practice before any diagnostic conversation.',
+    a: 'Yes. If it matters enough to ask for one, it matters enough to sign.',
   },
 ]
 

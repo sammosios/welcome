@@ -34,18 +34,39 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
   {
     name: 'help',
     description: 'List available commands',
-    fn: () => [
-      dim('Available commands:'),
-      gap(),
-      ...COMMAND_DEFS.filter((c) => !c.hidden).map((c) =>
-        out(`  ${c.name.padEnd(14)} — ${c.description}`),
-      ),
-      gap(),
-      dim('Tip: ↑ / ↓ to navigate command history.'),
-      gap(),
-      dim('You could also just... try things.'),
-      gap(),
-    ],
+    fn: (args) => {
+      const showAll = args.includes('-a') || args.includes('--all')
+      if (showAll) {
+        return [
+          dim('All commands (including hidden):'),
+          gap(),
+          ...COMMAND_DEFS.filter((c) => !c.hidden).map((c) =>
+            out(`  ${c.name.padEnd(14)} — ${c.description}`),
+          ),
+          gap(),
+          dim('── hidden ───────────────────────────────────────'),
+          gap(),
+          ...COMMAND_DEFS.filter((c) => c.hidden).map((c) =>
+            dim(`  ${c.name}`),
+          ),
+          gap(),
+          dim('You found them. Try a few.'),
+          gap(),
+        ]
+      }
+      return [
+        dim('Available commands:'),
+        gap(),
+        ...COMMAND_DEFS.filter((c) => !c.hidden).map((c) =>
+          out(`  ${c.name.padEnd(14)} — ${c.description}`),
+        ),
+        gap(),
+        dim('Tip: ↑ / ↓ to navigate command history.'),
+        gap(),
+        dim('(there might be more... try help -a)'),
+        gap(),
+      ]
+    },
   },
 
   {
@@ -70,7 +91,8 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       gap(),
       ok('Sam Mosios'),
       out('SRE & Platform Engineer'),
-      dim('MSc Distributed Systems (in progress)'),
+      dim('Originally from 🇬🇷, currently based in 🇸🇪'),
+      dim('MSc Distributed Systems @ KTH (in progress)'),
       gap(),
       dim('Five pillars:'),
       out('  - Security'),
@@ -79,7 +101,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       out('  - Scalability'),
       out('  - Developer Experience'),
       gap(),
-      dim('Approach: understand → resolve → amplify → automate'),
+      dim('Approach: explore → resolve → amplify → automate'),
       gap(),
       dim("Run 'philosophy' or 'stack' to go deeper."),
       gap(),
@@ -122,8 +144,8 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       gap(),
       dim('── THE APPROACH ─────────────────────────────────'),
       gap(),
-      ok('01  UNDERSTAND'),
-      out('  Read the system. Talk to the team. No assumptions.'),
+      ok('01  EXPLORE'),
+      out('  Understand the system. Talk to the team. No assumptions.'),
       gap(),
       ok('02  RESOLVE'),
       out('  Find friction. Flaky pipelines, manual steps, unclear runbooks. Fix those first.'),
@@ -146,7 +168,6 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       dim('── INFRASTRUCTURE AS CODE ───────────────────────'),
       out('  - Terraform'),
       out('  - AWS'),
-      out('  - Multi-env (reproducible across dev, staging, prod)'),
       gap(),
       dim('── CONTAINER ORCHESTRATION ──────────────────────'),
       out('  - Kubernetes'),
@@ -170,14 +191,14 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       out('  - Network segmentation'),
       out('  - SLO design'),
       gap(),
-      dim('Tools are learnable. The judgment behind them is not.'),
+      dim('Tools are learnable in weeks. The judgment behind them takes years.'),
       gap(),
     ],
   },
 
   {
-    name: 'deploy',
-    description: 'Go to the contact page',
+    name: 'consult',
+    description: 'Get in touch',
     fn: (_args, navigate) => {
       setTimeout(() => navigate('/consult'), 900)
       return [
@@ -533,10 +554,13 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
         if (!file) return [gap(), err('fatal: no path specified'), gap()]
         return [
           gap(),
-          out(`a1b2c3d4 (Sam Mosios  2024-01-01) // all of it`),
-          out(`a1b2c3d4 (Sam Mosios  2024-01-01) // yes, this line too`),
-          out(`a1b2c3d4 (Sam Mosios  2024-01-01) // and this one`),
-          dim('There is only one person to blame here.'),
+          out(`e3f7a12 (Sam Mosios 2026-04-09 14:23:01 +0200  1) fix: actually fix the thing`),
+          out(`9c2b8d4 (Sam Mosios 2026-04-09 16:55:32 +0200  2) fix: revert "actually fix the thing"`),
+          out(`1a4f6e0 (Sam Mosios 2026-04-10 09:41:17 +0200  3) fix: fix the revert`),
+          out(`b7d3c91 (Sam Mosios 2026-04-10 18:37:04 +0200  4) chore: remove console.log (there were 47)`),
+          out(`f05a2e8 (Sam Mosios 2026-04-11 03:42:07 +0200  5) feat: woke up to pee, had a thought`),
+          gap(),
+          dim('One author. No excuses.'),
           gap(),
         ]
       }
@@ -855,8 +879,9 @@ export const BOOT_LINES: OutputLine[] = [
 ]
 
 export function processCommand(raw: string, navigate: NavigateFunction): OutputLine[] {
-  const [name, ...args] = raw.trim().toLowerCase().split(/\s+/)
-  const def = COMMANDS[name]
+  const [name, ...args] = raw.trim().split(/\s+/)
+
+  const def = COMMANDS[name.toLowerCase()]
   if (!def) {
     return [err(`command not found: ${name}`), dim("Type 'help' to see available commands."), gap()]
   }

@@ -90,9 +90,9 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
 const approach = [
   {
     index: '01',
-    label: 'UNDERSTAND',
-    title: 'Read the system first.',
-    body: 'Before touching anything, I learn how the team works, where the pain is, and what is already working. Assumptions are expensive.',
+    label: 'EXPLORE',
+    title: 'Understand the system first.',
+    body: 'Before touching anything, I learn how the team works, where the friction is, and what is already working well. Understanding the system clearly is the fastest path to improving it.',
     color: 'text-primary',
   },
   {
@@ -106,7 +106,7 @@ const approach = [
     index: '03',
     label: 'AMPLIFY',
     title: 'Scale what is working.',
-    body: 'Good patterns already exist in every codebase. I find them, codify them, and make them the default rather than the exception.',
+    body: 'Good patterns already exist in every codebase. I find them, codify them, and make them the default so the whole team benefits automatically.',
     color: 'text-primary',
   },
   {
@@ -125,7 +125,7 @@ const pillars = [
     icon: 'lock',
     iconColor: 'text-primary',
     hoverBorder: 'hover:border-primary/40',
-    body: 'Security is not a checklist. It is a set of defaults. Least-privilege IAM, secrets that rotate automatically, network boundaries that limit blast radius. The goal is that a mistake, human or otherwise, stays small.',
+    body: 'A set of intentional defaults, applied consistently. Least-privilege IAM, secrets that rotate automatically, network boundaries that contain any incident. Built in from the start, security compounds quietly in your favor.',
     signals: [
       'Least-privilege IAM',
       'Zero-trust credential handling',
@@ -138,7 +138,7 @@ const pillars = [
     icon: 'verified_user',
     iconColor: 'text-secondary',
     hoverBorder: 'hover:border-secondary/40',
-    body: 'You measure reliability by its absence: outages, cascading failures, slow recoveries. I design for graceful degradation, define SLOs before they are needed, and build runbooks that work at 3am without a call to the original author.',
+    body: 'Systems that degrade gracefully and recover quickly. I define SLOs early, design for failure containment, and build runbooks clear enough for anyone on the team to run under pressure.',
     signals: [
       'Uptime targets and failure budgets',
       'Graceful degradation patterns',
@@ -151,7 +151,7 @@ const pillars = [
     icon: 'visibility',
     iconColor: 'text-primary',
     hoverBorder: 'hover:border-primary/40',
-    body: 'If you cannot measure it, you cannot improve it, and you definitely cannot explain it to a stakeholder. Metrics, logs, and traces should tell a coherent story, not just exist. Dashboards should answer questions, not generate new ones.',
+    body: 'Metrics, logs, and traces that tell a coherent story. When something goes wrong, the answer is already in the dashboard. When something goes right, you can prove it to a stakeholder.',
     signals: [
       'Metrics, logs, and distributed traces',
       'Actionable alerting',
@@ -164,8 +164,8 @@ const pillars = [
     icon: 'trending_up',
     iconColor: 'text-secondary',
     hoverBorder: 'hover:border-secondary/40',
-    body: 'Systems should grow with load without requiring a rewrite every time traffic doubles. This means thinking in stateless services, horizontal scaling, and event-driven patterns from the start, not as an afterthought.',
-    signals: ['Autoscaling policies', 'Stateless service design', 'Testing systems at scale'],
+    body: 'Systems designed to grow with load. Stateless services, horizontal scaling, and event-driven patterns baked in from the start so traffic growth becomes something to celebrate.',
+    signals: ['Autoscaling policies', 'Stateless service design', 'Load testing at scale'],
   },
   {
     index: '05',
@@ -173,21 +173,21 @@ const pillars = [
     icon: 'code',
     iconColor: 'text-primary',
     hoverBorder: 'hover:border-primary/40',
-    body: 'Shortening the distance between an idea and production. A slow CI pipeline, an environment that only works on one machine, or a deployment that requires three people in a call: these are not inconveniences, they are compounding costs. Good DX makes shipping boring. Boring is the goal.',
+    body: 'Shortening the distance between an idea and production. Fast CI, reproducible environments, and self-service deployments compound over time. The goal is a team that ships confidently, every day.',
     signals: [
-      'Feedback before it reaches production',
-      'Dev environments that mirror production',
-      'Self-service deployment tooling',
+      'Guardrails that protect velocity',
+      'Consistent, shared tooling',
+      'Deployment confidence',
     ],
   },
 ]
 
 const startupFit = [
   {
-    point: 'No legacy to untangle.',
+    point: 'A clean slate to build on.',
     color: 'text-primary',
     detail:
-      'Early-stage teams can adopt the right patterns before the wrong ones calcify. The cost of doing it right at the start is always lower than fixing it under load.',
+      'Early-stage teams can adopt the right patterns from the start. Getting the foundations right compounds forward, and your infrastructure stays an asset as you scale.',
   },
   {
     point: 'Trade-offs are visible to everyone.',
@@ -312,10 +312,10 @@ export default function PhilosophyPage() {
           <div className="border-l-4 border-primary/40 pl-10 py-2">
             <h3 className="font-headline text-2xl font-bold mb-4">Trade-offs are the job.</h3>
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-              Every pillar competes for time and attention. Investing in observability means less
-              time on DX this sprint. Hardening security may slow a release cycle. My job is not to
-              maximise all five at once. It is to make the right trade-offs for where your team is
-              right now, and to communicate those decisions clearly to everyone who needs to know.
+              Prioritising one pillar always has a cost somewhere else. Leaning into observability
+              now might mean DX waits. Hardening security might slow a release. My job is making
+              the right call for where your team is right now, and communicating those decisions
+              clearly to everyone who needs to know.
             </p>
           </div>
         </div>

@@ -94,7 +94,7 @@ const toolGroups = [
     icon: 'shield',
     color: 'text-primary',
     border: 'border-primary/20',
-    note: 'Defaults matter more than tooling. The goal is systems that fail small, recover fast, and never hand out more access than necessary.',
+    note: 'Defaults matter more than tooling. The goal is systems with a contained blast radius, fast recovery, and access scoped precisely to what each service needs.',
     tools: [
       { name: 'Network segmentation', note: 'Blast radius control', materialIcon: 'hub' },
       { name: 'IAM', note: 'Least-privilege access', materialIcon: 'manage_accounts' },
@@ -120,8 +120,9 @@ export default function StackPage() {
             Stack
           </h1>
           <p className="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
-            Tools are learnable. What takes time is knowing when to use them, when not to, and
-            what to look for when they fail. That judgment is what this page is really about.
+            Tools are learnable. What takes time is the judgment to know when and how to use them,
+            and how to read them when things get interesting. That judgment is what this page is
+            really about.
           </p>
         </div>
       </section>
@@ -136,10 +137,10 @@ export default function StackPage() {
             </div>
             <p className="text-on-surface-variant leading-relaxed">
               MSc in Distributed Systems: specializing in building scalable systems while
-              balancing fault-tolerance and performance. Among others, the program covers concepts like consensus
+              balancing fault-tolerance and performance. The program covers concepts like consensus
               protocols, replicated state machines, CRDTs, and distributed shared memory.
-              Of course, you do not need to know these to use cloud tools. But understanding them changes how you reason about
-              failure, consistency, and trade-offs when designing systems that actually hold up.
+              Understanding these changes how you reason about consistency, resilience, and
+              trade-offs when designing systems that hold up under real load.
             </p>
           </div>
         </div>
@@ -186,9 +187,9 @@ export default function StackPage() {
         <div className="max-w-7xl mx-auto border-l-4 border-secondary/40 pl-10 py-2">
           <h3 className="font-headline text-2xl font-bold mb-4">The stack is never the goal.</h3>
           <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-            Most problems do not need a new tool. They need the existing one used correctly. I
-            default to what the team already knows, and only introduce something new when there is a
-            clear reason for it, and a clear path to owning it without me.
+            Most problems are solved by using existing tools well. I default to what the team
+            already knows, and introduce something new only when there is a clear reason for it and
+            a clear path to full ownership.
           </p>
         </div>
       </section>

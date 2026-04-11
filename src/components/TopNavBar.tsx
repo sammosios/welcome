@@ -38,7 +38,7 @@ export default function TopNavBar() {
           to="/consult"
           className="bg-primary text-on-primary px-4 py-1.5 font-label text-xs font-bold rounded hover:brightness-110 active:scale-95 transition-all"
         >
-          CONTACT
+          GET IN TOUCH
         </NavLink>
       </div>
     </header>

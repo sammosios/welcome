@@ -73,9 +73,9 @@ export default function Terminal() {
       return
     }
 
-    const [cmdName, ...args] = cmd.toLowerCase().split(/\s+/)
+    const [cmdName, ...args] = cmd.split(/\s+/)
     const inputLine: Line = { id: uid(), type: 'output', text: cmd, isInput: true }
-    const def = COMMANDS[cmdName]
+    const def = COMMANDS[cmdName.toLowerCase()]
 
     if (def?.stream) {
       setLines((prev) => [...prev, inputLine])
