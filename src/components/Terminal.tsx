@@ -58,6 +58,12 @@ export default function Terminal() {
     if (el) el.scrollTop = el.scrollHeight
   }, [lines, booted])
 
+  // Focus input after boot, but only on non-touch devices
+  useEffect(() => {
+    if (booted && !isTouchDevice()) inputRef.current?.focus()
+  }, [booted])
+
+  const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches
   const focusInput = useCallback(() => inputRef.current?.focus(), [])
 
   const submit = useCallback(() => {
@@ -159,7 +165,6 @@ export default function Terminal() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               aria-label="Terminal input"
-              autoFocus
               spellCheck={false}
               autoComplete="off"
               autoCorrect="off"
