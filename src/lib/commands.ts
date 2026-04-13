@@ -860,6 +860,57 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       ]
     },
   },
+
+  {
+    name: 'cowsay',
+    hidden: true,
+    description: '',
+    fn: (args) => {
+      const message = args.join(' ') || 'moo'
+      const len = message.length
+      const top    = ' ' + '_'.repeat(len + 2)
+      const mid    = '< ' + message + ' >'
+      const bottom = ' ' + '-'.repeat(len + 2)
+      return [
+        gap(),
+        out(top),
+        out(mid),
+        out(bottom),
+        out('        \\   ^__^'),
+        out('         \\  (oo)\\_______'),
+        out('            (__)\\       )\\/\\'),
+        out('                ||----w |'),
+        out('                ||     ||'),
+        gap(),
+      ]
+    },
+  },
+
+  {
+    name: 'wall',
+    hidden: true,
+    description: '',
+    fn: (args) => {
+      const message = args.join(' ')
+      if (!message)
+        return [
+          gap(),
+          err('wall: no message provided'),
+          dim('What exactly were you planning to broadcast? Silence?'),
+          gap(),
+        ]
+      return [
+        gap(),
+        warn('Broadcast message from user@browser (pts/0):'),
+        gap(),
+        out(message),
+        gap(),
+        dim('Delivered to 1 terminal. That terminal is you. You sent a message to yourself.'),
+        dim('Please take a moment to reflect on this.'),
+        gap(),
+      ]
+    },
+  },
 ]
 
 export type { CommandDef }

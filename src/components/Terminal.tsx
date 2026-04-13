@@ -149,7 +149,7 @@ export default function Terminal() {
             ) : line.type === 'blank' ? (
               <span className="block h-2" />
             ) : (
-              <span className="select-text">{line.text}</span>
+              <span className="select-text whitespace-pre-wrap">{line.text}</span>
             )}
           </div>
         ))}
