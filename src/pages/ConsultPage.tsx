@@ -115,14 +115,14 @@ export default function ConsultPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="mailto:sam.mosios@gmail.com"
+              href="mailto:contact@sammosios.com"
               className="group bg-surface-container border-t-2 border-primary/20 p-8 hover:bg-surface-container-high transition-all"
             >
               <span className="material-symbols-outlined text-2xl text-primary mb-4 block">
                 mail
               </span>
               <div className="font-headline text-xl font-bold mb-2">Send an email</div>
-              <div className="font-label text-xs text-primary mb-6">sam.mosios@gmail.com</div>
+              <div className="font-label text-xs text-primary mb-6">contact@sammosios.com</div>
               <div className="font-label text-[10px] text-gray-400 uppercase group-hover:text-primary transition-colors">
                 Compose →
               </div>
