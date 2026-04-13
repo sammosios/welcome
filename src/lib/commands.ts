@@ -36,17 +36,18 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
     description: 'List available commands',
     fn: (args) => {
       const showAll = args.includes('-a') || args.includes('--all')
+      const sorted = (arr: typeof COMMAND_DEFS) => [...arr].sort((a, b) => a.name.localeCompare(b.name))
       if (showAll) {
         return [
           dim('All commands (including hidden):'),
           gap(),
-          ...COMMAND_DEFS.filter((c) => !c.hidden).map((c) =>
+          ...sorted(COMMAND_DEFS.filter((c) => !c.hidden)).map((c) =>
             out(`  ${c.name.padEnd(14)} — ${c.description}`),
           ),
           gap(),
           dim('── hidden ───────────────────────────────────────'),
           gap(),
-          ...COMMAND_DEFS.filter((c) => c.hidden).map((c) =>
+          ...sorted(COMMAND_DEFS.filter((c) => c.hidden)).map((c) =>
             dim(`  ${c.name}`),
           ),
           gap(),
@@ -57,7 +58,7 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
       return [
         dim('Available commands:'),
         gap(),
-        ...COMMAND_DEFS.filter((c) => !c.hidden).map((c) =>
+        ...sorted(COMMAND_DEFS.filter((c) => !c.hidden)).map((c) =>
           out(`  ${c.name.padEnd(14)} — ${c.description}`),
         ),
         gap(),
