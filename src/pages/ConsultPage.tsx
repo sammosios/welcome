@@ -41,6 +41,7 @@ const faqs = [
   {
     q: 'Do you work with a specific cloud provider?',
     a: 'My primary hands-on experience is with AWS. The underlying concepts transfer across providers, and I am transparent about where my direct experience ends and where I am working from first principles.',
+    link: { text: 'AWS Certified Cloud Practitioner ↗', href: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/ee64fb304ebc401988fc29f009a27c00' },
   },
   {
     q: 'How are engagements structured?',
@@ -172,6 +173,16 @@ export default function ConsultPage() {
               >
                 <h4 className="font-headline text-lg font-bold mb-3">{faq.q}</h4>
                 <p className="text-on-surface-variant leading-relaxed">{faq.a}</p>
+                {faq.link && (
+                  <a
+                    href={faq.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 font-label text-[10px] text-primary uppercase tracking-wide hover:opacity-70 transition-opacity"
+                  >
+                    {faq.link.text}
+                  </a>
+                )}
               </div>
             ))}
           </div>

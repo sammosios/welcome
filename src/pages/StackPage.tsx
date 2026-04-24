@@ -14,6 +14,7 @@ interface Tool {
   note: string
   simpleIcon?: { path: string }
   materialIcon?: string
+  url?: string
 }
 
 function ToolIcon({ tool, colorClass }: { tool: Tool; colorClass: string }) {
@@ -48,7 +49,7 @@ const toolGroups = [
     note: 'Declarative infrastructure that can be reviewed, versioned, and reproduced. The concepts transfer across providers: idempotent provisioning, state management, cloud networking.',
     tools: [
       { name: 'Terraform', note: 'Primary IaC tool', simpleIcon: siTerraform },
-      { name: 'AWS', note: 'Primary cloud provider', materialIcon: 'cloud' },
+      { name: 'AWS', note: 'Primary cloud provider', materialIcon: 'cloud', url: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/ee64fb304ebc401988fc29f009a27c00' },
     ] as Tool[],
   },
   {
@@ -163,18 +164,32 @@ export default function StackPage() {
 
               {/* Tool cards */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                {group.tools.map((tool) => (
-                  <div
-                    key={tool.name}
-                    className={`bg-surface-container border-t-2 ${group.border} p-5 hover:bg-surface-container-high transition-all`}
-                  >
-                    <ToolIcon tool={tool} colorClass={group.color} />
-                    <div className="font-label text-sm font-bold text-on-surface mb-1 uppercase">
-                      {tool.name}
+                {group.tools.map((tool) => {
+                  const cardContent = (
+                    <>
+                      <ToolIcon tool={tool} colorClass={group.color} />
+                      <div className="font-label text-sm font-bold text-on-surface mb-1 uppercase">
+                        {tool.name}
+                      </div>
+                      <div className="text-[11px] text-on-surface-variant">{tool.note}</div>
+                      {tool.url && (
+                        <div className={`text-[10px] mt-2 uppercase tracking-wide ${group.color} opacity-70`}>
+                          Certified ↗
+                        </div>
+                      )}
+                    </>
+                  )
+                  const cls = `bg-surface-container border-t-2 ${group.border} p-5 hover:bg-surface-container-high transition-all block`
+                  return tool.url ? (
+                    <a key={tool.name} href={tool.url} target="_blank" rel="noopener noreferrer" className={cls}>
+                      {cardContent}
+                    </a>
+                  ) : (
+                    <div key={tool.name} className={cls}>
+                      {cardContent}
                     </div>
-                    <div className="text-[11px] text-on-surface-variant">{tool.note}</div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           ))}
