@@ -1,6 +1,7 @@
 const footerLinks = [
   { label: 'GITHUB', href: 'https://github.com/sammosios' },
   { label: 'LINKEDIN', href: 'https://linkedin.com/in/sam-mosios' },
+  { label: 'RESUME', href: '/resume.html' },
 ]
 
 export default function Footer() {

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam Mosios | Resume</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Light mode — default */
+    :root {
+      --accent:  #3e65ff;
+      --text:    #111827;
+      --muted:   #6b7280;
+      --border:  #d1d5db;
+      --bg:      #ffffff;
+    }
+
+    /* Dark mode via OS preference (unless manually overridden to light) */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --accent:  #8197ff;
+        --text:    #e2dfdf;
+        --muted:   #9a9797;
+        --border:  #3a3838;
+        --bg:      #0e0e0e;
+      }
+    }
+
+    /* Dark mode via manual toggle */
+    :root[data-theme="dark"] {
+      --accent:  #8197ff;
+      --text:    #e2dfdf;
+      --muted:   #9a9797;
+      --border:  #3a3838;
+      --bg:      #1a1919;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 9.5pt;
+      line-height: 1.42;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 11mm 16mm;
+    }
+
+    /* ---- Header ---------------------------------------- */
+
+    header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    h1 {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .title-line {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 0.6rem;
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: var(--muted);
+    }
+
+    .contact-row a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-row .sep {
+      color: var(--border);
+    }
+
+    /* ---- Section headings ------------------------------ */
+
+    section {
+      margin-bottom: 0.85rem;
+    }
+
+    h2 {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- Summary --------------------------------------- */
+
+    .summary {
+      font-size: 9pt;
+      line-height: 1.5;
+    }
+
+    /* ---- Skills ---------------------------------------- */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.22rem 2rem;
+    }
+
+    .skill-row {
+      display: flex;
+      gap: 0.35rem;
+      font-size: 8.5pt;
+      line-height: 1.4;
+    }
+
+    .skill-label {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 8.5rem;
+      flex-shrink: 0;
+    }
+
+    .skill-values {
+      color: var(--muted);
+    }
+
+    /* ---- Experience ------------------------------------ */
+
+    .entry {
+      margin-bottom: 0.65rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .entry-title {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .entry-date {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .entry-org {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.1rem;
+      margin-top: 0.15rem;
+    }
+
+    li {
+      font-size: 9pt;
+      margin-bottom: 0.12rem;
+      line-height: 1.45;
+    }
+
+    /* ---- Education ------------------------------------- */
+
+    .edu-entry {
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-degree {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 9.5pt;
+    }
+
+    .edu-school {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .edu-note {
+      font-size: 8pt;
+      color: var(--muted);
+      margin-top: 0.1rem;
+      line-height: 1.4;
+    }
+
+    /* ---- Certifications -------------------------------- */
+
+    .cert-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9pt;
+    }
+
+    .cert-name {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+    }
+
+    .cert-link {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ---- Workshops ------------------------------------- */
+
+    .workshop-entry {
+      margin-bottom: 0.35rem;
+      font-size: 9pt;
+    }
+
+    .workshop-title {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+    }
+
+    .workshop-venue {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .workshop-desc {
+      font-size: 8pt;
+      color: var(--muted);
+    }
+
+    /* ---- Languages ------------------------------------- */
+
+    .lang-row {
+      display: flex;
+      gap: 2rem;
+      font-size: 9pt;
+    }
+
+    .lang-row strong {
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ---- Print ----------------------------------------- */
+
+    @media print {
+      :root {
+        --accent:  #3e65ff;
+        --text:    #111827;
+        --muted:   #6b7280;
+        --border:  #d1d5db;
+        --bg:      #ffffff;
+      }
+
+      body {
+        padding: 0;
+        background: #ffffff;
+        color: #111827;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .cert-link {
+        color: var(--accent);
+      }
+
+      /* Keep section headings with their first entry */
+      h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      /* Never split a job/edu/workshop entry across pages */
+      .entry,
+      .edu-entry,
+      .workshop-entry,
+      .cert-row,
+      .lang-row {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Prevent orphaned single lines */
+      p, li {
+        orphans: 3;
+        widows: 3;
+      }
+
+      @page {
+        size: A4;
+        margin: 11mm 16mm;
+      }
+    }
+
+    /* ---- Document footer ------------------------------- */
+
+    footer {
+      margin-top: 1.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.5rem;
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    /* ---- Screen preview -------------------------------- */
+
+    @media screen {
+      body {
+        min-height: 100vh;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+        transition: background 0.2s, color 0.2s;
+      }
+    }
+
+    /* ---- Theme toggle button --------------------------- */
+
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-family: system-ui, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.65rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    #theme-toggle:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    @media print {
+      #theme-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" aria-label="Toggle colour scheme"></button>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Sam Mosios</h1>
+    <div class="title-line">Site Reliability &amp; Platform Engineer</div>
+    <div class="contact-row">
+      <span>Stockholm, Sweden</span>
+      <span class="sep">·</span>
+      <a href="tel:+46764478622" target="_blank" rel="noopener noreferrer">+46 76 44 78 622</a>
+      <span class="sep">·</span>
+      <a href="mailto:contact@sammosios.com" target="_blank" rel="noopener noreferrer">contact@sammosios.com</a>
+      <span class="sep">·</span>
+      <a href="https://sammosios.com" target="_blank" rel="noopener noreferrer">sammosios.com</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/sammosios" target="_blank" rel="noopener noreferrer">github.com/sammosios</a>
+      <span class="sep">·</span>
+      <a href="https://linkedin.com/in/sam-mosios" target="_blank" rel="noopener noreferrer">linkedin.com/in/sam-mosios</a>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Site Reliability and Platform Engineer with production experience across enterprise and
+      early-stage environments, specializing in GitOps, CI/CD automation, Kubernetes, and
+      end-to-end observability. Focuses on the trade-offs between security, reliability,
+      scalability, and developer experience rather than optimizing any single axis in isolation.
+      Currently pursuing an MSc in Distributed Systems at KTH to formalize the theory behind
+      systems already built and shipped in production.
+    </p>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Site Reliability &amp; Platform Engineer</span>
+        <span class="entry-date">Oct 2025 – Present</span>
+      </div>
+      <div class="entry-org">Hyppe (early-stage startup)</div>
+      <ul>
+        <li>Designed and delivered a five-stage infrastructure roadmap, migrating from Railway's push-to-deploy setup to a structured AWS environment with Terraform-managed IaC and per-environment promotion gates (dev → staging → production) across 2 repos.</li>
+        <li>Built reliable CI/CD pipelines for backend and frontend, enabling production releases in under 4 minutes for the backend and under 2 minutes for the frontend, with automated semantic versioning and changelog generation on every release.</li>
+        <li>Implemented OpenTelemetry instrumentation and 6 Grafana dashboards covering API performance, serverless infrastructure (Aurora Serverless v2, Fargate), and application logs, giving the team their first structured visibility into production system health.</li>
+        <li>Independently designed and built the entire infrastructure from scratch as the sole engineer on a 2-person team, establishing runbooks and deployment standards that de-risked the product's transition from prototype to production.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Site Reliability Engineer</span>
+        <span class="entry-date">Jul 2024 – Jul 2025</span>
+      </div>
+      <div class="entry-org">Pfizer</div>
+      <ul>
+        <li>Refactored and centralized copy-pasted CI/CD scripts into reusable, parameterized GitHub Actions workflows, standardizing release processes across 2 teams and ~40 repositories.</li>
+        <li>Extended and maintained GitOps infrastructure via Flux across non-prod and prod clusters, covering 60+ services and ensuring all infrastructure changes were version-controlled, reviewable, and auditable.</li>
+        <li>Administered 2 Kubernetes clusters (non-prod and prod), covering cluster networking, monitoring, GitOps management, and secrets administration.</li>
+        <li>Instrumented ~30 microservices with OpenTelemetry, enabling distributed tracing across service boundaries and reducing time-to-diagnosis during incidents.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Web GIS Developer</span>
+        <span class="entry-date">Jun 2023 – May 2024</span>
+      </div>
+      <div class="entry-org">OMIKRON S.A.</div>
+      <ul>
+        <li>Deployed a Dockerized pre-trained PyTorch model on AWS EC2, handling containerization, provisioning, and deployment configuration end-to-end.</li>
+        <li>Monitored dedicated and cloud server infrastructure using Grafana, establishing the team's first observability baseline.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">Cloud &amp; IaC</span>
+        <span class="skill-values">AWS, Terraform</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Containers</span>
+        <span class="skill-values">Docker, Kubernetes, AWS Fargate</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">CI/CD &amp; GitOps</span>
+        <span class="skill-values">GitHub Actions, Flux, semantic versioning</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Observability</span>
+        <span class="skill-values">OpenTelemetry, Grafana, distributed tracing</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Security</span>
+        <span class="skill-values">IAM, least-privilege design, secrets management, network segmentation</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Reliability</span>
+        <span class="skill-values">SLO/SLA design, incident runbooks, failure containment</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Scripting</span>
+        <span class="skill-values">Bash, Python, Go, JavaScript / TypeScript</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Concepts</span>
+        <span class="skill-values">Event-driven architecture, microservices, distributed systems</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <h2>Education</h2>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">MSc in Software Engineering of Distributed Systems</span>
+        <span class="entry-date">Aug 2025 – Jun 2027</span>
+      </div>
+      <div class="edu-school">KTH Royal Institute of Technology, Stockholm, Sweden</div>
+      <div class="edu-note">
+        Consensus protocols · CRDTs · Replicated state machines · Fault-tolerant system design ·
+        Distributed AI &amp; Intelligent Agents · Modern Methods in Software Engineering ·
+        Networked Systems Security · Language-based Security · Software Safety &amp; Security · Data Mining
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">BSc (Hons) in Computing</span>
+        <span class="entry-date">Oct 2022 – Jun 2025</span>
+      </div>
+      <div class="edu-school">University of Greater Manchester, Thessaloniki, Greece</div>
+      <div class="edu-note">First-Class Honours · Dissertation: <a class="cert-link" href="https://drive.google.com/file/d/19YIFRGauaZsrxaDHe2Wl76Ky3o--KDOb/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="font-size: inherit;">Leveraging MLOps and Continuous Learning for Predictive Analysis of Traffic Accidents in the UK ↗</a></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <h2>Certifications</h2>
+    <div class="cert-row">
+      <span class="cert-name">AWS Certified Cloud Practitioner</span>
+      <a class="cert-link" href="https://cp.certmetrics.com/amazon/en/public/verify/credential/ee64fb304ebc401988fc29f009a27c00" target="_blank" rel="noopener noreferrer">
+        Verify credential ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section>
+    <h2>References</h2>
+    <div class="cert-row">
+      <span class="cert-name">Director of Site Reliability Engineering, Pfizer</span>
+      <a class="cert-link" href="https://drive.google.com/file/d/1v63w_xY4pXdYexg9XcJadnJz_7Ro2jWW/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        View letter ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section>
+    <h2>Workshops Presented</h2>
+
+    <div class="workshop-entry">
+      <div>
+        <span class="workshop-title">Git It Together: Hands-on Git &amp; GitHub</span>
+        <span class="workshop-venue">, Pfizer Growth Gig</span>
+      </div>
+      <div class="workshop-desc">Git fundamentals, branching strategies, and collaborative workflows for engineering teams.</div>
+    </div>
+
+    <div class="workshop-entry">
+      <div>
+        <span class="workshop-title">From Code to Cloud: Docker &amp; Kubernetes Demystified</span>
+        <span class="workshop-venue">, 1st Informatics Projects Exhibition, New York College Thessaloniki</span>
+      </div>
+      <div class="workshop-desc">Containerization concepts and Kubernetes architecture, aimed at developers new to cloud-native tooling.</div>
+    </div>
+
+    <div class="workshop-entry">
+      <div>
+        <span class="workshop-title">When Computers Disagree: A Hands-on Intro to Distributed Systems</span>
+        <span class="workshop-venue">, 2nd Informatics Projects Exhibition, New York College Thessaloniki</span>
+      </div>
+      <div class="workshop-desc">Consistency, consensus, and failure in distributed systems, made tangible through interactive examples.</div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section>
+    <h2>Languages</h2>
+    <div class="lang-row">
+      <span><strong>English</strong>, C2 Proficiency</span>
+      <span><strong>Greek</strong>, Native</span>
+    </div>
+  </section>
+
+  <!-- DOCUMENT FOOTER -->
+  <footer>
+    <span>Sam Mosios</span>
+    <span class="sep">·</span>
+    <a href="https://sammosios.com" target="_blank" rel="noopener noreferrer">sammosios.com</a>
+    <span class="sep">·</span>
+    <a href="mailto:contact@sammosios.com" target="_blank" rel="noopener noreferrer">contact@sammosios.com</a>
+  </footer>
+
+  <script>
+    const html = document.documentElement
+    const btn  = document.getElementById('theme-toggle')
+
+    function isDark() {
+      const saved = html.getAttribute('data-theme')
+      if (saved) return saved === 'dark'
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+
+    function updateBtn() {
+      btn.textContent = isDark() ? '☀ Light' : '☾ Dark'
+    }
+
+    btn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark'
+      html.setAttribute('data-theme', next)
+      localStorage.setItem('theme', next)
+      updateBtn()
+    })
+
+    // Restore saved preference immediately
+    const saved = localStorage.getItem('theme')
+    if (saved) html.setAttribute('data-theme', saved)
+
+    updateBtn()
+  </script>
+
+</body>
+</html>
