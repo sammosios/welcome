@@ -27,13 +27,17 @@ function makeColumns(w: number, _h: number): RainCol[] {
 
 function AutomateCard({ step }: { step: { index: string; label: string; title: string; body: string; color: string } }) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const maskRef     = useRef<HTMLCanvasElement>(null)
-  const rainRef     = useRef<HTMLCanvasElement>(null)
-  const rafRef      = useRef<number>(0)
-  const fadeRef     = useRef<number>(0)
+  const maskRef      = useRef<HTMLCanvasElement>(null)
+  const rainRef      = useRef<HTMLCanvasElement>(null)
+  const rafRef       = useRef<number>(0)
+  const fadeRef      = useRef<number>(0)
+  const teaserRafRef = useRef<number>(0)
+  const teaserTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const teaserColsRef  = useRef<RainCol[]>([])
+  const teaserActiveRef = useRef(false)
   const textTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const colsRef     = useRef<RainCol[]>([])
-  const activeRef   = useRef(false)
+  const colsRef      = useRef<RainCol[]>([])
+  const activeRef    = useRef(false)
   const [textVisible, setTextVisible] = useState(true)
 
   const resize = useCallback(() => {
@@ -60,6 +64,8 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
   useEffect(() => () => {
     cancelAnimationFrame(rafRef.current)
     cancelAnimationFrame(fadeRef.current)
+    cancelAnimationFrame(teaserRafRef.current)
+    if (teaserTimerRef.current) clearInterval(teaserTimerRef.current)
   }, [])
 
   const tick = useCallback(() => {
@@ -113,8 +119,91 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
     rafRef.current = requestAnimationFrame(tick)
   }, [])
 
+  // Ghost glitch teaser — sparse, faded, auto-fires every few seconds
+  const teaserTick = useCallback((frame: number) => {
+    const rain = rainRef.current
+    if (!rain || activeRef.current) return
+    const rCtx = rain.getContext('2d')
+    if (!rCtx) return
+    const w = rain.width, h = rain.height
+
+    const maxFrames = 90
+    const fadeInEnd = 15
+    const fadeOutStart = 65
+    const maxAlpha = 0.22
+    let alpha: number
+    if (frame < fadeInEnd) {
+      alpha = (frame / fadeInEnd) * maxAlpha
+    } else if (frame > fadeOutStart) {
+      alpha = ((maxFrames - frame) / (maxFrames - fadeOutStart)) * maxAlpha
+    } else {
+      alpha = maxAlpha
+    }
+
+    rCtx.clearRect(0, 0, w, h)
+    rCtx.font = `${CHAR_SIZE}px 'JetBrains Mono', monospace`
+    rCtx.textBaseline = 'top'
+
+    for (const col of teaserColsRef.current) {
+      col.y += col.speed
+      for (let i = 0; i < TRAIL; i++) {
+        const cy = col.y - i * CHAR_SIZE
+        if (cy < -CHAR_SIZE || cy > h) continue
+        const char = col.chars[(Math.floor(col.y / CHAR_SIZE) - i + 999) % col.chars.length]
+        if (i === 0) {
+          rCtx.fillStyle = '#ffffff'; rCtx.globalAlpha = alpha
+        } else if (i < 3) {
+          rCtx.fillStyle = '#8eff71'; rCtx.globalAlpha = alpha * (1 - i * 0.25)
+        } else if (i < 9) {
+          rCtx.fillStyle = '#4db840'; rCtx.globalAlpha = alpha * (0.65 - (i - 3) * 0.08)
+        } else {
+          rCtx.fillStyle = '#1f6615'; rCtx.globalAlpha = Math.max(0, alpha * (0.25 - (i - 9) * 0.07))
+        }
+        rCtx.fillText(char, col.x, cy)
+      }
+      rCtx.globalAlpha = 1
+      if (col.y > h + CHAR_SIZE * TRAIL) {
+        col.y = -CHAR_SIZE * (1 + Math.floor(Math.random() * 8))
+        col.speed = 2 + Math.random() * 3
+      }
+    }
+
+    if (frame < maxFrames) {
+      teaserRafRef.current = requestAnimationFrame(() => teaserTick(frame + 1))
+    } else {
+      rCtx.clearRect(0, 0, w, h)
+      teaserActiveRef.current = false
+    }
+  }, [])
+
+  const startTeaser = useCallback(() => {
+    if (activeRef.current || teaserActiveRef.current) return
+    const rain = rainRef.current
+    if (!rain) return
+    // Use a sparse subset (~30%) of columns for a glitchy look
+    const all = makeColumns(rain.width, rain.height)
+    teaserColsRef.current = all.filter(() => Math.random() < 0.3)
+    teaserActiveRef.current = true
+    teaserRafRef.current = requestAnimationFrame(() => teaserTick(0))
+  }, [teaserTick])
+
+  // Fire the teaser glitch periodically until the user hovers
+  useEffect(() => {
+    const initial = setTimeout(startTeaser, 800)
+    const interval = setInterval(startTeaser, 2500)
+    teaserTimerRef.current = interval
+    return () => {
+      clearTimeout(initial)
+      clearInterval(interval)
+    }
+  }, [startTeaser])
+
   const handleMouseEnter = useCallback(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // Kill teaser
+    cancelAnimationFrame(teaserRafRef.current)
+    teaserActiveRef.current = false
+    if (teaserTimerRef.current) { clearInterval(teaserTimerRef.current); teaserTimerRef.current = null }
     cancelAnimationFrame(fadeRef.current)
     if (textTimerRef.current) clearTimeout(textTimerRef.current)
     activeRef.current = true
@@ -122,6 +211,8 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
     const mask = maskRef.current
     const rain = rainRef.current
     if (!mask || !rain) return
+    const rCtx = rain.getContext('2d')
+    if (rCtx) rCtx.clearRect(0, 0, rain.width, rain.height)
     colsRef.current = makeColumns(mask.width, mask.height)
     rafRef.current = requestAnimationFrame(tick)
   }, [tick])
@@ -155,7 +246,13 @@ function AutomateCard({ step }: { step: { index: string; label: string; title: s
       }
     }
     fadeRef.current = requestAnimationFrame(fade)
-  }, [])
+
+    // Restart teaser loop after a short pause
+    const initial = setTimeout(startTeaser, 1500)
+    const interval = setInterval(startTeaser, 2500)
+    teaserTimerRef.current = interval
+    return () => { clearTimeout(initial); clearInterval(interval) }
+  }, [startTeaser])
 
   return (
     <div
