@@ -10,10 +10,11 @@ export default function CTASection() {
           your system.
         </h2>
         <p className="text-on-surface-variant text-lg mb-12">
-          I take on a small number of engagements at a time. If the timing is right, let's talk.
+          I'm looking for my next full-time role in Site Reliability and Platform Engineering.
+          If there's a fit, let's talk.
         </p>
         <NavLink
-          to="/consult"
+          to="/contact"
           className="bg-primary text-on-primary px-12 py-5 font-label font-black text-sm tracking-[0.2em] rounded hover:scale-105 active:scale-95 transition-all inline-block"
         >
           GET IN TOUCH

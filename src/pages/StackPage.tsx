@@ -219,7 +219,7 @@ export default function StackPage() {
           Stack decisions are context-dependent. Let's look at yours.
         </p>
         <NavLink
-          to="/consult"
+          to="/contact"
           className="bg-primary text-on-primary px-12 py-5 font-label font-black text-sm tracking-[0.2em] rounded hover:scale-105 active:scale-95 transition-all inline-block"
         >
           GET IN TOUCH

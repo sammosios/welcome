@@ -4,7 +4,7 @@ const navItems = [
   { icon: 'home', label: 'HOME', to: '/' },
   { icon: 'psychology', label: 'PHILOSOPHY', to: '/philosophy' },
   { icon: 'layers', label: 'STACK', to: '/stack' },
-  { icon: 'send', label: 'CONSULT', to: '/consult' },
+  { icon: 'send', label: 'CONTACT', to: '/contact' },
 ]
 
 export default function SideNavBar() {
@@ -34,7 +34,7 @@ export default function SideNavBar() {
 
       <div className="p-4">
         <NavLink
-          to="/consult"
+          to="/contact"
           className="block w-full bg-surface-container text-primary border border-primary/20 py-3 rounded font-label text-xs uppercase text-center opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap active:brightness-125"
         >
           GET IN TOUCH

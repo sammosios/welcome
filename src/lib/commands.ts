@@ -198,13 +198,13 @@ const COMMAND_DEFS: ({ name: string } & CommandDef)[] = [
   },
 
   {
-    name: 'consult',
+    name: 'contact',
     description: 'Get in touch',
     fn: (_args, navigate) => {
-      setTimeout(() => navigate('/consult'), 900)
+      setTimeout(() => navigate('/contact'), 900)
       return [
         gap(),
-        dim('Routing to /consult...'),
+        dim('Routing to /contact...'),
         ok('[OK]  Session initialised.'),
         dim('Redirecting...'),
         gap(),

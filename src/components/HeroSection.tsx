@@ -34,7 +34,7 @@ export default function HeroSection() {
 
         <div className="flex flex-wrap gap-4">
           <NavLink
-            to="/consult"
+            to="/contact"
             className="bg-primary text-on-primary px-8 py-4 font-label font-bold text-sm tracking-widest rounded glow-primary hover:brightness-110 active:scale-95 transition-all"
           >
             GET IN TOUCH

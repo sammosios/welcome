@@ -9,13 +9,13 @@ import NotFoundPage from './pages/NotFoundPage'
 
 const PhilosophyPage = lazy(() => import('./pages/PhilosophyPage'))
 const StackPage      = lazy(() => import('./pages/StackPage'))
-const ConsultPage    = lazy(() => import('./pages/ConsultPage'))
+const ContactPage    = lazy(() => import('./pages/ContactPage'))
 
 export default function App() {
   useEffect(() => {
     import('./pages/PhilosophyPage')
     import('./pages/StackPage')
-    import('./pages/ConsultPage')
+    import('./pages/ContactPage')
   }, [])
 
   return (
@@ -30,7 +30,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/philosophy" element={<PhilosophyPage />} />
             <Route path="/stack" element={<StackPage />} />
-            <Route path="/consult" element={<ConsultPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

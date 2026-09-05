@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'HOME', to: '/' },
   { label: 'PHILOSOPHY', to: '/philosophy' },
   { label: 'STACK', to: '/stack' },
-  { label: 'CONSULT', to: '/consult' },
+  { label: 'CONTACT', to: '/contact' },
 ]
 
 export default function TopNavBar() {
@@ -40,7 +40,7 @@ export default function TopNavBar() {
 
         <div className="flex items-center gap-4">
           <NavLink
-            to="/consult"
+            to="/contact"
             className="bg-primary text-on-primary px-4 py-1.5 font-label text-xs font-bold rounded hover:brightness-110 active:scale-95 transition-all"
           >
             GET IN TOUCH
