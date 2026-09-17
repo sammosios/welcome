@@ -6,7 +6,7 @@ const items = [
   },
   {
     icon: 'diversity_3',
-    title: 'KTH AI Society — Head of IT',
+    title: 'KTH AI Society · Head of IT',
     meta: 'Building the platform engineering team that will enable the AI society to become an AI-driven society.',
   },
 ]
