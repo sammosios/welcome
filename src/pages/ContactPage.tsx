@@ -7,14 +7,14 @@ export default function ContactPage() {
           <div className="flex items-center gap-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
             <span className="font-label text-xs text-primary uppercase tracking-widest">
-              Open to full-time roles
+              Open to thesis projects
             </span>
           </div>
           <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-[-0.04em] mb-6">
             Let's talk.
           </h1>
           <p className="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
-            I'm currently looking for my next full-time role in Site Reliability and Platform
+            I'm officially looking for my next thesis project in Site Reliability and Platform
             Engineering. If you're hiring, or just want to talk shop, get in touch below.
           </p>
         </div>

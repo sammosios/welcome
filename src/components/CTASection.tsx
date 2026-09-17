@@ -10,7 +10,7 @@ export default function CTASection() {
           your system.
         </h2>
         <p className="text-on-surface-variant text-lg mb-12">
-          I'm looking for my next full-time role in Site Reliability and Platform Engineering.
+          I'm officially looking for my next thesis project in Site Reliability and Platform Engineering.
           If there's a fit, let's talk.
         </p>
         <NavLink
